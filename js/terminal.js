@@ -11,6 +11,7 @@ const DocElems = {
   TerminalOutput: document.getElementById("terminaloutput"),
   TerminalInput: document.getElementById("terminalinput"),
   TerminalSubmitButton: document.getElementById("terminalsubmit"),
+  TerminalClearButton: document.getElementById("terminalclear"),
 };
 
 const TerminalWS = {
@@ -102,6 +103,7 @@ function main() {
       HandleTerminalInput();
     }
   });
+  DocElems.TerminalClearButton.addEventListener("click", ClearTerminalOutput);
 }
 
 function HandleTerminalOutput(data) {
@@ -115,6 +117,10 @@ function HandleTerminalInput() {
     return;
   }
   HandleTerminalOutput(cmd);
+}
+
+function ClearTerminalOutput() {
+  DocElems.TerminalOutput.innerHTML = "Terminal Output:<br>"
 }
 
 main();
