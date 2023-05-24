@@ -3,6 +3,7 @@ const Constants = {
   TerminalWSExt: ":50001/terminalstream",
   TerminalWSUrl: "",
   TerminalOutput: "terminaloutput",
+  TerminalInvalid: "invalidevent",
   TerminalCommand: "executecommand",
   ConnectMsg: "connected",
 };
@@ -71,6 +72,7 @@ const TerminalWS = {
         console.log("Name of socket manager:", msg.n);
         break;
       case Constants.TerminalOutput:
+        console.log(msg.d);
         HandleTerminalOutput(msg.d);
         break;
       default:
