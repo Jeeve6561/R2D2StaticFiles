@@ -126,6 +126,7 @@ function HandleTerminalOutput(data) {
       data.err +
       "<br>";
   }
+  DocElems.TerminalOutput.scrollTo(0, DocElems.TerminalOutput.scrollHeight);
 }
 
 function HandleTerminalInput() {
