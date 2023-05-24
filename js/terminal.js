@@ -94,11 +94,18 @@ function main() {
     "ws://" + Constants.Ipaddress + Constants.TerminalWSExt;
 
   TerminalWS.connect();
+
+  DocElems.TerminalSubmitButton.addEventListener("click", HandleTerminalInput);
 }
 
 function HandleTerminalOutput(data) {
-  console.log(data);
   DocElems.TerminalOutput.innerHTML = DocElems.TerminalOutput.innerHTML + data + "\n";
+}
+
+function HandleTerminalInput() {
+  let cmd = DocElems.TerminalInput.value;
+  DocElems.TerminalInput.value = "";
+  HandleTerminalOutput(cmd);
 }
 
 main();
