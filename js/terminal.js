@@ -72,7 +72,9 @@ const TerminalWS = {
         console.log("Name of socket manager:", msg.n);
         break;
       case Constants.TerminalOutput:
-        console.log(JSON.stringify(msg.d.out), JSON.stringify(msg.d.err));
+        HandleTerminalOutput(msg.d);
+        break;
+      case Constants.TerminalInvalid:
         HandleTerminalOutput(msg.d);
         break;
       default:
@@ -151,7 +153,6 @@ function HandleTerminalInput() {
     cmds.name = data[0];
     cmds.args = data.slice(1);
   }
-  console.log(cmds);
   let msg = {
     ev: Constants.TerminalCommand,
     n: "R2D2 Terminal Client",
