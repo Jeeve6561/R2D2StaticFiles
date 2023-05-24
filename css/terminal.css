@@ -1,9 +1,28 @@
+#terminal {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 #terminaloutput {
   height: 90%;
   width: 100%;
 }
 
-#terminalinput {
+#terminaloptions {
   height: 10%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#terminalinput {
+  height: 100%;
+  width: 80%;
+}
+
+#terminalsubmit {
+ height: 100%;
+ width: 20%;
 }

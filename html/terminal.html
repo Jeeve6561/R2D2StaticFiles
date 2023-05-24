@@ -1,9 +1,10 @@
-{{define "terminal"}}
-
-{{template "header" .}}
+{{define "terminal"}} {{template "header" .}}
 <div id="ipaddress">{{ .ipaddress }}</div>
-<div id="terminaloutput"></div>
-<input id="terminalinput">
-{{template "footer" .}}
-
-{{end}}
+<div class="terminal">
+  <div id="terminaloutput"></div>
+  <div id="terminaloptions">
+    <input id="terminalinput" , type="text" />
+    <button id="terminalsubmit">Execute Command</button>
+  </div>
+</div>
+{{template "footer" .}} {{end}}
