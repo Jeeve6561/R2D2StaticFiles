@@ -920,25 +920,25 @@ function main() {
 
   LoadFiltersOnScreen();
 
-  setInterval(() => {
-    UpdateRadarChart();
-    // console.log("Reading time takes:", performance.now() - Constants.testTime);
-    // Constants.testTime = performance.now();
-  }, 400);
+  // setInterval(() => {
+  //   UpdateRadarChart();
+  //   // console.log("Reading time takes:", performance.now() - Constants.testTime);
+  //   // Constants.testTime = performance.now();
+  // }, 400);
 
-  setInterval(() => {
-    GraphData.TopTen.forEach((val, key) => {
-      RequestWS.sendMessage({
-        sym: key,
-        rank: val,
-        ev: Constants.RadarDataRequest,
-      });
-    });
-  }, 1000);
+  // setInterval(() => {
+  //   GraphData.TopTen.forEach((val, key) => {
+  //     RequestWS.sendMessage({
+  //       sym: key,
+  //       rank: val,
+  //       ev: Constants.RadarDataRequest,
+  //     });
+  //   });
+  // }, 1000);
 
-  setInterval(() => {
-    CanvasCharts.Stock.render();
-  }, 2000);
+  // setInterval(() => {
+  //   CanvasCharts.Stock.render();
+  // }, 2000);
   // const et = performance.now();
   // console.log("Performance:", et - st);
 

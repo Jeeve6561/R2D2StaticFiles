@@ -113,13 +113,13 @@ function main() {
   onmessage = (event) => {
     Constants.Ipaddress = event.data;
     console.log("received:", event.data);
-  };
-
-  setTimeout(() => {
     CreateAndInitAllDatabases([Constants.Database.Store.name]);
     Constants.LiveFeedWSUrl =
       "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
-    LiveFeedWS.connect();
+      LiveFeedWS.connect();
+  };
+
+  setTimeout(() => {
     StartWriteToDb();
   }, 2500);
 }
