@@ -24,5 +24,10 @@
 
 #terminalsubmit {
  height: 100%;
- width: 20%;
+ width: 10%;
+}
+
+#terminalclear {
+  height: 100%;
+  width: 10%;
 }
