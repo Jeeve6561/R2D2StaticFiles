@@ -3,6 +3,7 @@ const Constants = {
   TerminalWSExt: ":44444/terminalstream",
   TerminalWSUrl: "",
   TerminalOutput: "terminaloutput",
+  TerminalCommand: "executecommand",
   ConnectMsg: "connected",
 };
 
@@ -72,6 +73,9 @@ const TerminalWS = {
       case Constants.TerminalOutput:
         HandleTerminalOutput(msg.d);
         break;
+      default:
+        console.warn("Received invalid message event of:", msg.ev);
+        break;
     }
   },
 
@@ -107,7 +111,8 @@ function main() {
 }
 
 function HandleTerminalOutput(data) {
-  DocElems.TerminalOutput.innerHTML = DocElems.TerminalOutput.innerHTML + data + "<br>";
+  DocElems.TerminalOutput.innerHTML =
+    DocElems.TerminalOutput.innerHTML + data + "<br>";
 }
 
 function HandleTerminalInput() {
@@ -117,10 +122,18 @@ function HandleTerminalInput() {
     return;
   }
   HandleTerminalOutput(cmd);
+  let data = cmd.split(" ");
+  console.log(data);
+  let msg = {
+    ev: Constants.TerminalCommand,
+    n: "R2D2 Terminal Client",
+    d: data,
+  };
+  TerminalWS.sendMessage(msg);
 }
 
 function ClearTerminalOutput() {
-  DocElems.TerminalOutput.innerHTML = "Terminal Output:<br>"
+  DocElems.TerminalOutput.innerHTML = "Terminal Output:<br>";
 }
 
 main();
