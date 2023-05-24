@@ -129,7 +129,7 @@ function HandleTerminalInput() {
       data.push(elem);
     }
   });
-  let cmds;
+  let cmds = {};
   if (data.length === 0) {
     return;
   } else if (data.length === 1) {
