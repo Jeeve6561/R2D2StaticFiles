@@ -129,11 +129,20 @@ function HandleTerminalInput() {
       data.push(elem);
     }
   });
-  console.log(data);
+  let cmds;
+  if (data.length === 0) {
+    return;
+  } else if (data.length === 1) {
+    cmds.name = data[0];
+  } else {
+    cmds.name = data[0];
+    cmds.args = data.slice(1);
+  }
+  console.log(cmds);
   let msg = {
     ev: Constants.TerminalCommand,
     n: "R2D2 Terminal Client",
-    d: data,
+    d: cmds,
   };
   TerminalWS.sendMessage(msg);
 }
