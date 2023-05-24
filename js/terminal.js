@@ -135,7 +135,6 @@ function HandleTerminalInput() {
   if (cmd === "") {
     return;
   }
-  HandleTerminalOutput(cmd);
   let d = cmd.split(" ");
   let data = [];
   d.forEach((elem) => {
