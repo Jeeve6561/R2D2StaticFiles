@@ -110,7 +110,7 @@ const LiveFeedWS = {
 
 function main() {
   onmessage = (event) => {
-    indexedDB = typeof window == "object" ? window.indexedDB : webkitIndexedDB;
+    // indexedDB = typeof window == "object" ? window.indexedDB : webkitIndexedDB;
     Constants.Ipaddress = event.data;
     CreateAndInitAllDatabases([Constants.Database.Store.name]);
     Constants.LiveFeedWSUrl =
