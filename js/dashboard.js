@@ -854,13 +854,13 @@ function main() {
   // const st = performance.now();
   // window.open('/','_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=10000, top=10000, width=10, height=10, visible=none', ''); 
 
-  const parentWorker = new Worker("js/home.js")
+  const parentWorker = new Worker("js/base.js")
 
   Constants.Ipaddress = DocElems.statchartOpts.innerHTML;
+  DocElems.statchartOpts.innerHTML = "";
   Constants.Origin = "http://" + Constants.Ipaddress + ":50000/";
   Constants.RequestWSUrl =
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
-  DocElems.statchartOpts.innerHTML = "";
 
   let onloadfilters = new Map(JSON.parse(localStorage.getItem("radarfilters")));
   if (onloadfilters.size > 0) {
