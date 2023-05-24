@@ -114,6 +114,7 @@ function main() {
     console.log("This browser doesn't support IndexedDB");
     return;
   }
+  indexedDB = window.indexedDB;
   onmessage = (event) => {
     indexedDB = typeof window == "object" ? window.indexedDB : webkitIndexedDB;
     Constants.Ipaddress = event.data;
