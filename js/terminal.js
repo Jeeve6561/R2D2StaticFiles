@@ -99,7 +99,7 @@ function main() {
 }
 
 function HandleTerminalOutput(data) {
-  DocElems.TerminalOutput.innerHTML = DocElems.TerminalOutput.innerHTML + data + "\n";
+  DocElems.TerminalOutput.innerHTML = DocElems.TerminalOutput.innerHTML + data + "<br>";
 }
 
 function HandleTerminalInput() {
