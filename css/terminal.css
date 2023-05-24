@@ -1,4 +1,9 @@
-#terminal {
-  height: 100%;
+#terminaloutput {
+  height: 90%;
+  width: 100%;
+}
+
+#terminalinput {
+  height: 10%;
   width: 100%;
 }
