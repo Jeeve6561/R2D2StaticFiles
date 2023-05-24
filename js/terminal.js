@@ -113,9 +113,19 @@ function main() {
 }
 
 function HandleTerminalOutput(data) {
-  DocElems.TerminalOutput.innerHTML =
-    DocElems.TerminalOutput.innerHTML + "Output: " + data.out + " | Error: " + data.err + "<br>";
-    console.log(data.err === "");
+  if (data.err === "") {
+    let lines = data.out.split("\n");
+    lines.forEach((elem) => {
+      DocElems.TerminalOutput.innerHTML =
+        DocElems.TerminalOutput.innerHTML + elem + "<br>";
+    });
+  } else {
+    DocElems.TerminalOutput.innerHTML =
+      DocElems.TerminalOutput.innerHTML +
+      "Received Error: " +
+      data.err +
+      "<br>";
+  }
 }
 
 function HandleTerminalInput() {
