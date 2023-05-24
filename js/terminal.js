@@ -96,6 +96,12 @@ function main() {
   TerminalWS.connect();
 
   DocElems.TerminalSubmitButton.addEventListener("click", HandleTerminalInput);
+  DocElems.TerminalInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      HandleTerminalInput();
+    }
+  });
 }
 
 function HandleTerminalOutput(data) {
@@ -105,6 +111,9 @@ function HandleTerminalOutput(data) {
 function HandleTerminalInput() {
   let cmd = DocElems.TerminalInput.value;
   DocElems.TerminalInput.value = "";
+  if (cmd === "") {
+    return;
+  }
   HandleTerminalOutput(cmd);
 }
 
