@@ -1,6 +1,6 @@
 const Constants = {
   Ipaddress: "",
-  TerminalWSExt: ":44444/terminalstream",
+  TerminalWSExt: ":50001/terminalstream",
   TerminalWSUrl: "",
   TerminalOutput: "terminaloutput",
   TerminalCommand: "executecommand",
@@ -122,7 +122,13 @@ function HandleTerminalInput() {
     return;
   }
   HandleTerminalOutput(cmd);
-  let data = cmd.split(" ");
+  let d = cmd.split(" ");
+  let data = [];
+  d.forEach((elem) => {
+    if (elem !== "" && elem !== " ") {
+      data.push(elem);
+    }
+  });
   console.log(data);
   let msg = {
     ev: Constants.TerminalCommand,
