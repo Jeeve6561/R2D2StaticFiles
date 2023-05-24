@@ -115,12 +115,11 @@ function main() {
     console.log("received:", event.data);
   };
 
-  CreateAndInitAllDatabases([Constants.Database.Store.name]);
-  Constants.LiveFeedWSUrl =
-    "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
-
-  LiveFeedWS.connect();
   setTimeout(() => {
+    CreateAndInitAllDatabases([Constants.Database.Store.name]);
+    Constants.LiveFeedWSUrl =
+      "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
+    LiveFeedWS.connect();
     StartWriteToDb();
   }, 2500);
 }
