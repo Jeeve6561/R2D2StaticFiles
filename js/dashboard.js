@@ -1172,7 +1172,7 @@ function UpdateStockChart(data, sym) {
 
 function UpdateRadarChart() {
   GetRadarDataFromDB();
-  if (GraphData.RadarData.length === 0) {
+  if (GraphData.RadarData === undefined || GraphData.RadarData.length === 0) {
     return;
   }
   let data = GraphData.RadarData.r;
