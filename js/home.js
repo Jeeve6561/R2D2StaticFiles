@@ -135,7 +135,7 @@ function main() {
   setTimeout(() => {
     StartWriteToDb();
   }, 2500);
-  window.open("/dashboard");
+  // window.open("/dashboard");
 }
 
 function HandleDataFromSocket(data) {
