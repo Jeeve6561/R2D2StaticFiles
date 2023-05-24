@@ -870,20 +870,6 @@ function main() {
 
   RequestWS.connect();
 
-  setTimeout(() => {
-    console.log("Opening database");
-    const request = indexedDB.open(
-      Constants.Database.Name,
-      Constants.Database.Version
-    );
-    request.onsuccess = (event) => {
-      Constants.Db = request.result;
-    };
-    request.onerror = (event) => {
-      console.error("Couldn't open database");
-    };
-  }, 1000);
-
   CanvasCharts.Stock.render();
   CanvasCharts.Stock.charts[0].container
     .getElementsByClassName("canvasjs-chart-canvas")[1]
@@ -923,29 +909,39 @@ function main() {
 
   LoadFiltersOnScreen();
 
-  setInterval(() => {
-    UpdateRadarChart();
-    // console.log("Reading time takes:", performance.now() - Constants.testTime);
-    // Constants.testTime = performance.now();
-  }, 400);
+  setTimeout(() => {
+    console.log("Opening database");
+    const request = indexedDB.open(
+      Constants.Database.Name,
+      Constants.Database.Version
+    );
+    request.onsuccess = (event) => {
+      Constants.Db = request.result;
+    };
+    request.onerror = (event) => {
+      console.error("Couldn't open database");
+    };
 
-  setInterval(() => {
-    GraphData.TopTen.forEach((val, key) => {
-      RequestWS.sendMessage({
-        sym: key,
-        rank: val,
-        ev: Constants.RadarDataRequest,
+    setInterval(() => {
+      UpdateRadarChart();
+      // console.log("Reading time takes:", performance.now() - Constants.testTime);
+      // Constants.testTime = performance.now();
+    }, 400);
+  
+    setInterval(() => {
+      GraphData.TopTen.forEach((val, key) => {
+        RequestWS.sendMessage({
+          sym: key,
+          rank: val,
+          ev: Constants.RadarDataRequest,
+        });
       });
-    });
+    }, 1000);
+  
+    setInterval(() => {
+      CanvasCharts.Stock.render();
+    }, 2000);
   }, 1000);
-
-  setInterval(() => {
-    CanvasCharts.Stock.render();
-  }, 2000);
-  // const et = performance.now();
-  // console.log("Performance:", et - st);
-
-  //Tables.radardata.on("rowClick", ClickRadarTableRow);
 }
 
 function AddWheelScroll(e) {
