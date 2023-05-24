@@ -8,6 +8,9 @@ const Constants = {
 
 const DocElems = {
   Ipaddress: document.getElementById("ipaddress"),
+  TerminalOutput: document.getElementById("terminaloutput"),
+  TerminalInput: document.getElementById("terminalinput"),
+  TerminalSubmitButton: document.getElementById("terminalsubmit"),
 };
 
 const TerminalWS = {
@@ -95,6 +98,7 @@ function main() {
 
 function HandleTerminalOutput(data) {
   console.log(data);
+  DocElems.TerminalOutput.innerHTML = DocElems.TerminalOutput.innerHTML + data + "\n";
 }
 
 main();
