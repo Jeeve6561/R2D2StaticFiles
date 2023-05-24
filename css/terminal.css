@@ -6,9 +6,9 @@
 }
 
 #terminaloutput {
-  height: 90%;
   width: 100%;
-  position: absolute;
+  display: flex;
+  flex-grow: 1;
 }
 
 #terminaloptions {
