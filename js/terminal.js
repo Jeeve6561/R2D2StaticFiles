@@ -126,7 +126,6 @@ function HandleTerminalOutput(data) {
       data.err +
       "<br>";
   }
-  DocElems.TerminalOutput.style.maxHeight = "90%";
 }
 
 function HandleTerminalInput() {
