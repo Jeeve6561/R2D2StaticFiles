@@ -225,5 +225,5 @@ window = globalThis;
 if (!("indexedDB" in window)) {
   console.log("This browser doesn't support IndexedDB");
 }
-indexedDB = window.indexedDB;
+let indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
 main();
