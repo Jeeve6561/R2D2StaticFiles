@@ -116,7 +116,7 @@ function main() {
     CreateAndInitAllDatabases([Constants.Database.Store.name]);
     Constants.LiveFeedWSUrl =
       "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
-      LiveFeedWS.connect();
+    LiveFeedWS.connect();
   };
 
   setTimeout(() => {
@@ -221,4 +221,5 @@ function StartWriteToDb() {
   Constants.StartWritingToDatabase = true;
 }
 
+indexedDB = typeof window == "object" ? window.indexedDB : webkitIndexedDB;
 main();
