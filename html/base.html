@@ -1,0 +1,43 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .metadata.toptitle }} | {{ .title }}</title>
+    <link rel='stylesheet' href='/static/css/base.css'>
+    {{ range $i, $val := .cssimports }}
+      <link rel='stylesheet' href='/static/{{$val}}'>
+    {{ end }}
+    <link rel='stylesheet' href='/static/css/{{ .name }}.css'>
+    {{ range $key, $val := .jsimports }}
+    <script src="/static/{{$key}}" {{ if $val }}type="module"{{end}} defer></script>
+    {{ end }}
+    <script src="/static/js/base.js" type="text/javascript" defer></script>
+    <script src="/static/js/{{ .name }}.js" {{ if .module }}type="module"{{end}} defer></script>
+  </head>
+  <body>
+    <header a>
+      <h1><a href='Http://www.bostonasiacapital.com'>{{ .metadata.toptitle }}</a></h1>
+    </header a>
+    <nav>
+        {{ range $key, $value := .metadata.navbar }} 
+          <a href={{ $key }}>{{ $value }}</a>
+        {{ end  }}
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </a>  
+    </nav>
+    <main>
+
+
+
+{{end}}
+{{define "footer"}}
+    </main>
+    <footer>{{ .metadata.software }} is made by &copy{{ .metadata.company }}</footer>
+  </body>
+</html>
+{{end}}
