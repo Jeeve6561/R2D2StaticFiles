@@ -110,7 +110,6 @@ const LiveFeedWS = {
 
 function main() {
   onmessage = (event) => {
-    // indexedDB = typeof window == "object" ? window.indexedDB : webkitIndexedDB;
     Constants.Ipaddress = event.data;
     CreateAndInitAllDatabases([Constants.Database.Store.name]);
     Constants.LiveFeedWSUrl =
@@ -221,9 +220,4 @@ function StartWriteToDb() {
   Constants.StartWritingToDatabase = true;
 }
 
-// window = globalThis;
-// if (!("indexedDB" in window)) {
-//   console.log("This browser doesn't support IndexedDB");
-// }
-// let indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
 main();
