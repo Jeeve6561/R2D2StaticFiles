@@ -1,6 +1,5 @@
 const Constants = {
     PerformanceTest: 0,
-  
     Ipaddress: "",
     LiveFeedWSUrl: "",
     LiveFeedWSExt: ":33333/wslivestream",
