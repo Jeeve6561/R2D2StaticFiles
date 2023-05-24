@@ -150,8 +150,8 @@ function WriteToDB(dbname, storename, data) {
 }
 
 function CreateAndInitAllDatabases(stores) {
-  console.log("Creating Databases");
   const deleteRequest = indexedDB.deleteDatabase(Constants.Database.Name);
+  console.log("Creating Databases");
 
   deleteRequest.onerror = function (event) {
     console.error(
