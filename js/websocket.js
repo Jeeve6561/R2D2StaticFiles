@@ -221,5 +221,4 @@ function StartWriteToDb() {
   Constants.StartWritingToDatabase = true;
 }
 
-indexedDB = typeof window == "object" ? window.indexedDB : webkitIndexedDB;
 main();
