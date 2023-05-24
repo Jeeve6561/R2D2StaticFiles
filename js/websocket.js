@@ -110,14 +110,12 @@ const LiveFeedWS = {
 };
 
 function main() {
-    onmessage = (event) => {
-        Constants.Ipaddress = event.data;
-        console.log("received:", event.data);
-    };
+  onmessage = (event) => {
+    Constants.Ipaddress = event.data;
+    console.log("received:", event.data);
+  };
 
-  if ("indexedDB" in window) {
-    CreateAndInitAllDatabases([Constants.Database.Store.name]);
-  }
+  CreateAndInitAllDatabases([Constants.Database.Store.name]);
   Constants.LiveFeedWSUrl =
     "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
 
