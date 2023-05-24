@@ -172,45 +172,45 @@ function CreateAndInitAllDatabases(stores) {
     );
   };
 
-  const openRequest = indexedDB.open(
-    Constants.Database.Name,
-    Constants.Database.Version
-  );
+//   const openRequest = indexedDB.open(
+//     Constants.Database.Name,
+//     Constants.Database.Version
+//   );
 
-  openRequest.onupgradeneeded = function (event) {
-    console.log(
-      "Successfully opened " +
-        Constants.Database.Name +
-        " at " +
-        String(new Date())
-    );
-    Constants.Db = event.target.result;
+//   openRequest.onupgradeneeded = function (event) {
+//     console.log(
+//       "Successfully opened " +
+//         Constants.Database.Name +
+//         " at " +
+//         String(new Date())
+//     );
+//     Constants.Db = event.target.result;
 
-    stores.forEach((sym) => {
-      const store = Constants.Db.createObjectStore(sym, {
-        keyPath: Constants.Database.Store.keyPath,
-        autoIncrement: Constants.Database.Store.autoIncrement,
-      });
-      store.createIndex(
-        Constants.Database.Store.keyPath,
-        Constants.Database.Store.keyPath
-      );
-    });
-    console.log("Created all the stores");
-  };
+//     stores.forEach((sym) => {
+//       const store = Constants.Db.createObjectStore(sym, {
+//         keyPath: Constants.Database.Store.keyPath,
+//         autoIncrement: Constants.Database.Store.autoIncrement,
+//       });
+//       store.createIndex(
+//         Constants.Database.Store.keyPath,
+//         Constants.Database.Store.keyPath
+//       );
+//     });
+//     console.log("Created all the stores");
+//   };
 
-  openRequest.onerror = function (event) {
-    console.error(
-      "Cannot open database " +
-        Constants.Database.Name +
-        " with error: " +
-        event.target.error
-    );
-  };
+//   openRequest.onerror = function (event) {
+//     console.error(
+//       "Cannot open database " +
+//         Constants.Database.Name +
+//         " with error: " +
+//         event.target.error
+//     );
+//   };
 
-  openRequest.onclose = function (event) {
-    console.log("Database " + Constants.Database.Name + " closed");
-  };
+//   openRequest.onclose = function (event) {
+//     console.log("Database " + Constants.Database.Name + " closed");
+//   };
 }
 
 function MessageChildWindow(msg, win) {
