@@ -6,13 +6,14 @@
 }
 
 #terminaloutput {
-  max-height: 90%;
+  height: 95%;
+  max-height: 95%;
   width: 100%;
   overflow: scroll;
 }
 
 #terminaloptions {
-  height: 10%;
+  height: 5%;
   width: 100%;
   display: flex;
   flex-direction: row;
