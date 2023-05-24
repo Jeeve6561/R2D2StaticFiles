@@ -870,16 +870,16 @@ function main() {
 
   RequestWS.connect();
 
-  const request = indexedDB.open(
-    Constants.Database.Name,
-    Constants.Database.Version
-  );
-  request.onsuccess = (event) => {
-    Constants.Db = request.result;
-  };
-  request.onerror = (event) => {
-    console.error("Couldn't open database");
-  };
+  // const request = indexedDB.open(
+  //   Constants.Database.Name,
+  //   Constants.Database.Version
+  // );
+  // request.onsuccess = (event) => {
+  //   Constants.Db = request.result;
+  // };
+  // request.onerror = (event) => {
+  //   console.error("Couldn't open database");
+  // };
 
   CanvasCharts.Stock.render();
   CanvasCharts.Stock.charts[0].container
