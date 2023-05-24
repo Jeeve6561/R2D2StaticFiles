@@ -15,7 +15,6 @@ const Constants = {
   MarketStatus_ClosedPM: "ClosedPM",
 
   StartWritingToDatabase: false,
-  Db: 0,
   Database: {
     Name: "RadarData",
     Version: 1,
@@ -112,7 +111,6 @@ const LiveFeedWS = {
 function main() {
   onmessage = (event) => {
     Constants.Ipaddress = event.data;
-    console.log("received:", event.data);
     CreateAndInitAllDatabases([Constants.Database.Store.name]);
     Constants.LiveFeedWSUrl =
       "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
