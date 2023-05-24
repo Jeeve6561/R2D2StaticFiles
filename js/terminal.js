@@ -115,6 +115,7 @@ function main() {
 function HandleTerminalOutput(data) {
   DocElems.TerminalOutput.innerHTML =
     DocElems.TerminalOutput.innerHTML + "Output: " + data.out + " | Error: " + data.err + "<br>";
+    console.log(data.err === "");
 }
 
 function HandleTerminalInput() {
