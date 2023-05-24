@@ -221,9 +221,9 @@ function StartWriteToDb() {
   Constants.StartWritingToDatabase = true;
 }
 
-window = globalThis;
-if (!("indexedDB" in window)) {
-  console.log("This browser doesn't support IndexedDB");
-}
-let indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+// window = globalThis;
+// if (!("indexedDB" in window)) {
+//   console.log("This browser doesn't support IndexedDB");
+// }
+// let indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
 main();
