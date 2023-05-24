@@ -72,7 +72,7 @@ const TerminalWS = {
         console.log("Name of socket manager:", msg.n);
         break;
       case Constants.TerminalOutput:
-        console.log(string(msg.d.out), string(msg.d.err));
+        console.log(String(msg.d.out), String(msg.d.err));
         HandleTerminalOutput(msg.d);
         break;
       default:
