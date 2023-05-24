@@ -117,11 +117,11 @@ function main() {
     Constants.LiveFeedWSUrl =
       "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
     LiveFeedWS.connect();
-  };
 
-  setTimeout(() => {
-    StartWriteToDb();
-  }, 2500);
+    setTimeout(() => {
+      StartWriteToDb();
+    }, 2500);
+  };
 }
 
 function HandleDataFromSocket(data) {
