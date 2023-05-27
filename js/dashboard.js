@@ -193,7 +193,8 @@ const GraphData = {
   LiveUpdate: false,
   LiveUpdateInit: false,
   RadarUpdate: true,
-  ChangeTitle: true,
+  ChangeStockTitle: true,
+  ChangeRadarTitle:true,
   PrevMaxVal: 0,
   PrevMinVal: 0,
   // request1: {
@@ -1122,6 +1123,11 @@ function labelFormatterY2(e) {
 }
 
 function UpdateStockChart(data, sym) {
+  if (GraphData.ChangeRadarTitle) {
+    CanvasCharts.Radar.options.title.text = "Profiling Radar";
+    CanvasCharts.Radar.render();
+    GraphData.ChangeRadarTitle = false;
+  }
   let i = GraphData.TopTen.get(sym);
 
   let tp = [];
@@ -1176,12 +1182,10 @@ function UpdateRadarChart() {
   if (GraphData.RadarData === undefined || GraphData.RadarData.length === 0) {
     return;
   }
-  if (GraphData.ChangeTitle) {
+  if (GraphData.ChangeStockTitle) {
     CanvasCharts.Stock.options.title.text = "Top Ten Ranked";
     CanvasCharts.Stock.render();
-    CanvasCharts.Radar.options.title.text = "Profiling Radar";
-    CanvasCharts.Radar.render();
-    GraphData.ChangeTitle = false;
+    GraphData.ChangeStockTitle = false;
   }
   let data = GraphData.RadarData.r;
   Constants.CurrentSec = GraphData.RadarData.sec;
