@@ -871,7 +871,6 @@ function main() {
   RequestWS.connect();
 
   CanvasCharts.Stock.render();
-  CanvasCharts.Stock.title.text = "Top Ten Ranked";
   CanvasCharts.Stock.charts[0].container
     .getElementsByClassName("canvasjs-chart-canvas")[1]
     .addEventListener("mousedown", StartLine);
@@ -889,7 +888,6 @@ function main() {
   DocElems.stockdrawingbutton.addEventListener("click", ToggleDrawing);
 
   CanvasCharts.Radar.render();
-  CanvasCharts.Radar.title.text = "Profiling Radar";
 
   DocElems.radaraddfilterbutton.addEventListener("click", AddRadarFilter);
   DocElems.radarclearfilterbutton.addEventListener("click", ClearRadarFilters);
@@ -941,6 +939,7 @@ function main() {
     }, 1000);
   
     setInterval(() => {
+      CanvasCharts.Stock.title.text = "Top Ten Ranked";
       CanvasCharts.Stock.render();
     }, 2000);
   }, 1000);
@@ -1236,6 +1235,7 @@ function UpdateRadarChart() {
   SetRank(d);
   UpdateRadarQuadrants();
   CanvasCharts.Radar.options.data[0].dataPoints = d;
+  CanvasCharts.Radar.title.text = "Profiling Radar";
   CanvasCharts.Radar.render();
   DocElems.timediv.innerHTML =
     Constants.CurrentTime +
