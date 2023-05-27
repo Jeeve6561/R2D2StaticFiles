@@ -1178,7 +1178,9 @@ function UpdateRadarChart() {
   }
   if (GraphData.ChangeTitle) {
     CanvasCharts.Stock.options.title.text = "Top Ten Ranked";
+    CanvasCharts.Stock.render();
     CanvasCharts.Radar.options.title.text = "Profiling Radar";
+    CanvasCharts.Radar.render();
     GraphData.ChangeTitle = false;
   }
   let data = GraphData.RadarData.r;
