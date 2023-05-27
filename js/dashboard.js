@@ -273,7 +273,7 @@ const CanvasCharts = {
   Stock: new CanvasJS.StockChart("stockchartContainer", {
     // zoomEnabled: true,
     title: {
-      text: "Top Ten Ranked",
+      text: "Loading",
       fontColor: Constants.fontColor,
     },
     exportEnabled: false,
@@ -552,7 +552,7 @@ const CanvasCharts = {
     backgroundColor: Constants.bgColor,
     fontColor: Constants.fontColor,
     title: {
-      text: "Profiling Radar",
+      text: "Loading",
       fontColor: Constants.fontColor,
     },
     axisX: {
@@ -871,6 +871,7 @@ function main() {
   RequestWS.connect();
 
   CanvasCharts.Stock.render();
+  CanvasCharts.Stock.title.text = "Top Ten Ranked";
   CanvasCharts.Stock.charts[0].container
     .getElementsByClassName("canvasjs-chart-canvas")[1]
     .addEventListener("mousedown", StartLine);
@@ -888,6 +889,7 @@ function main() {
   DocElems.stockdrawingbutton.addEventListener("click", ToggleDrawing);
 
   CanvasCharts.Radar.render();
+  CanvasCharts.Radar.title.text = "Profiling Radar";
 
   DocElems.radaraddfilterbutton.addEventListener("click", AddRadarFilter);
   DocElems.radarclearfilterbutton.addEventListener("click", ClearRadarFilters);
