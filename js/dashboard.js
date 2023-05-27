@@ -1123,10 +1123,14 @@ function labelFormatterY2(e) {
 }
 
 function UpdateStockChart(data, sym) {
-  if (GraphData.ChangeRadarTitle) {
-    CanvasCharts.Radar.options.title.text = "Profiling Radar";
-    CanvasCharts.Radar.render();
-    GraphData.ChangeRadarTitle = false;
+  if (data.length === 0) {
+    return;
+  }
+
+  if (GraphData.ChangeStockTitle) {
+    CanvasCharts.Stock.options.title.text = "Top Ten Ranked";
+    CanvasCharts.Stock.render();
+    GraphData.ChangeStockTitle = false;
   }
   let i = GraphData.TopTen.get(sym);
 
@@ -1182,10 +1186,10 @@ function UpdateRadarChart() {
   if (GraphData.RadarData === undefined || GraphData.RadarData.length === 0) {
     return;
   }
-  if (GraphData.ChangeStockTitle) {
-    CanvasCharts.Stock.options.title.text = "Top Ten Ranked";
-    CanvasCharts.Stock.render();
-    GraphData.ChangeStockTitle = false;
+  if (GraphData.ChangeRadarTitle) {
+    CanvasCharts.Radar.options.title.text = "Profiling Radar";
+    CanvasCharts.Radar.render();
+    GraphData.ChangeRadarTitle = false;
   }
   let data = GraphData.RadarData.r;
   Constants.CurrentSec = GraphData.RadarData.sec;
