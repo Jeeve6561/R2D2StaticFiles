@@ -145,6 +145,11 @@ const RequestWS = {
 
   messageReceived(event) {
     // Constants.stime = performance.now();
+    if (GraphData.ChangeTitle) {
+      CanvasCharts.Stock.title.text = "Top Ten Ranked";
+      CanvasCharts.Radar.title.text = "Profiling Radar";
+      GraphData.ChangeTitle = false;
+    }
     let msg = JSON.parse(event.data);
     switch (msg.ev) {
       case Constants.ConnectMsg:
@@ -193,6 +198,7 @@ const GraphData = {
   LiveUpdate: false,
   LiveUpdateInit: false,
   RadarUpdate: true,
+  ChangeTitle: true,
   PrevMaxVal: 0,
   PrevMinVal: 0,
   // request1: {
@@ -927,7 +933,7 @@ function main() {
       // console.log("Reading time takes:", performance.now() - Constants.testTime);
       // Constants.testTime = performance.now();
     }, 400);
-  
+
     setInterval(() => {
       GraphData.TopTen.forEach((val, key) => {
         RequestWS.sendMessage({
@@ -937,9 +943,8 @@ function main() {
         });
       });
     }, 1000);
-  
+
     setInterval(() => {
-      CanvasCharts.Stock.title.text = "Top Ten Ranked";
       CanvasCharts.Stock.render();
     }, 2000);
   }, 1000);
@@ -1235,7 +1240,6 @@ function UpdateRadarChart() {
   SetRank(d);
   UpdateRadarQuadrants();
   CanvasCharts.Radar.options.data[0].dataPoints = d;
-  CanvasCharts.Radar.title.text = "Profiling Radar";
   CanvasCharts.Radar.render();
   DocElems.timediv.innerHTML =
     Constants.CurrentTime +
