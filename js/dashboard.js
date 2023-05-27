@@ -145,11 +145,6 @@ const RequestWS = {
 
   messageReceived(event) {
     // Constants.stime = performance.now();
-    if (GraphData.ChangeTitle) {
-      CanvasCharts.Stock.title.text = "Top Ten Ranked";
-      CanvasCharts.Radar.title.text = "Profiling Radar";
-      GraphData.ChangeTitle = false;
-    }
     let msg = JSON.parse(event.data);
     switch (msg.ev) {
       case Constants.ConnectMsg:
@@ -1180,6 +1175,11 @@ function UpdateRadarChart() {
   GetRadarDataFromDB();
   if (GraphData.RadarData === undefined || GraphData.RadarData.length === 0) {
     return;
+  }
+  if (GraphData.ChangeTitle) {
+    CanvasCharts.Stock.title.text = "Top Ten Ranked";
+    CanvasCharts.Radar.title.text = "Profiling Radar";
+    GraphData.ChangeTitle = false;
   }
   let data = GraphData.RadarData.r;
   Constants.CurrentSec = GraphData.RadarData.sec;
