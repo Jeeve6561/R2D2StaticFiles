@@ -1129,7 +1129,6 @@ function UpdateStockChart(data, sym) {
 
   if (GraphData.ChangeStockTitle) {
     CanvasCharts.Stock.options.title.text = "Top Ten Ranked";
-    CanvasCharts.Stock.render();
     GraphData.ChangeStockTitle = false;
   }
   let i = GraphData.TopTen.get(sym);
@@ -1188,7 +1187,6 @@ function UpdateRadarChart() {
   }
   if (GraphData.ChangeRadarTitle) {
     CanvasCharts.Radar.options.title.text = "Profiling Radar";
-    CanvasCharts.Radar.render();
     GraphData.ChangeRadarTitle = false;
   }
   let data = GraphData.RadarData.r;
