@@ -83,6 +83,9 @@ const DocElems = {
   radarfiltervalue: document.getElementById("radarchartfiltervalue"),
   radartogglexlogscalebutton: document.getElementById("togglexlogscalebutton"),
   radartoggleylogscalebutton: document.getElementById("toggleylogscalebutton"),
+  radarxaxisquan: document.getElementById("xaxisquan"),
+  radaryaxisquan: document.getElementById("yaxisquan"),
+  radarzaxisquan: document.getElementById("zaxisquan"),
   radartogglecolorbutton: document.getElementById("togglecolorbutton"),
   radarpausebutton: document.getElementById("toggleradarbutton"),
   stockchart: document.getElementById("stockchart"),
@@ -886,8 +889,6 @@ function main() {
 
     setInterval(() => {
       UpdateRadarChart();
-      // console.log("Reading time takes:", performance.now() - Constants.testTime);
-      // Constants.testTime = performance.now();
     }, 400);
 
     setInterval(() => {
@@ -1096,7 +1097,15 @@ function UpdateStockChart(data, sym) {
   let tp = [];
   let xval;
 
+  let xquan = DocElems.radarxaxisquan.value;
+  let yquan = DocElems.radaryaxisquan.value;
+  let zquan = DocElems.radarzaxisquan.value;
+
   data.forEach((elem) => {
+    elem.x = elem[xquan]
+    elem.y = elem[yquan]
+    elem.z = elem[zquan]
+
     if (elem.eminracc > 0) {
       xval = new Date(elem.ht.u);
       tp.push({
@@ -1353,17 +1362,17 @@ function ApplyFilters(data) {
         case ">=":
           switch (filter.quan) {
             case "tcnt":
-              if (d.x >= val) {
+              if (d.lc >= val) {
                 temp.push(d);
               }
               break;
             case "pv":
-              if (d.y >= val) {
+              if (d.pv >= val) {
                 temp.push(d);
               }
               break;
             case "dm":
-              if (d.z >= val) {
+              if (d.dm >= val) {
                 temp.push(d);
               }
               break;
@@ -1390,17 +1399,17 @@ function ApplyFilters(data) {
         case ">":
           switch (filter.quan) {
             case "tcnt":
-              if (d.x > val) {
+              if (d.lc > val) {
                 temp.push(d);
               }
               break;
             case "pv":
-              if (d.y > val) {
+              if (d.pv > val) {
                 temp.push(d);
               }
               break;
             case "dm":
-              if (d.z > val) {
+              if (d.dm > val) {
                 temp.push(d);
               }
               break;
@@ -1427,17 +1436,17 @@ function ApplyFilters(data) {
         case "=":
           switch (filter.quan) {
             case "tcnt":
-              if (d.x === val) {
+              if (d.lc === val) {
                 temp.push(d);
               }
               break;
             case "pv":
-              if (d.y === val) {
+              if (d.pv === val) {
                 temp.push(d);
               }
               break;
             case "dm":
-              if (d.z === val) {
+              if (d.dm === val) {
                 temp.push(d);
               }
               break;
@@ -1464,17 +1473,17 @@ function ApplyFilters(data) {
         case "<":
           switch (filter.quan) {
             case "tcnt":
-              if (d.x < val) {
+              if (d.lc < val) {
                 temp.push(d);
               }
               break;
             case "pv":
-              if (d.y < val) {
+              if (d.pv < val) {
                 temp.push(d);
               }
               break;
             case "dm":
-              if (d.z < val) {
+              if (d.dm < val) {
                 temp.push(d);
               }
               break;
@@ -1501,17 +1510,17 @@ function ApplyFilters(data) {
         case "<=":
           switch (filter.quan) {
             case "tcnt":
-              if (d.x <= val) {
+              if (d.lc <= val) {
                 temp.push(d);
               }
               break;
             case "pv":
-              if (d.y <= val) {
+              if (d.pv <= val) {
                 temp.push(d);
               }
               break;
             case "dm":
-              if (d.z <= val) {
+              if (d.dm <= val) {
                 temp.push(d);
               }
               break;
@@ -1538,17 +1547,17 @@ function ApplyFilters(data) {
         case "!=":
           switch (filter.quan) {
             case "tcnt":
-              if (d.x !== val) {
+              if (d.lc !== val) {
                 temp.push(d);
               }
               break;
             case "pv":
-              if (d.y !== val) {
+              if (d.pv !== val) {
                 temp.push(d);
               }
               break;
             case "dm":
-              if (d.z !== val) {
+              if (d.dm !== val) {
                 temp.push(d);
               }
               break;
@@ -1591,7 +1600,7 @@ function DeleteFilter(key) {
 function CalculateTotalDollars(data) {
   let toReturn = 0;
   data.forEach((d) => {
-    toReturn += d.z;
+    toReturn += d.dm;
   });
   return toReturn;
 }
@@ -1620,42 +1629,40 @@ function SetRankOld(data) {
   GraphData.yMaximum = 0;
 
   data.forEach((d) => {
-    // d.emin = d.y / d.tbs;
-    d.emin = d.y / ((d.tp * Constants.Kpi) / Constants.MinInTradeDay);
     tottbs += d.tbs;
-    totpv += d.y;
+    totpv += d.pv;
     totlps += d.lps;
     totdt += d.dz;
     tottcnt += d.x;
     if (d.tbs < mintbs) {
       mintbs = d.tbs;
     }
-    if (d.y < minpv) {
-      minpv = d.y;
+    if (d.pv < minpv) {
+      minpv = d.pv;
     }
     if (d.lps < minlps) {
       maxlps = d.lps;
     }
-    if (d.z < mindt) {
-      mindt = d.z;
+    if (d.dm < mindt) {
+      mindt = d.dm;
     }
-    if (d.x < mintcnt) {
-      mintcnt = d.x;
+    if (d.lc < mintcnt) {
+      mintcnt = d.lc;
     }
     if (d.tbs > maxtbs) {
       maxtbs = d.tbs;
     }
-    if (d.y > maxpv) {
-      maxpv = d.y;
+    if (d.pv > maxpv) {
+      maxpv = d.pv;
     }
     if (d.lps > maxlps) {
       maxlps = d.lps;
     }
-    if (d.z > maxdt) {
-      maxdt = d.z;
+    if (d.dm > maxdt) {
+      maxdt = d.dm;
     }
-    if (d.x > maxtcnt) {
-      maxtcnt = d.x;
+    if (d.lc > maxtcnt) {
+      maxtcnt = d.lc;
     }
 
     if (d.x < GraphData.xMinimum) {
@@ -1683,15 +1690,15 @@ function SetRankOld(data) {
 
   data.forEach((d) => {
     let ranktbs = (Constants.Rank.tbs * (maxtbs - d.tbs)) / (maxtbs - mintbs);
-    let rankpv = (Constants.Rank.pv * (d.y - minpv)) / (maxpv - minpv);
+    let rankpv = (Constants.Rank.pv * (d.pv - minpv)) / (maxpv - minpv);
     let ranklps = (Constants.Rank.lps * (d.lps - minlps)) / (maxlps - minlps);
-    let rankdt = (Constants.Rank.dt * (d.z - mindt)) / (maxdt - mindt);
+    let rankdt = (Constants.Rank.dt * (d.dm - mindt)) / (maxdt - mindt);
     let ranktcnt =
       (Constants.Rank.tcnt * (d.x - mintcnt)) / (maxtcnt - mintcnt);
 
     d.score = ranktbs + rankpv + ranklps + rankdt + ranktcnt;
 
-    if (d.y >= GraphData.radarYthreshold) {
+    if (d.pv >= GraphData.radarYthreshold) {
       if (d.x >= GraphData.radarXthreshold) {
         d.quad = 1;
       } else {
@@ -1716,7 +1723,7 @@ function SetRankOld(data) {
   });
   data.forEach((d) => {
     d.score = ((d.score / totscore) * Constants.Rank.stars * cnt) / 2;
-    d.dp = d.z;
+    d.dp = d.dm;
   });
 }
 
@@ -1749,8 +1756,8 @@ function SetRank(data) {
     if (d.y > GraphData.yMaximum) {
       GraphData.yMaximum = d.y;
     }
-    if (d.z > Constants.Rank.maxDollar) {
-      Constants.Rank.maxDollar = d.z;
+    if (d.dm > Constants.Rank.maxDollar) {
+      Constants.Rank.maxDollar = d.dm;
     }
   });
 
@@ -1772,7 +1779,7 @@ function SetRank(data) {
       GraphData.TopTen.set(d.name, d.rank - 1);
     }
     count++;
-    d.dp = d.z;
+    d.dp = d.dm;
     d.score = ((d.score / totscore) * Constants.Rank.stars * totcount) / 2;
 
     if (d.y >= GraphData.radarYthreshold) {

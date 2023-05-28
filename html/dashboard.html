@@ -40,7 +40,22 @@
         </button>
         
         <button id="togglexlogscalebutton">X Linear Scale</button>
+        <select id="xaxisquan">
+          {{ range $key, $val := .radarfilters }}
+            <option value={{$key}}>{{$val}}</option>
+          {{ end }}
+        </select>
         <button id="toggleylogscalebutton">Y Linear Scale</button>
+        <select id="yaxisquan">
+          {{ range $key, $val := .radarfilters }}
+            <option value={{$key}}>{{$val}}</option>
+          {{ end }}
+        </select>
+        <select id="zaxisquan">
+          {{ range $key, $val := .radarfilters }}
+            <option value={{$key}}>{{$val}}</option>
+          {{ end }}
+        </select>
         <button id="togglecolorbutton">Fix Colors</button>
         <button id="toggleradarbutton">Updating Live</button>
 
