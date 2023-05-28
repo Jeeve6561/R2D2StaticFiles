@@ -1728,14 +1728,12 @@ function ToggleXRadarScale() {
     GraphData.xLogScale = false;
     DocElems.radartogglexlogscalebutton.innerHTML = "X Log Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = GraphData.xLogScale;
-    CanvasCharts.Radar.options.axisY.logarithmic = GraphData.xLogScale;
     GraphData.radarFilters.delete(GraphData.XFilterId);
     GraphData.XFilterId = -1;
   } else {
     GraphData.xLogScale = true;
     DocElems.radartogglexlogscalebutton.innerHTML = "X Linear Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = GraphData.xLogScale;
-    CanvasCharts.Radar.options.axisY.logarithmic = GraphData.xLogScale;
     let filter = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
     GraphData.radarFilters.set(GraphData.FilterId, filter);
     GraphData.XFilterId = GraphData.FilterId;
@@ -1748,14 +1746,12 @@ function ToggleYRadarScale() {
   if (GraphData.yLogScale) {
     GraphData.yLogScale = false;
     DocElems.radartoggleylogscalebutton.innerHTML = "Y Log Scale";
-    CanvasCharts.Radar.options.axisX.logarithmic = GraphData.yLogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = GraphData.yLogScale;
     GraphData.radarFilters.delete(GraphData.YFilterId);
     GraphData.YFilterId = -1;
   } else {
     GraphData.yLogScale = true;
     DocElems.radartoggleylogscalebutton.innerHTML = "Y Linear Scale";
-    CanvasCharts.Radar.options.axisX.logarithmic = GraphData.yLogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = GraphData.yLogScale;
     let filter = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
     GraphData.radarFilters.set(GraphData.FilterId, filter);
