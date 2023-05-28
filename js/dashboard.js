@@ -1637,6 +1637,9 @@ function UpdateRadarChart() {
 }
 
 function UpdateIndicatorTable() {
+  if (GraphData.PayloadData === undefined || GraphData.PayloadData.length === 0) {
+    return;
+  }
   if (GraphData.ChangeIndicatorTitle) {
     DocElems.indicatorquan.value = GraphData.IQuan;
 
