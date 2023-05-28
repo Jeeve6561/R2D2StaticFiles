@@ -1610,7 +1610,7 @@ function UpdateIndicatorTable() {
 
   CheckForIndicatorTableChange();
 
-  let data = GraphData.radardata.i;
+  let data = GraphData.radardata;
 
   console.log(data);
   

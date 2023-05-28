@@ -136,8 +136,7 @@ function HandleDataFromSocket(data, id) {
 function WriteToDB(dbname, storename, data) {
   const transaction = Constants.Db.transaction(storename, "readwrite");
   const store = transaction.objectStore(storename);
-
-  console.log(data);
+  
   const putRequest = store.put(data);
 
   putRequest.onsuccess = function (event) {
