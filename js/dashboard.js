@@ -1417,7 +1417,7 @@ function ApplyFilters(data) {
   let toReturn = [...data];
 
   GraphData.radarFilters.forEach((filter, key) => {
-    if (filter.quan in GraphData.radarFiltersNameMap.keys()) {
+    if (GraphData.radarFiltersNameMap.has(filter.quan)) {
       let temp = [];
       const val = parseFloat(filter.val);
       toReturn.forEach((d) => {
