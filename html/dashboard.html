@@ -5,13 +5,11 @@
       <div id="radarOptions">
         <div id="currenttime"></div>
 
-        <button id="fullscreenradarchart">
-          &#xe5d0;Bubbles
-        </button>
+        <button id="fullscreenradarchart">&#xe5d0;Bubbles</button>
 
         <select id="radarchartfilterquan" class="tablefilter">
           {{ range $key, $val := .radarfilters }}
-            <option value={{$key}}>{{$val}}</option>
+          <option value="{{$key}}">{{$val}}</option>
           {{ end }}
         </select>
 
@@ -38,31 +36,30 @@
         <button id="radarchartclearfilterbutton" class="tablefilter">
           Clear Filters
         </button>
-        
-        
+
         <button id="togglecolorbutton">Fix Colors</button>
         <button id="toggleradarbutton">Updating Live</button>
 
         <div id="currentfilters"></div>
-        <br/>
+        <br />
         <button id="togglexlogscalebutton">X Linear Scale</button>
         <button id="toggleylogscalebutton">Y Linear Scale</button>
         X Axis:
         <select id="xaxisquan">
           {{ range $key, $val := .radarfilters }}
-            <option value={{$key}}>{{$val}}</option>
+          <option value="{{$key}}">{{$val}}</option>
           {{ end }}
         </select>
         Y Axis:
         <select id="yaxisquan">
           {{ range $key, $val := .radarfilters }}
-            <option value={{$key}}>{{$val}}</option>
+          <option value="{{$key}}">{{$val}}</option>
           {{ end }}
         </select>
         Z Axis:
         <select id="zaxisquan">
           {{ range $key, $val := .radarfilters }}
-            <option value={{$key}}>{{$val}}</option>
+          <option value="{{$key}}">{{$val}}</option>
           {{ end }}
         </select>
       </div>
@@ -79,7 +76,7 @@
         <button id="stockaxislog">Linear Graph</button>
         <select id="stockaxisquan">
           {{ range $key, $val := .radarfilters }}
-            <option value={{$key}}>{{$val}}</option>
+          <option value="{{$key}}">{{$val}}</option>
           {{ end }}
         </select>
       </div>
@@ -87,12 +84,20 @@
     </div>
   </div>
   <div id="bottomRow">
-    <div id="statchartsContainer">
-      <div id="statchartsOptions">{{ .ipaddress }}</div>
-      <div id="statchartsSidebyside">
+    <div id="statchartsSidebyside">
+      <div id="statchartsContainer">
+        <div id="statchartsOptions">{{ .ipaddress }}</div>
         <div id="tableofradar"></div>
-        <div id="inMktChartContainer"></div>
-        <div id="inMktSimChartContainer"></div>
+      </div>
+      <div id="indicatortableContainer">
+        <div id="indicatoroptions">
+          <select id="indicatorquan">
+            {{ range $key, $val := .radarfilters }}
+            <option value="{{$key}}">{{$val}}</option>
+            {{ end }}
+          </select>
+        </div>
+        <div id="tableofindicator"></div>
       </div>
     </div>
   </div>

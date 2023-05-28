@@ -133,6 +133,7 @@ function WriteToDB(dbname, storename, data) {
   const store = transaction.objectStore(storename);
 
   data.id = 1;
+  console.log(data);
   const putRequest = store.put(data);
 
   putRequest.onsuccess = function (event) {

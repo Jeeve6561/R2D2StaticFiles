@@ -199,6 +199,7 @@ const GraphData = {
   RadarUpdate: true,
   ChangeStockTitle: true,
   ChangeRadarTitle: true,
+  ChangeIndicatorTitle: true,
   xLogScale: true,
   yLogScale: true,
   StockLogScale: true,
@@ -210,6 +211,7 @@ const GraphData = {
   YQuan: "pv",
   ZQuan: "dm",
   StockQuan: "eminracc",
+  IQuan: "emin",
   // request: {
   //   sym: "TSLA",
   //   tid: 0,
@@ -217,6 +219,7 @@ const GraphData = {
   // },
   TopTen: new Map(),
   RadarData: [],
+  IndicatorData: [],
   FilterId: 1,
   radarFilters: new Map(),
   radarFiltersNameMap: new Map([
@@ -649,7 +652,7 @@ const Tables = {
         field: "emin",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -670,7 +673,7 @@ const Tables = {
         field: "eminacc",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -691,7 +694,7 @@ const Tables = {
         field: "eminr",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -712,7 +715,7 @@ const Tables = {
         field: "eminracc",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -733,7 +736,7 @@ const Tables = {
         field: "pv",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -754,7 +757,7 @@ const Tables = {
         field: "lps",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -771,7 +774,7 @@ const Tables = {
         field: "tbs",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -788,7 +791,7 @@ const Tables = {
         field: "invtbs",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -805,7 +808,7 @@ const Tables = {
         field: "dm",
         topCalc: "sum",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -845,7 +848,7 @@ const Tables = {
         field: "lc",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -864,7 +867,7 @@ const Tables = {
         field: "v",
         topCalc: "sum",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -883,7 +886,7 @@ const Tables = {
         field: "tp",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -904,7 +907,7 @@ const Tables = {
         field: "ap",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -925,7 +928,195 @@ const Tables = {
         field: "bp",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
-        hozAlign:"right",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+    ],
+  }),
+
+  indicatordata: new Tabulator("#tableofindicator", {
+    data: [],
+    layout: "fitDataFill",
+    // layout: "fitDataStretch",
+    // rowClick: ClickRadarTableRow,
+    pagination: true,
+    movableColumns: true,
+    initialSort: [{ column: "score", dir: "desc" }],
+    columns: [
+      {
+        title: "Sym",
+        field: "sym",
+        frozen: true,
+      },
+      {
+        title: "Data",
+        field: "val",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Count",
+        field: "cnt",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Sum",
+        field: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "SumSq",
+        field: "sumsq",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "High",
+        field: "h",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Low",
+        field: "l",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Mean",
+        field: "m",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Var",
+        field: "v",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Sdv",
+        field: "s",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -1021,6 +1212,7 @@ function main() {
 
     setInterval(() => {
       UpdateRadarChart();
+      UpdateIndicatorTable();
     }, 400);
 
     setInterval(() => {
@@ -1402,6 +1594,27 @@ function UpdateRadarChart() {
   Tables.radardata.setData(d);
 }
 
+function UpdateIndicatorTable() {
+  GetIndicatorDataFromDB();
+  if (
+    GraphData.IndicatorData === undefined ||
+    GraphData.IndicatorData.length === 0
+  ) {
+    return;
+  }
+  if (GraphData.ChangeIndicatorTitle) {
+    DocElems.indicatorquan.value = GraphData.IQuan;
+
+    GraphData.ChangeRadarTitle = false;
+  }
+
+  CheckForIndicatorTableChange();
+
+  let data = GraphData.IndicatorData;
+  
+  Tables.indicatordata.setData(data);
+}
+
 function GetRadarDataFromDB() {
   const request = Constants.Db.transaction(
     Constants.Database.Store.name,
@@ -1409,6 +1622,21 @@ function GetRadarDataFromDB() {
   )
     .objectStore(Constants.Database.Store.name)
     .get(1);
+  request.onsuccess = (event) => {
+    GraphData.RadarData = request.result;
+  };
+  request.onerror = (event) => {
+    console.error("Couldn't retrieve data from db");
+  };
+}
+
+function GetIndicatorDataFromDB() {
+  const request = Constants.Db.transaction(
+    Constants.Database.Store.name,
+    "readonly"
+  )
+    .objectStore(Constants.Database.Store.name)
+    .get(2);
   request.onsuccess = (event) => {
     GraphData.RadarData = request.result;
   };
@@ -1460,6 +1688,12 @@ function CheckForStockAxisChange() {
     CanvasCharts.Stock.options.title.text =
       "Top Ten Ranked on " +
       GraphData.radarFiltersNameMap.get(GraphData.StockQuan);
+  }
+}
+
+function CheckForIndicatorTableChange() {
+  if (GraphData.IQuan !== DocElems.indicatorquan.value) {
+    GraphData.StockQuan = DocElems.indicatorquan.value;
   }
 }
 
@@ -1612,7 +1846,9 @@ function ApplyFilters(data) {
 
 function DeleteFilter(key) {
   if (key === GraphData.XFilterId || key === GraphData.YFilterId) {
-    alert("You are about to delete a filter that is currently filtering for a logarithmic scale. Your data will look wonky :/");
+    alert(
+      "You are about to delete a filter that is currently filtering for a logarithmic scale. Your data will look wonky :/"
+    );
   }
   GraphData.radarFilters.delete(key);
   LoadFiltersOnScreen();
