@@ -73,7 +73,14 @@ main {
 #indicatortableContainer{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 20%;
+    height: 100%;
+}
+
+#indicatortableContaineragain{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
     height: 100%;
 }
 
@@ -87,6 +94,15 @@ main {
 }
 
 #indicatoroptions{
+    height: 10%;
+    width: 100%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #262626;
+    z-index: 1;
+}
+
+#indicatoroptionsagain{
     height: 10%;
     width: 100%;
     border-style: solid;
@@ -111,6 +127,14 @@ main {
 }
 
 #tableofindicator {
+    width: 100%;
+    height: 90%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #262626;
+}
+
+#tableofindicatoragain {
     width: 100%;
     height: 90%;
     border-style: solid;

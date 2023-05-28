@@ -97,6 +97,7 @@ const DocElems = {
   timediv: document.getElementById("currenttime"),
   statchartOpts: document.getElementById("statchartsOptions"),
   indicatorquan: document.getElementById("indicatorquan"),
+  indicatorquanagain: document.getElementById("indicatorquanagain"),
 };
 
 const RequestWS = {
@@ -1118,6 +1119,175 @@ const Tables = {
       },
     ],
   }),
+
+  indicatordataagain: new Tabulator("#tableofindicator", {
+    data: [],
+    layout: "fitData",
+    // layout: "fitDataStretch",
+    // rowClick: ClickRadarTableRow,
+    pagination: true,
+    movableColumns: true,
+    initialSort: [{ column: "score", dir: "desc" }],
+    columns: [
+      {
+        title: "Sym",
+        field: "sym",
+        frozen: true,
+      },
+      {
+        title: "Count",
+        field: "cnt",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Sum",
+        field: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "SumSq",
+        field: "sumsq",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "High",
+        field: "h",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Low",
+        field: "l",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Mean",
+        field: "m",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Var",
+        field: "v",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Sdv",
+        field: "s",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+    ],
+  }),
 };
 
 function main() {
@@ -1584,6 +1754,11 @@ function UpdateIndicatorTable() {
 
     GraphData.ChangeIndicatorTitle = false;
   }
+  if (GraphData.ChangeIndicatorTitleAgain) {
+    DocElems.indicatorquanagain.value = GraphData.IQuanAgain;
+
+    GraphData.ChangeIndicatorTitleAgain = false;
+  }
 
   CheckForIndicatorTableChange();
 
@@ -1596,6 +1771,16 @@ function UpdateIndicatorTable() {
   });
   
   Tables.indicatordata.setData(d);
+
+  let dataagain = GraphData.PayloadData.i;
+  let dagain = [];
+
+  dataagain.forEach((elem) => {
+    elem[GraphData.IQuanAgain].sym = elem.sym;
+    dagain.push(elem[GraphData.IQuanAgain]);
+  });
+  
+  Tables.indicatordataagain.setData(d);
 }
 
 function GetRadarDataFromDB() {
@@ -1676,7 +1861,10 @@ function CheckForStockAxisChange() {
 
 function CheckForIndicatorTableChange() {
   if (GraphData.IQuan !== DocElems.indicatorquan.value) {
-    GraphData.StockQuan = DocElems.indicatorquan.value;
+    GraphData.IQuan = DocElems.indicatorquan.value;
+  }
+  if (GraphData.IQuanAgain !== DocElems.indicatorquanagain.value) {
+    GraphData.IQuanAgain = DocElems.indicatorquanagain.value;
   }
 }
 
