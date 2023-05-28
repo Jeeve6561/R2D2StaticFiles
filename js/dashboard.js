@@ -1595,6 +1595,7 @@ function UpdateRadarChart() {
 }
 
 function UpdateIndicatorTable() {
+  console.log("In here");
   if (
     GraphData.radardata === undefined ||
     GraphData.radardata.length === 0
