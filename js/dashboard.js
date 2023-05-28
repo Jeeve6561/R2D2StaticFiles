@@ -883,19 +883,19 @@ function main() {
   DocElems.fullscreenradarbutton.addEventListener("click", () =>
     Fullscreen(DocElems.radarchart)
   );
-  DocElems.radarxaxisquan.value = GraphData.XQuan;
-  CanvasCharts.Radar.options.axisX.title = GraphData.radarFiltersNameMap.get(GraphData.XQuan);
-  let filter1 = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
-  GraphData.radarFilters.set(GraphData.FilterId, filter1);
-  GraphData.XFilterId = GraphData.FilterId;
-  GraphData.FilterId++;
-  DocElems.radaryaxisquan.value = GraphData.YQuan;
-  CanvasCharts.Radar.options.axisY.title = GraphData.radarFiltersNameMap.get(GraphData.YQuan);
-  let filter2 = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
-  GraphData.radarFilters.set(GraphData.FilterId, filter2);
-  GraphData.YFilterId = GraphData.FilterId;
-  GraphData.FilterId++;
-  DocElems.radarzaxisquan.value = GraphData.ZQuan;
+  // DocElems.radarxaxisquan.value = GraphData.XQuan;
+  // CanvasCharts.Radar.options.axisX.title = GraphData.radarFiltersNameMap.get(GraphData.XQuan);
+  // let filter1 = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
+  // GraphData.radarFilters.set(GraphData.FilterId, filter1);
+  // GraphData.XFilterId = GraphData.FilterId;
+  // GraphData.FilterId++;
+  // DocElems.radaryaxisquan.value = GraphData.YQuan;
+  // CanvasCharts.Radar.options.axisY.title = GraphData.radarFiltersNameMap.get(GraphData.YQuan);
+  // let filter2 = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
+  // GraphData.radarFilters.set(GraphData.FilterId, filter2);
+  // GraphData.YFilterId = GraphData.FilterId;
+  // GraphData.FilterId++;
+  // DocElems.radarzaxisquan.value = GraphData.ZQuan;
   CanvasCharts.Radar.container.addEventListener("wheel", AddWheelScrollRadar);
 
   LoadFiltersOnScreen();
