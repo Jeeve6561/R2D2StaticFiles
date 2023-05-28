@@ -870,6 +870,9 @@ function main() {
   DocElems.fullscreenradarbutton.addEventListener("click", () =>
     Fullscreen(DocElems.radarchart)
   );
+  DocElems.radarxaxisquan.value = "pv";
+  DocElems.radaryaxisquan.value = "lc";
+  DocElems.radarzaxisquan.value = "dm";
   CanvasCharts.Radar.container.addEventListener("wheel", AddWheelScrollRadar);
 
   LoadFiltersOnScreen();
