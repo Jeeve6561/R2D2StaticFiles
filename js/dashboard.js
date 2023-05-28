@@ -1281,6 +1281,7 @@ function CheckForAxisChange() {
       GraphData.radarFilters.set(GraphData.FilterId, filter);
       GraphData.XFilterId = GraphData.FilterId;
       GraphData.FilterId++;
+      LoadFiltersOnScreen();
     }
   }
   if (GraphData.YQuan !== DocElems.radaryaxisquan.value){
@@ -1291,6 +1292,7 @@ function CheckForAxisChange() {
       GraphData.radarFilters.set(GraphData.FilterId, filter);
       GraphData.YFilterId = GraphData.FilterId;
       GraphData.FilterId++;
+      LoadFiltersOnScreen();
     }
   }
   if (GraphData.ZQuan !== DocElems.radarzaxisquan.value){
