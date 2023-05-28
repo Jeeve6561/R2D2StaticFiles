@@ -1303,7 +1303,6 @@ function AddRadarFilter() {
 
 function ClearRadarFilters() {
   GraphData.radarFilters = new Map([
-    [0, { quan: "tcnt", comp: ">", val: "0" }],
   ]);
   LoadFiltersOnScreen();
 }
@@ -2224,7 +2223,8 @@ function ToggleXRadarScale() {
     CanvasCharts.Radar.options.axisX.logarithmic = GraphData.xLogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = GraphData.xLogScale;
     let filter = { quan: DocElems.radarxaxisquan, comp: ">", val: 0 };
-    GraphData.radarFilters.push(filter);
+    GraphData.radarFilters.set(GraphData.FilterId, filter);
+    GraphData.FilterId++;
   }
 }
 
@@ -2240,7 +2240,8 @@ function ToggleYRadarScale() {
     CanvasCharts.Radar.options.axisX.logarithmic = GraphData.yLogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = GraphData.yLogScale;
     let filter = { quan: DocElems.radaryaxisquan, comp: ">", val: 0 };
-    GraphData.radarFilters.push(filter);
+    GraphData.radarFilters.set(GraphData.FilterId, filter);
+    GraphData.FilterId++;
   }
 }
 
