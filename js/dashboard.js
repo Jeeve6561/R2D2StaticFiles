@@ -1416,8 +1416,8 @@ function LoadFiltersOnScreen() {
 function ApplyFilters(data) {
   let toReturn = [...data];
 
-  if (filter.quan in GraphData.radarFiltersNameMap) {
-    GraphData.radarFilters.forEach((filter, key) => {
+  GraphData.radarFilters.forEach((filter, key) => {
+    if (filter.quan in GraphData.radarFiltersNameMap.keys()) {
       let temp = [];
       const val = parseFloat(filter.val);
       toReturn.forEach((d) => {
@@ -1458,11 +1458,11 @@ function ApplyFilters(data) {
         }
       });
       toReturn = [...temp];
-    });
-  } else {
-    console.error("Invalid Radar Filter Comparison");
-    toReturn = [...data];
-  }
+    } else {
+      console.error("Invalid Radar Filter Comparison");
+      toReturn = [...toReturn];
+    }
+  });
   return toReturn;
 }
 
