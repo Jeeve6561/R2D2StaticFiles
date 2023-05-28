@@ -1276,7 +1276,7 @@ function CheckForAxisChange() {
   if (GraphData.XQuan !== DocElems.radarxaxisquan.value){
     GraphData.XQuan = DocElems.radarxaxisquan.value;
     if (GraphData.xLogScale && GraphData.XFilterId !== -1) {
-      GraphData.radarFilters.delete(GraphData.FilterId);
+      GraphData.radarFilters.delete(GraphData.XFilterId);
       let filter = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
       GraphData.radarFilters.set(GraphData.FilterId, filter);
       GraphData.XFilterId = GraphData.FilterId;
@@ -1286,7 +1286,7 @@ function CheckForAxisChange() {
   if (GraphData.YQuan !== DocElems.radaryaxisquan.value){
     GraphData.YQuan = DocElems.radaryaxisquan.value;
     if (GraphData.yLogScale && GraphData.YFilterId !== -1) {
-      GraphData.radarFilters.delete(GraphData.FilterId);
+      GraphData.radarFilters.delete(GraphData.YFilterId);
       let filter = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
       GraphData.radarFilters.set(GraphData.FilterId, filter);
       GraphData.YFilterId = GraphData.FilterId;
