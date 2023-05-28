@@ -81,8 +81,6 @@ const DocElems = {
   radarfilterquan: document.getElementById("radarchartfilterquan"),
   radarfiltertype: document.getElementById("radarchartfiltertype"),
   radarfiltervalue: document.getElementById("radarchartfiltervalue"),
-  radarsolosfilterbutton: document.getElementById("solosfilterbutton"),
-  radardicksfilterbutton: document.getElementById("dicksfilterbutton"),
   radartogglexlogscalebutton: document.getElementById("togglexlogscalebutton"),
   radartoggleylogscalebutton: document.getElementById("toggleylogscalebutton"),
   radartogglecolorbutton: document.getElementById("togglecolorbutton"),
@@ -853,8 +851,6 @@ function main() {
 
   DocElems.radaraddfilterbutton.addEventListener("click", AddRadarFilter);
   DocElems.radarclearfilterbutton.addEventListener("click", ClearRadarFilters);
-  DocElems.radarsolosfilterbutton.addEventListener("click", SolosRadarFilters);
-  DocElems.radardicksfilterbutton.addEventListener("click", DicksRadarFilters);
   DocElems.radartogglexlogscalebutton.addEventListener(
     "click",
     ToggleXRadarScale
@@ -1296,26 +1292,6 @@ function AddRadarFilter() {
 function ClearRadarFilters() {
   GraphData.radarFilters = new Map([
     [0, { quan: "tcnt", comp: ">", val: "0" }],
-  ]);
-  LoadFiltersOnScreen();
-}
-
-function SolosRadarFilters() {
-  GraphData.radarFilters = new Map([
-    [0, { quan: "tcnt", comp: ">", val: "0" }],
-    [1, { quan: "tbs", comp: "<=", val: "3" }],
-    [2, { quan: "lps", comp: ">=", val: "1" }],
-    [3, { quan: "pv", comp: ">=", val: "0.30" }],
-  ]);
-  LoadFiltersOnScreen();
-}
-
-function DicksRadarFilters() {
-  GraphData.radarFilters = new Map([
-    [0, { quan: "tcnt", comp: ">", val: "0" }],
-    [1, { quan: "tbs", comp: "<=", val: "5" }],
-    [2, { quan: "lps", comp: ">=", val: "1" }],
-    [3, { quan: "pv", comp: ">=", val: "0.50" }],
   ]);
   LoadFiltersOnScreen();
 }
