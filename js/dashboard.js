@@ -1668,7 +1668,7 @@ function UpdateIndicatorTable() {
     dagain.push(elem[GraphData.IQuanAgain]);
   });
   
-  Tables.indicatordataagain.setData(d);
+  Tables.indicatordataagain.setData(dagain);
 }
 
 function GetRadarDataFromDB() {
