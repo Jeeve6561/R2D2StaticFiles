@@ -652,11 +652,15 @@ const Tables = {
         formatter: "money",
         formatterParams: {
           decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
       },
@@ -668,11 +672,15 @@ const Tables = {
         formatter: "money",
         formatterParams: {
           decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
       },
@@ -684,11 +692,15 @@ const Tables = {
         formatter: "money",
         formatterParams: {
           decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
       },
@@ -700,11 +712,15 @@ const Tables = {
         formatter: "money",
         formatterParams: {
           decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
       },
@@ -824,11 +840,13 @@ const Tables = {
         formatterParams: {
           decimal: ".",
           thousand: ",",
+          precision: 0,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
+          precision: 0,
         },
       },
       {
@@ -836,6 +854,12 @@ const Tables = {
         field: "v",
         topCalc: "sum",
         cellClick: ClickRadarTableCell,
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
@@ -848,6 +872,13 @@ const Tables = {
         field: "tp",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
@@ -861,6 +892,13 @@ const Tables = {
         field: "ap",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
@@ -874,6 +912,13 @@ const Tables = {
         field: "bp",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
