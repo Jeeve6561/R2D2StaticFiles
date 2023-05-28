@@ -1597,7 +1597,9 @@ function ApplyFilters(data) {
 }
 
 function DeleteFilter(key) {
-  console.log("Deleting filter of id:", key);
+  if (key === GraphData.XFilterId || key === GraphData.YFilterId) {
+    alert("You are about to delete a filter that is currently filtering for a logarithmic scale. Your data will look wonky :/");
+  }
   GraphData.radarFilters.delete(key);
   LoadFiltersOnScreen();
 }
