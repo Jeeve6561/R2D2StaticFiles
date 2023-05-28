@@ -1726,8 +1726,8 @@ function ToggleXRadarScale() {
   } else {
     GraphData.xLogScale = true;
     DocElems.radartogglexlogscalebutton.innerHTML = "X Linear Scale";
-    CanvasCharts.Radar.options.axisX.logarithmic = GraphData.yLogScale;
-    CanvasCharts.Radar.options.axisY.logarithmic = GraphData.yLogScale;
+    CanvasCharts.Radar.options.axisX.logarithmic = GraphData.xLogScale;
+    CanvasCharts.Radar.options.axisY.logarithmic = GraphData.xLogScale;
   }
 }
 
@@ -1735,13 +1735,13 @@ function ToggleYRadarScale() {
   if (GraphData.yLogScale) {
     GraphData.yLogScale = false;
     DocElems.radartoggleylogscalebutton.innerHTML = "Y Log Scale";
-    CanvasCharts.Radar.options.axisX.logarithmic = Constants.LogScale;
-    CanvasCharts.Radar.options.axisY.logarithmic = Constants.LogScale;
+    CanvasCharts.Radar.options.axisX.logarithmic = GraphData.yLogScale;
+    CanvasCharts.Radar.options.axisY.logarithmic = GraphData.yLogScale;
   } else {
     GraphData.yLogScale = true;
     DocElems.radartoggleylogscalebutton.innerHTML = "Y Linear Scale";
-    CanvasCharts.Radar.options.axisX.logarithmic = Constants.LogScale;
-    CanvasCharts.Radar.options.axisY.logarithmic = Constants.LogScale;
+    CanvasCharts.Radar.options.axisX.logarithmic = GraphData.yLogScale;
+    CanvasCharts.Radar.options.axisY.logarithmic = GraphData.yLogScale;
   }
 }
 
