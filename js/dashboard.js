@@ -151,7 +151,6 @@ const RequestWS = {
   messageReceived(event) {
     // Constants.stime = performance.now();
     let msg = JSON.parse(event.data);
-    console.log(msg);
     switch (msg.ev) {
       case Constants.ConnectMsg:
         console.log("Name of socket manager:", msg.n);
@@ -165,14 +164,15 @@ const RequestWS = {
         //Constants.etime = performance.now()
         // console.log("--------------------------------------" + GraphData.request.sym +" loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
         break;
-      case Constants.PayloadDataRequest:
+      case Constants.RadarDataRequest:
         console.log("In here");
+        console.log(msg);
         UpdateStockChart(msg.d.d, msg.d.sym);
         // Constants.etime = performance.now()
         // console.log("-------------------------------------- loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
         break;
       default:
-        console.log(data);
+        console.log(msg);
         break;
     }
     // console.log("Message received:", data);
