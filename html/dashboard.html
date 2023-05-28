@@ -100,13 +100,15 @@
         <div id="tableofindicator"></div>
       </div>
       <div id="indicatortableContaineragain">
-        <select id="indicatorquanagain">
-          {{ range $key, $val := .indicators }}
-          <option value="{{$key}}">{{$val}}</option>
-          {{ end }}
-        </select>
+        <div>
+          <select id="indicatorquanagain">
+            {{ range $key, $val := .indicators }}
+            <option value="{{$key}}">{{$val}}</option>
+            {{ end }}
+          </select>
+        </div>
+        <div id="tableofindicatoragain"></div>
       </div>
-      <div id="tableofindicatoragain"></div>
     </div>
   </div>
 </div>
