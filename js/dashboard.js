@@ -219,6 +219,7 @@ const GraphData = {
     ["pv", "Price Volatility"],
     ["lps", "Lots Per Second"],
     ["tbs", "Time to Beat Spread"],
+    ["invtbs", "Inverse Time to Beat Spread"],
     ["dm", "Dollars Traded"],
     ["lc", "Number of Lots"],
     ["v", "Volume"],
@@ -1177,9 +1178,9 @@ function UpdateRadarChart() {
     GraphData.YFilterId = GraphData.FilterId;
     GraphData.FilterId++;
     DocElems.radarzaxisquan.value = GraphData.ZQuan;
-    CanvasCharts.Radar.options.data[0].legendText = "Size of Bubble Represents " + GraphData.radarFiltersNameMap.get(
-      GraphData.ZQuan
-    );;
+    CanvasCharts.Radar.options.data[0].legendText =
+      "Size of Bubble Represents " +
+      GraphData.radarFiltersNameMap.get(GraphData.ZQuan);
     LoadFiltersOnScreen();
 
     GraphData.ChangeRadarTitle = false;
@@ -1312,9 +1313,9 @@ function CheckForAxisChange() {
   }
   if (GraphData.ZQuan !== DocElems.radarzaxisquan.value) {
     GraphData.ZQuan = DocElems.radarzaxisquan.value;
-    CanvasCharts.Radar.options.data[0].legendText = "Size of Bubble Represents " + GraphData.radarFiltersNameMap.get(
-      GraphData.ZQuan
-    );;
+    CanvasCharts.Radar.options.data[0].legendText =
+      "Size of Bubble Represents " +
+      GraphData.radarFiltersNameMap.get(GraphData.ZQuan);
   }
 }
 
@@ -1415,499 +1416,53 @@ function LoadFiltersOnScreen() {
 function ApplyFilters(data) {
   let toReturn = [...data];
 
-  GraphData.radarFilters.forEach((filter, key) => {
-    let temp = [];
-    const val = parseFloat(filter.val);
-    toReturn.forEach((d) => {
-      switch (filter.quan) {
-        case "pv":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "lps":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "tbs":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "dm":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "lc":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "v":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "tp":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "ap":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "bp":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "emin":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "eminr":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "eminacc":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        case "eminracc":
-          switch (filter.comp) {
-            case ">=":
-              if (d[filter.quan] >= val) {
-                temp.push(d);
-              }
-              break;
-            case ">":
-              if (d[filter.quan] > val) {
-                temp.push(d);
-              }
-              break;
-            case "<=":
-              if (d[filter.quan] <= val) {
-                temp.push(d);
-              }
-              break;
-            case "<":
-              if (d[filter.quan] < val) {
-                temp.push(d);
-              }
-              break;
-            case "=":
-              if (d[filter.quan] === val) {
-                temp.push(d);
-              }
-              break;
-            case "!=":
-              if (d[filter.quan] !== val) {
-                temp.push(d);
-              }
-              break;
-            default:
-              console.error("Invalid Radar Filter Comparison");
-              break;
-          }
-          break;
-        default:
-          console.error("Invalid Radar Filter Comparison");
-          break;
-      }
+  if (filter.quan in GraphData.radarFiltersNameMap) {
+    GraphData.radarFilters.forEach((filter, key) => {
+      let temp = [];
+      const val = parseFloat(filter.val);
+      toReturn.forEach((d) => {
+        switch (filter.comp) {
+          case ">=":
+            if (d[filter.quan] >= val) {
+              temp.push(d);
+            }
+            break;
+          case ">":
+            if (d[filter.quan] > val) {
+              temp.push(d);
+            }
+            break;
+          case "<=":
+            if (d[filter.quan] <= val) {
+              temp.push(d);
+            }
+            break;
+          case "<":
+            if (d[filter.quan] < val) {
+              temp.push(d);
+            }
+            break;
+          case "=":
+            if (d[filter.quan] === val) {
+              temp.push(d);
+            }
+            break;
+          case "!=":
+            if (d[filter.quan] !== val) {
+              temp.push(d);
+            }
+            break;
+          default:
+            console.error("Invalid Radar Filter Comparison");
+            break;
+        }
+      });
+      toReturn = [...temp];
     });
-    toReturn = [...temp];
-  });
+  } else {
+    console.error("Invalid Radar Filter Comparison");
+    toReturn = [...data];
+  }
   return toReturn;
 }
 
