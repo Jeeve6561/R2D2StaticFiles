@@ -1108,7 +1108,7 @@ function UpdateStockChart(data, sym) {
 
   if (GraphData.ChangeStockTitle) {
     CanvasCharts.Stock.options.title.text =
-      "Top Ten Plotted on " +
+      "Top Ten Ranked on " +
       GraphData.radarFiltersNameMap.get(GraphData.StockQuan);
     GraphData.ChangeStockTitle = false;
   }
@@ -1344,7 +1344,7 @@ function CheckForStockAxisChange() {
   if (GraphData.StockQuan !== DocElems.stockaxisquan.value) {
     GraphData.StockQuan = DocElems.stockaxisquan.value;
     CanvasCharts.Stock.options.title.text =
-      "Top Ten Plotted on " +
+      "Top Ten Ranked on " +
       GraphData.radarFiltersNameMap.get(GraphData.StockQuan);
   }
 }
@@ -1527,7 +1527,7 @@ function SetRank(data) {
     d.y = d[GraphData.YQuan];
     d.z = d[GraphData.ZQuan];
 
-    d.score = d.eminracc;
+    d.score = d[GraphData.StockQuan];
     totscore += d.score;
     totcount++;
 
