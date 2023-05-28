@@ -1205,7 +1205,7 @@ function main() {
         RequestWS.sendMessage({
           sym: key,
           rank: val,
-          ev: Constants.PayloadDataRequest,
+          ev: Constants.TacDataRequest,
         });
       });
     }, 1000);
