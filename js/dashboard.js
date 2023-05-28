@@ -963,25 +963,6 @@ const Tables = {
         frozen: true,
       },
       {
-        title: "Data",
-        field: "val",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
         title: "Count",
         field: "cnt",
         hozAlign: "right",
@@ -1604,11 +1585,17 @@ function UpdateIndicatorTable() {
 
   CheckForIndicatorTableChange();
 
-  let data = GraphData.PayloadData;
+  let data = GraphData.PayloadData.i;
+  let d = [];
 
-  console.log(data);
+  data.forEach((elem) => {
+    elem[GraphData.IQuan].sym = elem.sym;
+    d.push(elem[GraphData.IQuan]);
+  });
+
+  console.log(d);
   
-  Tables.indicatordata.setData(data);
+  Tables.indicatordata.setData(d);
 }
 
 function GetRadarDataFromDB() {
