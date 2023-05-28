@@ -1107,7 +1107,7 @@ function UpdateStockChart(data, sym) {
   }
 
   if (GraphData.ChangeStockTitle) {
-    CanvasCharts.Radar.options.title.text =
+    CanvasCharts.Stock.options.title.text =
       "Top Ten Plotted on " +
       GraphData.radarFiltersNameMap.get(GraphData.StockQuan);
     GraphData.ChangeStockTitle = false;
