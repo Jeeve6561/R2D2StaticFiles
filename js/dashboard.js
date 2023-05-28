@@ -83,7 +83,8 @@ const DocElems = {
   radarfiltervalue: document.getElementById("radarchartfiltervalue"),
   radarsolosfilterbutton: document.getElementById("solosfilterbutton"),
   radardicksfilterbutton: document.getElementById("dicksfilterbutton"),
-  radartogglelogscalebutton: document.getElementById("togglelogscalebutton"),
+  radartogglexlogscalebutton: document.getElementById("togglexlogscalebutton"),
+  radartoggleylogscalebutton: document.getElementById("toggleylogscalebutton"),
   radartogglecolorbutton: document.getElementById("togglecolorbutton"),
   radarpausebutton: document.getElementById("toggleradarbutton"),
   stockchart: document.getElementById("stockchart"),
@@ -195,55 +196,12 @@ const GraphData = {
   RadarUpdate: true,
   ChangeStockTitle: true,
   ChangeRadarTitle:true,
+  xLogScale: true,
+  yLogScale: true,
   PrevMaxVal: 0,
   PrevMinVal: 0,
-  // request1: {
+  // request: {
   //   sym: "TSLA",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request2: {
-  //   sym: "AMD",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request3: {
-  //   sym: "GOOG",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request4: {
-  //   sym: "GOOGL",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request5: {
-  //   sym: "DE",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request6: {
-  //   sym: "BABA",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request7: {
-  //   sym: "GRPN",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request8: {
-  //   sym: "NVDA",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request9: {
-  //   sym: "FL",
-  //   tid: 0,
-  //   ev: Constants.TacDataRequest,
-  // },
-  // request10: {
-  //   sym: "FTCH",
   //   tid: 0,
   //   ev: Constants.TacDataRequest,
   // },
@@ -562,7 +520,8 @@ const CanvasCharts = {
       labelFontColor: Constants.fontColor,
       titleFontColor: Constants.fontColor,
       lineColor: Constants.fontColor,
-      logarithmic: Constants.LogScale,
+      // logarithmic: Constants.LogScale,
+      logarithmic: GraphData.xLogScale,
       crosshair: {
         enabled: true,
         color: Constants.quadColor,
@@ -575,7 +534,8 @@ const CanvasCharts = {
       labelFontColor: Constants.fontColor,
       titleFontColor: Constants.fontColor,
       lineColor: Constants.fontColor,
-      logarithmic: Constants.LogScale,
+      // logarithmic: Constants.LogScale,
+      logarithmic: GraphData.yLogScale,
       crosshair: {
         enabled: true,
         color: Constants.quadColor,
@@ -895,9 +855,13 @@ function main() {
   DocElems.radarclearfilterbutton.addEventListener("click", ClearRadarFilters);
   DocElems.radarsolosfilterbutton.addEventListener("click", SolosRadarFilters);
   DocElems.radardicksfilterbutton.addEventListener("click", DicksRadarFilters);
-  DocElems.radartogglelogscalebutton.addEventListener(
+  DocElems.radartogglexlogscalebutton.addEventListener(
     "click",
-    ToggleRadarScale
+    ToggleXRadarScale
+  );
+  DocElems.radartoggleylogscalebutton.addEventListener(
+    "click",
+    ToggleYRadarScale
   );
   DocElems.radartogglecolorbutton.addEventListener(
     "click",
@@ -1881,15 +1845,29 @@ function ToggleRadar() {
   }
 }
 
-function ToggleRadarScale() {
-  if (Constants.LogScale) {
+function ToggleXRadarScale() {
+  if (GraphData.xLogScale) {
+    GraphData.xLogScale = false;
+    DocElems.radartogglexlogscalebutton.innerHTML = "X Log Scale";
+    CanvasCharts.Radar.options.axisX.logarithmic = Constants.LogScale;
+    CanvasCharts.Radar.options.axisY.logarithmic = Constants.LogScale;
+  } else {
+    GraphData.xLogScale = true;
+    DocElems.radartogglexlogscalebutton.innerHTML = "X Linear Scale";
+    CanvasCharts.Radar.options.axisX.logarithmic = Constants.LogScale;
+    CanvasCharts.Radar.options.axisY.logarithmic = Constants.LogScale;
+  }
+}
+
+function ToggleYRadarScale() {
+  if (GraphData.yLogScale) {
     Constants.LogScale = false;
-    DocElems.radartogglelogscalebutton.innerHTML = "Log Scale";
+    DocElems.radartoggleylogscalebutton.innerHTML = "Y Log Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = Constants.LogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = Constants.LogScale;
   } else {
     Constants.LogScale = true;
-    DocElems.radartogglelogscalebutton.innerHTML = "Linear Scale";
+    DocElems.radartoggleylogscalebutton.innerHTML = "Y Linear Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = Constants.LogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = Constants.LogScale;
   }
