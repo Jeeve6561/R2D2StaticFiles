@@ -165,8 +165,6 @@ const RequestWS = {
         // console.log("--------------------------------------" + GraphData.request.sym +" loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
         break;
       case Constants.RadarDataRequest:
-        console.log("In here");
-        console.log(msg);
         UpdateStockChart(msg.d.d, msg.d.sym);
         // Constants.etime = performance.now()
         // console.log("-------------------------------------- loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
