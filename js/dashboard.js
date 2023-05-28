@@ -1100,6 +1100,7 @@ function UpdateStockChart(data, sym) {
   let xquan = DocElems.radarxaxisquan.value;
   let yquan = DocElems.radaryaxisquan.value;
   let zquan = DocElems.radarzaxisquan.value;
+  console.log(xquan, yquan, zquan);
 
   data.forEach((elem) => {
     elem.x = elem[xquan]
