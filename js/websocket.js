@@ -6,6 +6,7 @@ const Constants = {
   ConnectMsg: "connected",
   EV_WSInit: "wsinit",
   Sympayload: "sympayload", // FIX THIS PLEASEEEEEEEEEEEEEEEE
+  Indicators: "indicators",
   EV_WSSymPayloadUpdate: "sympayloadupdate",
 
   MarketStatus_ClosedAM: "ClosedAM",
@@ -90,7 +91,10 @@ const LiveFeedWS = {
         console.log("Name of socket manager:", msg.n);
         break;
       case Constants.Sympayload:
-        HandleDataFromSocket(msg.d);
+        HandleDataFromSocket(msg.d, 1);
+        break;
+      case Constants.Indicators:
+        HandleDataFromSocket(msg.d, 2);
         break;
     }
   },
@@ -122,8 +126,9 @@ function main() {
   };
 }
 
-function HandleDataFromSocket(data) {
+function HandleDataFromSocket(data, id) {
   if (Constants.StartWritingToDatabase) {
+    data.id = id;
     WriteToDB(Constants.Database.Name, Constants.Database.Store.name, data);
   }
 }
@@ -132,7 +137,6 @@ function WriteToDB(dbname, storename, data) {
   const transaction = Constants.Db.transaction(storename, "readwrite");
   const store = transaction.objectStore(storename);
 
-  data.id = 1;
   console.log(data);
   const putRequest = store.put(data);
 

@@ -163,7 +163,7 @@ const RequestWS = {
         //Constants.etime = performance.now()
         // console.log("--------------------------------------" + GraphData.request.sym +" loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
         break;
-      case Constants.RadarDataRequest:
+      case Constants.PayloadDataRequest:
         UpdateStockChart(msg.d.d, msg.d.sym);
         // Constants.etime = performance.now()
         // console.log("-------------------------------------- loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
@@ -218,7 +218,7 @@ const GraphData = {
   //   ev: Constants.TacDataRequest,
   // },
   TopTen: new Map(),
-  RadarData: [],
+  PayloadData: [],
   IndicatorData: [],
   FilterId: 1,
   radarFilters: new Map(),
@@ -1220,7 +1220,7 @@ function main() {
         RequestWS.sendMessage({
           sym: key,
           rank: val,
-          ev: Constants.RadarDataRequest,
+          ev: Constants.PayloadDataRequest,
         });
       });
     }, 1000);
@@ -1482,7 +1482,7 @@ function UpdateStockChart(data, sym) {
 
 function UpdateRadarChart() {
   GetRadarDataFromDB();
-  if (GraphData.RadarData === undefined || GraphData.RadarData.length === 0) {
+  if (GraphData.PayloadData === undefined || GraphData.PayloadData.length === 0) {
     return;
   }
   if (GraphData.ChangeRadarTitle) {
@@ -1512,10 +1512,10 @@ function UpdateRadarChart() {
 
     GraphData.ChangeRadarTitle = false;
   }
-  let data = GraphData.RadarData.r;
-  Constants.CurrentSec = GraphData.RadarData.sec;
-  Constants.CurrentMin = Math.floor(GraphData.RadarData.sec / 60);
-  Constants.CurrentTime = GraphData.RadarData.thm;
+  let data = GraphData.PayloadData.r;
+  Constants.CurrentSec = GraphData.PayloadData.sec;
+  Constants.CurrentMin = Math.floor(GraphData.PayloadData.sec / 60);
+  Constants.CurrentTime = GraphData.PayloadData.thm;
   if (
     CanvasCharts.Radar.axisX[0].maximum === null ||
     isNaN(CanvasCharts.Radar.axisX[0].maximum) ||
@@ -1597,20 +1597,22 @@ function UpdateRadarChart() {
 function UpdateIndicatorTable() {
   GetIndicatorDataFromDB();
   if (
-    GraphData.IndicatorData === undefined ||
-    GraphData.IndicatorData.length === 0
+    GraphData.radardata === undefined ||
+    GraphData.radardata.length === 0
   ) {
     return;
   }
   if (GraphData.ChangeIndicatorTitle) {
     DocElems.indicatorquan.value = GraphData.IQuan;
 
-    GraphData.ChangeRadarTitle = false;
+    GraphData.ChangeIndicatorTitle = false;
   }
 
   CheckForIndicatorTableChange();
 
-  let data = GraphData.IndicatorData;
+  let data = GraphData.radardata.i;
+
+  console.log(data);
   
   Tables.indicatordata.setData(data);
 }
@@ -1623,7 +1625,7 @@ function GetRadarDataFromDB() {
     .objectStore(Constants.Database.Store.name)
     .get(1);
   request.onsuccess = (event) => {
-    GraphData.RadarData = request.result;
+    GraphData.PayloadData = request.result;
   };
   request.onerror = (event) => {
     console.error("Couldn't retrieve data from db");
@@ -1638,7 +1640,7 @@ function GetIndicatorDataFromDB() {
     .objectStore(Constants.Database.Store.name)
     .get(2);
   request.onsuccess = (event) => {
-    GraphData.RadarData = request.result;
+    GraphData.PayloadData = request.result;
   };
   request.onerror = (event) => {
     console.error("Couldn't retrieve data from db");
