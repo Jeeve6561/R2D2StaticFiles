@@ -1119,8 +1119,6 @@ function UpdateStockChart(data, sym) {
 
   CheckForStockAxisChange();
 
-  console.log(data);
-
   data.forEach((d) => {
     if (GraphData.StockLogScale) {
       if (d[GraphData.StockQuan] > 0) {
