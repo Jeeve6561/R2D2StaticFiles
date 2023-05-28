@@ -202,6 +202,7 @@ const GraphData = {
   ChangeStockTitle: true,
   ChangeRadarTitle: true,
   ChangeIndicatorTitle: true,
+  ChangeIndicatorTitleAgain: true,
   xLogScale: true,
   yLogScale: true,
   StockLogScale: true,
