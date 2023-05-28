@@ -1375,32 +1375,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1412,32 +1412,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1449,32 +1449,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1486,32 +1486,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1523,32 +1523,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1560,32 +1560,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1597,32 +1597,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1634,32 +1634,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1671,32 +1671,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1708,32 +1708,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1745,32 +1745,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1782,32 +1782,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
@@ -1819,32 +1819,32 @@ function ApplyFilters(data) {
           switch (filter.comp) {
             case ">=":
               if (d[filter.quan] >= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case ">":
               if (d[filter.quan] > val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<=":
               if (d[filter.quan] <= val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "<":
               if (d[filter.quan] < val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "=":
               if (d[filter.quan] === val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             case "!=":
               if (d[filter.quan] !== val) {
-                temp.push(d[filter.quan]);
+                temp.push(d);
               }
               break;
             default:
