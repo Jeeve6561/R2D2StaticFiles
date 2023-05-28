@@ -92,7 +92,7 @@
       <div id="indicatortableContainer">
         <div id="indicatoroptions">
           <select id="indicatorquan">
-            {{ range $key, $val := .radarfilters }}
+            {{ range $key, $val := .indicators }}
             <option value="{{$key}}">{{$val}}</option>
             {{ end }}
           </select>
