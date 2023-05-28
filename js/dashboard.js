@@ -196,7 +196,7 @@ const GraphData = {
   LiveUpdateInit: false,
   RadarUpdate: true,
   ChangeStockTitle: true,
-  ChangeRadarTitle:true,
+  ChangeRadarTitle: true,
   xLogScale: true,
   yLogScale: true,
   PrevMaxVal: 0,
@@ -1597,128 +1597,6 @@ function CalculateTotalDollars(data) {
   return toReturn;
 }
 
-function SetRankOld(data) {
-  let tottbs = 0,
-    totpv = 0,
-    totlps = 0,
-    totdt = 0,
-    tottcnt = 0,
-    mintbs = 0,
-    minpv = 0,
-    minlps = 0,
-    mindt = 0,
-    mintcnt = 0,
-    maxtbs = 0,
-    maxpv = 0,
-    maxlps = 0,
-    maxdt = 0,
-    maxtcnt = 0,
-    cnt = data.length;
-
-  GraphData.xMinimum = Infinity;
-  GraphData.xMaximum = 0;
-  GraphData.yMinimum = Infinity;
-  GraphData.yMaximum = 0;
-
-  data.forEach((d) => {
-    tottbs += d.tbs;
-    totpv += d.pv;
-    totlps += d.lps;
-    totdt += d.dz;
-    tottcnt += d.x;
-    if (d.tbs < mintbs) {
-      mintbs = d.tbs;
-    }
-    if (d.pv < minpv) {
-      minpv = d.pv;
-    }
-    if (d.lps < minlps) {
-      maxlps = d.lps;
-    }
-    if (d.dm < mindt) {
-      mindt = d.dm;
-    }
-    if (d.lc < mintcnt) {
-      mintcnt = d.lc;
-    }
-    if (d.tbs > maxtbs) {
-      maxtbs = d.tbs;
-    }
-    if (d.pv > maxpv) {
-      maxpv = d.pv;
-    }
-    if (d.lps > maxlps) {
-      maxlps = d.lps;
-    }
-    if (d.dm > maxdt) {
-      maxdt = d.dm;
-    }
-    if (d.lc > maxtcnt) {
-      maxtcnt = d.lc;
-    }
-
-    if (d.x < GraphData.xMinimum) {
-      GraphData.xMinimum = d.x;
-    }
-    if (d.x > GraphData.xMaximum) {
-      GraphData.xMaximum = d.x;
-    }
-    if (d.y < GraphData.yMinimum) {
-      GraphData.yMinimum = d.y;
-    }
-    if (d.y > GraphData.yMaximum) {
-      GraphData.yMaximum = d.y;
-    }
-  });
-
-  GraphData.radarXthreshold = Math.pow(
-    10,
-    (Math.log10(GraphData.xMaximum) + Math.log10(GraphData.xMinimum)) / 2
-  );
-  GraphData.radarYthreshold = Math.pow(
-    10,
-    (Math.log10(GraphData.yMinimum) + Math.log10(GraphData.yMaximum)) / 2
-  );
-
-  data.forEach((d) => {
-    let ranktbs = (Constants.Rank.tbs * (maxtbs - d.tbs)) / (maxtbs - mintbs);
-    let rankpv = (Constants.Rank.pv * (d.pv - minpv)) / (maxpv - minpv);
-    let ranklps = (Constants.Rank.lps * (d.lps - minlps)) / (maxlps - minlps);
-    let rankdt = (Constants.Rank.dt * (d.dm - mindt)) / (maxdt - mindt);
-    let ranktcnt =
-      (Constants.Rank.tcnt * (d.x - mintcnt)) / (maxtcnt - mintcnt);
-
-    d.score = ranktbs + rankpv + ranklps + rankdt + ranktcnt;
-
-    if (d.pv >= GraphData.radarYthreshold) {
-      if (d.x >= GraphData.radarXthreshold) {
-        d.quad = 1;
-      } else {
-        d.quad = 2;
-      }
-    } else {
-      if (d.x >= GraphData.radarXthreshold) {
-        d.quad = 3;
-      } else {
-        d.quad = 4;
-      }
-    }
-  });
-
-  data.sort((a, b) => b.score - a.score);
-  let count = 1,
-    totscore = 0;
-  data.forEach((d) => {
-    totscore += d.score;
-    d.rank = count;
-    count++;
-  });
-  data.forEach((d) => {
-    d.score = ((d.score / totscore) * Constants.Rank.stars * cnt) / 2;
-    d.dp = d.dm;
-  });
-}
-
 function SetRank(data) {
   GraphData.xMinimum = Infinity;
   GraphData.xMaximum = 0;
@@ -1734,11 +1612,11 @@ function SetRank(data) {
   let zquan = DocElems.radarzaxisquan.value;
 
   data.forEach((d) => {
-    d.x = d[xquan]
-    d.y = d[yquan]
-    d.z = d[zquan]
+    d.x = d[xquan];
+    d.y = d[yquan];
+    d.z = d[zquan];
 
-    console.log(d)
+    console.log(d);
 
     d.score = d.eminracc;
     totscore += d.score;
@@ -1761,14 +1639,22 @@ function SetRank(data) {
     }
   });
 
-  GraphData.radarXthreshold = Math.pow(
-    10,
-    (Math.log10(GraphData.xMaximum) + Math.log10(GraphData.xMinimum)) / 2
-  );
-  GraphData.radarYthreshold = Math.pow(
-    10,
-    (Math.log10(GraphData.yMinimum) + Math.log10(GraphData.yMaximum)) / 2
-  );
+  if (GraphData.xLogScale) {
+    GraphData.radarXthreshold = Math.pow(
+      10,
+      (Math.log10(GraphData.xMaximum) + Math.log10(GraphData.xMinimum)) / 2
+    );
+  } else {
+    GraphData.radarXthreshold = (GraphData.xMaximum + GraphData.xMinimum) / 2;
+  }
+  if (GraphData.yLogScale) {
+    GraphData.radarYthreshold = Math.pow(
+      10,
+      (Math.log10(GraphData.yMinimum) + Math.log10(GraphData.yMaximum)) / 2
+    );
+  } else {
+    GraphData.radarYthreshold = (GraphData.yMaximum + GraphData.yMinimum) / 2;
+  }
 
   GraphData.TopTen = new Map();
   data.sort((a, b) => b.score - a.score);
