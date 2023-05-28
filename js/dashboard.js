@@ -881,7 +881,7 @@ function main() {
     Fullscreen(DocElems.radarchart)
   );
   DocElems.radarxaxisquan.value = "pv";
-  let filter1 = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
+  let filter1 = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
   GraphData.radarFilters.set(GraphData.FilterId, filter1);
   GraphData.XFilterId = GraphData.FilterId;
   GraphData.FilterId++;
