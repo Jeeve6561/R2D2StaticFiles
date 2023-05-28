@@ -1604,7 +1604,7 @@ function UpdateIndicatorTable() {
 
   CheckForIndicatorTableChange();
 
-  let data = GraphData.radardata;
+  let data = GraphData.PayloadData;
 
   console.log(data);
   
