@@ -567,7 +567,7 @@ const CanvasCharts = {
         type: "bubble",
         // color: Constants.volColor,
         showInLegend: true,
-        legendText: "Size of Bubble Represents Dollars Traded for the day",
+        legendText: "Size of Bubble Represents Loading...",
         legendMarkerType: "circle",
         legendMarkerColor: "grey",
         click: clickBubble,
@@ -1177,6 +1177,9 @@ function UpdateRadarChart() {
     GraphData.YFilterId = GraphData.FilterId;
     GraphData.FilterId++;
     DocElems.radarzaxisquan.value = GraphData.ZQuan;
+    CanvasCharts.Radar.options.data[0].legendText = "Size of Bubble Represents " + GraphData.radarFiltersNameMap.get(
+      GraphData.ZQuan
+    );;
     LoadFiltersOnScreen();
 
     GraphData.ChangeRadarTitle = false;
@@ -1309,6 +1312,9 @@ function CheckForAxisChange() {
   }
   if (GraphData.ZQuan !== DocElems.radarzaxisquan.value) {
     GraphData.ZQuan = DocElems.radarzaxisquan.value;
+    CanvasCharts.Radar.options.data[0].legendText = "Size of Bubble Represents " + GraphData.radarFiltersNameMap.get(
+      GraphData.ZQuan
+    );;
   }
 }
 
