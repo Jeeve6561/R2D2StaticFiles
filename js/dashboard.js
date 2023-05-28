@@ -881,12 +881,12 @@ function main() {
     Fullscreen(DocElems.radarchart)
   );
   DocElems.radarxaxisquan.value = "pv";
-  let filter1 = { quan: DocElems.radaryaxisquan, comp: ">", val: 0 };
+  let filter1 = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
   GraphData.radarFilters.set(GraphData.FilterId, filter1);
   GraphData.XFilterId = GraphData.FilterId;
   GraphData.FilterId++;
   DocElems.radaryaxisquan.value = "lc";
-  let filter2 = { quan: DocElems.radaryaxisquan, comp: ">", val: 0 };
+  let filter2 = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
   GraphData.radarFilters.set(GraphData.FilterId, filter2);
   GraphData.YFilterId = GraphData.FilterId;
   GraphData.FilterId++;
@@ -2232,7 +2232,7 @@ function ToggleXRadarScale() {
     DocElems.radartogglexlogscalebutton.innerHTML = "X Linear Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = GraphData.xLogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = GraphData.xLogScale;
-    let filter = { quan: DocElems.radarxaxisquan, comp: ">", val: 0 };
+    let filter = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
     GraphData.radarFilters.set(GraphData.FilterId, filter);
     GraphData.XFilterId = GraphData.FilterId;
     GraphData.FilterId++;
@@ -2251,7 +2251,7 @@ function ToggleYRadarScale() {
     DocElems.radartoggleylogscalebutton.innerHTML = "Y Linear Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = GraphData.yLogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = GraphData.yLogScale;
-    let filter = { quan: DocElems.radaryaxisquan, comp: ">", val: 0 };
+    let filter = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
     GraphData.radarFilters.set(GraphData.FilterId, filter);
     GraphData.YFilterId = GraphData.FilterId;
     GraphData.FilterId++;
