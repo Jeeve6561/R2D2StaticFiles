@@ -1733,12 +1733,12 @@ function ToggleXRadarScale() {
 
 function ToggleYRadarScale() {
   if (GraphData.yLogScale) {
-    Constants.yLogScale = false;
+    GraphData.yLogScale = false;
     DocElems.radartoggleylogscalebutton.innerHTML = "Y Log Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = Constants.LogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = Constants.LogScale;
   } else {
-    Constants.yLogScale = true;
+    GraphData.yLogScale = true;
     DocElems.radartoggleylogscalebutton.innerHTML = "Y Linear Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = Constants.LogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = Constants.LogScale;
