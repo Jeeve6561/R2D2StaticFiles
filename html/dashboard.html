@@ -39,27 +39,32 @@
           Clear Filter
         </button>
         
+        
+        <button id="togglecolorbutton">Fix Colors</button>
+        <button id="toggleradarbutton">Updating Live</button>
+
+        <div id="currentfilters"></div>
+        <br/>
         <button id="togglexlogscalebutton">X Linear Scale</button>
+        <button id="toggleylogscalebutton">Y Linear Scale</button>
+        X Axis:
         <select id="xaxisquan">
           {{ range $key, $val := .radarfilters }}
             <option value={{$key}}>{{$val}}</option>
           {{ end }}
         </select>
-        <button id="toggleylogscalebutton">Y Linear Scale</button>
+        Y Axis:
         <select id="yaxisquan">
           {{ range $key, $val := .radarfilters }}
             <option value={{$key}}>{{$val}}</option>
           {{ end }}
         </select>
+        Z Axis:
         <select id="zaxisquan">
           {{ range $key, $val := .radarfilters }}
             <option value={{$key}}>{{$val}}</option>
           {{ end }}
         </select>
-        <button id="togglecolorbutton">Fix Colors</button>
-        <button id="toggleradarbutton">Updating Live</button>
-
-        <div id="currentfilters"></div>
       </div>
       <div id="radarcontainer"></div>
     </div>
