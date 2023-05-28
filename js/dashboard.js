@@ -1235,7 +1235,6 @@ function UpdateRadarChart() {
   }
 
   let d = ApplyFilters(data);
-  console.log(d);
   d.sort((a, b) => a.name.localeCompare(b.name));
   const dollarMovement = CalculateTotalDollars(d);
   SetRank(d);
