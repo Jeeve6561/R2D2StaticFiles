@@ -1120,7 +1120,7 @@ const Tables = {
     ],
   }),
 
-  indicatordataagain: new Tabulator("#tableofindicator", {
+  indicatordataagain: new Tabulator("#tableofindicatoragain", {
     data: [],
     layout: "fitData",
     // layout: "fitDataStretch",
