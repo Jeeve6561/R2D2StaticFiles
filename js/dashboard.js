@@ -1211,6 +1211,7 @@ function main() {
     };
 
     setInterval(() => {
+      GetRadarDataFromDB();
       UpdateRadarChart();
       UpdateIndicatorTable();
     }, 400);
@@ -1481,7 +1482,6 @@ function UpdateStockChart(data, sym) {
 }
 
 function UpdateRadarChart() {
-  GetRadarDataFromDB();
   if (GraphData.PayloadData === undefined || GraphData.PayloadData.length === 0) {
     return;
   }
@@ -1595,7 +1595,6 @@ function UpdateRadarChart() {
 }
 
 function UpdateIndicatorTable() {
-  GetIndicatorDataFromDB();
   if (
     GraphData.radardata === undefined ||
     GraphData.radardata.length === 0
