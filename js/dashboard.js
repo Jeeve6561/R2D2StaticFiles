@@ -1097,17 +1097,7 @@ function UpdateStockChart(data, sym) {
   let tp = [];
   let xval;
 
-  let xquan = DocElems.radarxaxisquan.value;
-  let yquan = DocElems.radaryaxisquan.value;
-  let zquan = DocElems.radarzaxisquan.value;
-  console.log(xquan, yquan, zquan);
-
   data.forEach((elem) => {
-    elem.x = elem[xquan]
-    elem.y = elem[yquan]
-    elem.z = elem[zquan]
-    console.log(elem);
-
     if (elem.eminracc > 0) {
       xval = new Date(elem.ht.u);
       tp.push({
@@ -1738,10 +1728,16 @@ function SetRank(data) {
   let totscore = 0;
   let totcount = 0;
   Constants.Rank.maxDollar = 0;
+
+  let xquan = DocElems.radarxaxisquan.value;
+  let yquan = DocElems.radaryaxisquan.value;
+  let zquan = DocElems.radarzaxisquan.value;
+  
   data.forEach((d) => {
-    // d.emin = d.y / d.tbs;
-    // d.emin = d.y * d.x / ((d.tp * d.tbs * Constants.Kpi) / Constants.MinInTradeDay);
-    // d.eminacc = (d.emin / d.ht.m) * Constants.Kpi * 100;
+    elem.x = elem[xquan]
+    elem.y = elem[yquan]
+    elem.z = elem[zquan]
+
     d.score = d.eminracc;
     totscore += d.score;
     totcount++;
