@@ -1459,7 +1459,7 @@ function ApplyFilters(data) {
       });
       toReturn = [...temp];
     } else {
-      console.error("Invalid Radar Filter Comparison");
+      console.error("Invalid Radar Filter Quantity", filter.quan);
       toReturn = [...toReturn];
     }
   });
