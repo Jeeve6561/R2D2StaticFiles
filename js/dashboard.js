@@ -975,15 +975,7 @@ const Tables = {
         formatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
+          precision: 0,
         },
       },
       {
@@ -992,13 +984,6 @@ const Tables = {
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
           symbol: "$",
@@ -1016,13 +1001,6 @@ const Tables = {
           symbol: "$",
           precision: 2,
         },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
       },
       {
         title: "High",
@@ -1030,13 +1008,6 @@ const Tables = {
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
           symbol: "$",
@@ -1054,13 +1025,6 @@ const Tables = {
           symbol: "$",
           precision: 2,
         },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
       },
       {
         title: "Mean",
@@ -1068,13 +1032,6 @@ const Tables = {
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
           symbol: "$",
@@ -1092,13 +1049,6 @@ const Tables = {
           symbol: "$",
           precision: 2,
         },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
       },
       {
         title: "Sdv",
@@ -1106,13 +1056,6 @@ const Tables = {
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
           symbol: "$",
@@ -1144,15 +1087,7 @@ const Tables = {
         formatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
+          precision: 0,
         },
       },
       {
@@ -1161,13 +1096,6 @@ const Tables = {
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
           symbol: "$",
@@ -1185,13 +1113,6 @@ const Tables = {
           symbol: "$",
           precision: 2,
         },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
       },
       {
         title: "High",
@@ -1199,13 +1120,6 @@ const Tables = {
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
           symbol: "$",
@@ -1223,13 +1137,6 @@ const Tables = {
           symbol: "$",
           precision: 2,
         },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
       },
       {
         title: "Mean",
@@ -1237,13 +1144,6 @@ const Tables = {
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
           symbol: "$",
@@ -1261,13 +1161,6 @@ const Tables = {
           symbol: "$",
           precision: 2,
         },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
       },
       {
         title: "Sdv",
@@ -1275,13 +1168,6 @@ const Tables = {
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
           symbol: "$",
