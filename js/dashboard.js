@@ -649,6 +649,7 @@ const Tables = {
         field: "emin",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -669,6 +670,7 @@ const Tables = {
         field: "eminacc",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -689,6 +691,7 @@ const Tables = {
         field: "eminr",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -709,6 +712,7 @@ const Tables = {
         field: "eminracc",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -729,6 +733,7 @@ const Tables = {
         field: "pv",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -749,15 +754,16 @@ const Tables = {
         field: "lps",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
-          precision: 2,
+          precision: 3,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
-          precision: 2,
+          precision: 3,
         },
       },
       {
@@ -765,6 +771,7 @@ const Tables = {
         field: "tbs",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -781,6 +788,7 @@ const Tables = {
         field: "invtbs",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -797,6 +805,7 @@ const Tables = {
         field: "dm",
         topCalc: "sum",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -836,6 +845,7 @@ const Tables = {
         field: "lc",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -854,6 +864,7 @@ const Tables = {
         field: "v",
         topCalc: "sum",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -872,6 +883,7 @@ const Tables = {
         field: "tp",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -892,6 +904,7 @@ const Tables = {
         field: "ap",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
@@ -912,6 +925,7 @@ const Tables = {
         field: "bp",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
+        hozAlign:"right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
