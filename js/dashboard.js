@@ -885,8 +885,6 @@ function main() {
   );
   CanvasCharts.Radar.container.addEventListener("wheel", AddWheelScrollRadar);
 
-  LoadFiltersOnScreen();
-
   setTimeout(() => {
     console.log("Opening database");
     const request = indexedDB.open(
@@ -1179,6 +1177,7 @@ function UpdateRadarChart() {
     GraphData.YFilterId = GraphData.FilterId;
     GraphData.FilterId++;
     DocElems.radarzaxisquan.value = GraphData.ZQuan;
+    LoadFiltersOnScreen();
 
     GraphData.ChangeRadarTitle = false;
   }
