@@ -1595,13 +1595,6 @@ function UpdateRadarChart() {
 }
 
 function UpdateIndicatorTable() {
-  if (
-    GraphData.radardata === undefined ||
-    GraphData.radardata.length === 0
-  ) {
-    return;
-  }
-  console.log("In here");
   if (GraphData.ChangeIndicatorTitle) {
     DocElems.indicatorquan.value = GraphData.IQuan;
 
@@ -1610,7 +1603,7 @@ function UpdateIndicatorTable() {
 
   CheckForIndicatorTableChange();
 
-  let data = GraphData.radardata;
+  let data = GraphData.radardata.i;
 
   console.log(data);
   
