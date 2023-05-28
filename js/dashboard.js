@@ -213,7 +213,8 @@ const GraphData = {
   YQuan: "pv",
   ZQuan: "dm",
   StockQuan: "eminracc",
-  IQuan: "emin",
+  IQuan: "l",
+  IQuanAgain: "s",
   // request: {
   //   sym: "TSLA",
   //   tid: 0,
