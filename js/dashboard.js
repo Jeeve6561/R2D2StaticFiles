@@ -1205,7 +1205,7 @@ function main() {
         RequestWS.sendMessage({
           sym: key,
           rank: val,
-          ev: Constants.TacDataRequest,
+          ev: Constants.RadarDataRequest,
         });
       });
     }, 1000);
