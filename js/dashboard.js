@@ -96,6 +96,7 @@ const DocElems = {
   filtersdiv: document.getElementById("currentfilters"),
   timediv: document.getElementById("currenttime"),
   statchartOpts: document.getElementById("statchartsOptions"),
+  indicatorquan: document.getElementById("indicatorquan"),
 };
 
 const RequestWS = {
