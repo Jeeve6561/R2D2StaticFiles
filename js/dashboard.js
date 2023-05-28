@@ -238,6 +238,8 @@ const GraphData = {
     ["eminr", "Emin Risk"],
     ["eminacc", "Emin Acc"],
     ["eminracc", "Emin Risk Acc"],
+    ["ls", "LS ratio"],
+    ["rs", "Range Sdv"],
   ]),
   lineCoords: {},
   xMinimum: Infinity,
