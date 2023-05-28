@@ -151,6 +151,7 @@ const RequestWS = {
   messageReceived(event) {
     // Constants.stime = performance.now();
     let msg = JSON.parse(event.data);
+    console.log(msg);
     switch (msg.ev) {
       case Constants.ConnectMsg:
         console.log("Name of socket manager:", msg.n);
@@ -165,6 +166,7 @@ const RequestWS = {
         // console.log("--------------------------------------" + GraphData.request.sym +" loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
         break;
       case Constants.PayloadDataRequest:
+        console.log("In here");
         UpdateStockChart(msg.d.d, msg.d.sym);
         // Constants.etime = performance.now()
         // console.log("-------------------------------------- loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
@@ -950,7 +952,7 @@ const Tables = {
 
   indicatordata: new Tabulator("#tableofindicator", {
     data: [],
-    layout: "fitDataFill",
+    layout: "fitData",
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
     pagination: true,
@@ -1592,8 +1594,6 @@ function UpdateIndicatorTable() {
     elem[GraphData.IQuan].sym = elem.sym;
     d.push(elem[GraphData.IQuan]);
   });
-
-  console.log(d);
   
   Tables.indicatordata.setData(d);
 }
