@@ -199,10 +199,13 @@ const GraphData = {
   ChangeRadarTitle: true,
   xLogScale: true,
   yLogScale: true,
-  XFilterId: 0,
-  YFilterId: 0,
+  XFilterId: -1,
+  YFilterId: -1,
   PrevMaxVal: 0,
   PrevMinVal: 0,
+  XQuan: "lc",
+  YQuan: "pv",
+  ZQuan: "dm",
   // request: {
   //   sym: "TSLA",
   //   tid: 0,
@@ -880,17 +883,17 @@ function main() {
   DocElems.fullscreenradarbutton.addEventListener("click", () =>
     Fullscreen(DocElems.radarchart)
   );
-  DocElems.radarxaxisquan.value = "pv";
+  DocElems.radarxaxisquan.value = GraphData.XQuan;
   let filter1 = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
   GraphData.radarFilters.set(GraphData.FilterId, filter1);
   GraphData.XFilterId = GraphData.FilterId;
   GraphData.FilterId++;
-  DocElems.radaryaxisquan.value = "lc";
+  DocElems.radaryaxisquan.value = GraphData.YQuan;
   let filter2 = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
   GraphData.radarFilters.set(GraphData.FilterId, filter2);
   GraphData.YFilterId = GraphData.FilterId;
   GraphData.FilterId++;
-  DocElems.radarzaxisquan.value = "dm";
+  DocElems.radarzaxisquan.value = GraphData.ZQuan;
   CanvasCharts.Radar.container.addEventListener("wheel", AddWheelScrollRadar);
 
   LoadFiltersOnScreen();
@@ -1267,6 +1270,32 @@ function GetRadarDataFromDB() {
   request.onerror = (event) => {
     console.error("Couldn't retrieve data from db");
   };
+}
+
+function CheckForAxisChange() {
+  if (GraphData.XQuan !== DocElems.radarxaxisquan.value){
+    GraphData.XQuan = DocElems.radarxaxisquan.value;
+    if (GraphData.xLogScale && GraphData.XFilterId !== -1) {
+      GraphData.radarFilters.delete(GraphData.FilterId);
+      let filter = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
+      GraphData.radarFilters.set(GraphData.FilterId, filter);
+      GraphData.XFilterId = GraphData.FilterId;
+      GraphData.FilterId++;
+    }
+  }
+  if (GraphData.YQuan !== DocElems.radaryaxisquan.value){
+    GraphData.YQuan = DocElems.radaryaxisquan.value;
+    if (GraphData.yLogScale && GraphData.YFilterId !== -1) {
+      GraphData.radarFilters.delete(GraphData.FilterId);
+      let filter = { quan: DocElems.radaryaxisquan.value, comp: ">", val: 0 };
+      GraphData.radarFilters.set(GraphData.FilterId, filter);
+      GraphData.YFilterId = GraphData.FilterId;
+      GraphData.FilterId++;
+    }
+  }
+  if (GraphData.ZQuan !== DocElems.radarzaxisquan.value){
+    GraphData.ZQuan = DocElems.radarzaxisquan.value;
+  }
 }
 
 function UpdateRadarQuadrants() {
@@ -1886,14 +1915,12 @@ function SetRank(data) {
   let totcount = 0;
   Constants.Rank.maxDollar = 0;
 
-  let xquan = DocElems.radarxaxisquan.value;
-  let yquan = DocElems.radaryaxisquan.value;
-  let zquan = DocElems.radarzaxisquan.value;
+  CheckForAxisChange();
 
   data.forEach((d) => {
-    d.x = d[xquan];
-    d.y = d[yquan];
-    d.z = d[zquan];
+    d.x = d[GraphData.XQuan];
+    d.y = d[GraphData.YQuan];
+    d.z = d[GraphData.ZQuan];
 
     d.score = d.eminracc;
     totscore += d.score;
@@ -1998,6 +2025,7 @@ function ToggleXRadarScale() {
     CanvasCharts.Radar.options.axisX.logarithmic = GraphData.xLogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = GraphData.xLogScale;
     GraphData.radarFilters.delete(GraphData.XFilterId);
+    GraphData.XFilterId = -1;
   } else {
     GraphData.xLogScale = true;
     DocElems.radartogglexlogscalebutton.innerHTML = "X Linear Scale";
@@ -2018,6 +2046,7 @@ function ToggleYRadarScale() {
     CanvasCharts.Radar.options.axisX.logarithmic = GraphData.yLogScale;
     CanvasCharts.Radar.options.axisY.logarithmic = GraphData.yLogScale;
     GraphData.radarFilters.delete(GraphData.YFilterId);
+    GraphData.YFilterId = -1;
   } else {
     GraphData.yLogScale = true;
     DocElems.radartoggleylogscalebutton.innerHTML = "Y Linear Scale";
