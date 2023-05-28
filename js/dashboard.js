@@ -221,12 +221,12 @@ const GraphData = {
   radarFilters: new Map(),
   radarFiltersNameMap: new Map([
     ["pv", "Price Volatility"],
-    ["lps", "Lots Per Second"],
+    ["lps", "Average Lots"],
     ["tbs", "Time to Beat Spread"],
     ["invtbs", "Inverse Time to Beat Spread"],
     ["dm", "Dollars Traded"],
     ["lc", "Number of Lots"],
-    ["v", "Volume"],
+    ["v", "Volume of Shares"],
     ["tp", "Avg Trade Price"],
     ["ap", "Avg Ask Price"],
     ["bp", "Avg Bid Price"],
@@ -590,7 +590,7 @@ const Tables = {
     // rowClick: ClickRadarTableRow,
     pagination: true,
     movableColumns: true,
-    initialSort: [{ column: "eminracc", dir: "desc" }],
+    initialSort: [{ column: "score", dir: "desc" }],
     columns: [
       {
         title: "Sym",
@@ -709,6 +709,42 @@ const Tables = {
         },
       },
       {
+        title: "Price Volatility",
+        field: "pv",
+        topCalc: "avg",
+        cellClick: ClickRadarTableCell,
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Avg Lots",
+        field: "lps",
+        topCalc: "avg",
+        cellClick: ClickRadarTableCell,
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          precision: 2,
+        },
+      },
+      {
         title: "TtBS",
         field: "tbs",
         topCalc: "avg",
@@ -725,44 +761,24 @@ const Tables = {
         },
       },
       {
-        title: "Volatility",
-        field: "y",
+        title: "InvTtBS",
+        field: "invtbs",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
         formatter: "money",
         formatterParams: {
           decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
+          precision: 3,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Lots/Sec",
-        field: "lps",
-        topCalc: "avg",
-        cellClick: ClickRadarTableCell,
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 2,
+          precision: 3,
         },
       },
       {
         title: "Dollars Traded",
-        field: "z",
+        field: "dm",
         topCalc: "sum",
         cellClick: ClickRadarTableCell,
         formatter: "money",
@@ -800,8 +816,8 @@ const Tables = {
         },
       },
       {
-        title: "Tick Count",
-        field: "x",
+        title: "Num of Lots",
+        field: "lc",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
         formatter: "money",
@@ -816,7 +832,7 @@ const Tables = {
         },
       },
       {
-        title: "Volume",
+        title: "Volume of Shares",
         field: "v",
         topCalc: "sum",
         cellClick: ClickRadarTableCell,
@@ -825,6 +841,45 @@ const Tables = {
           decimal: ".",
           thousand: ",",
           precision: 0,
+        },
+      },
+      {
+        title: "Avg Trade Price",
+        field: "tp",
+        topCalc: "avg",
+        cellClick: ClickRadarTableCell,
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Avg Ask Price",
+        field: "ap",
+        topCalc: "avg",
+        cellClick: ClickRadarTableCell,
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Avg Bid Price",
+        field: "bp",
+        topCalc: "avg",
+        cellClick: ClickRadarTableCell,
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
         },
       },
     ],
@@ -1283,7 +1338,7 @@ function UpdateRadarChart() {
     " | Dollars/Min: $" +
     Math.round(dollarMovement / Constants.CurrentMin).toLocaleString();
 
-  Tables.radardata.options.columns[12].formatterParams.max =
+  Tables.radardata.options.columns[13].formatterParams.max =
     Constants.Rank.maxDollar;
   Tables.radardata.setData(d);
 }
