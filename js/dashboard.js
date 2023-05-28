@@ -1514,7 +1514,7 @@ function ClearRadarFilters() {
 function LoadFiltersOnScreen() {
   DocElems.filtersdiv.innerHTML = "| ";
   GraphData.radarFilters.forEach((filter, key) => {
-    if (key !== 0) {
+    if (key !== 0 || true) {
       DocElems.filtersdiv.innerHTML +=
         GraphData.radarFiltersNameMap.get(filter.quan) +
         " " +
