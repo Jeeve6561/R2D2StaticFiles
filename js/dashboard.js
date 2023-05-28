@@ -2007,6 +2007,7 @@ function ToggleXRadarScale() {
     GraphData.XFilterId = GraphData.FilterId;
     GraphData.FilterId++;
   }
+  LoadFiltersOnScreen();
 }
 
 function ToggleYRadarScale() {
@@ -2026,6 +2027,7 @@ function ToggleYRadarScale() {
     GraphData.YFilterId = GraphData.FilterId;
     GraphData.FilterId++;
   }
+  LoadFiltersOnScreen();
 }
 
 function ToggleBubbleColorFlash() {
