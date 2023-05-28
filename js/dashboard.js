@@ -1120,7 +1120,18 @@ function UpdateStockChart(data, sym) {
   CheckForStockAxisChange();
 
   data.forEach((d) => {
-    if (d[GraphData.StockQuan] > 0) {
+    if (GraphData.StockLogScale) {
+      if (d[GraphData.StockQuan] > 0) {
+        xval = new Date(d.ht.u);
+        tp.push({
+          x: xval,
+          y: d[GraphData.StockQuan],
+          l: d.ht.h,
+          sym: sym,
+          rank: i + 1,
+        });
+      }
+    } else {
       xval = new Date(d.ht.u);
       tp.push({
         x: xval,
@@ -1332,7 +1343,7 @@ function CheckForAxisChange() {
 function CheckForStockAxisChange() {
   if (GraphData.StockQuan !== DocElems.stockaxisquan.value) {
     GraphData.StockQuan = DocElems.stockaxisquan.value;
-    CanvasCharts.Radar.options.title.text =
+    CanvasCharts.Stock.options.title.text =
       "Top Ten Plotted on " +
       GraphData.radarFiltersNameMap.get(GraphData.StockQuan);
   }
