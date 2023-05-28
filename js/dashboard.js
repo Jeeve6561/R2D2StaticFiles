@@ -1103,10 +1103,10 @@ function UpdateStockChart(data, sym) {
   console.log(xquan, yquan, zquan);
 
   data.forEach((elem) => {
-    console.log(elem);
     elem.x = elem[xquan]
     elem.y = elem[yquan]
     elem.z = elem[zquan]
+    console.log(elem);
 
     if (elem.eminracc > 0) {
       xval = new Date(elem.ht.u);
