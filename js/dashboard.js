@@ -1732,11 +1732,13 @@ function SetRank(data) {
   let xquan = DocElems.radarxaxisquan.value;
   let yquan = DocElems.radaryaxisquan.value;
   let zquan = DocElems.radarzaxisquan.value;
-  
+
   data.forEach((d) => {
-    elem.x = elem[xquan]
-    elem.y = elem[yquan]
-    elem.z = elem[zquan]
+    d.x = d[xquan]
+    d.y = d[yquan]
+    d.z = d[zquan]
+
+    console.log(d)
 
     d.score = d.eminracc;
     totscore += d.score;
