@@ -2122,8 +2122,6 @@ function SetRank(data) {
     d.y = d[yquan];
     d.z = d[zquan];
 
-    console.log(d);
-
     d.score = d.eminracc;
     totscore += d.score;
     totcount++;
