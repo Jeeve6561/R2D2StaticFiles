@@ -91,6 +91,8 @@ const DocElems = {
   stockchart: document.getElementById("stockchart"),
   fullscreenstockbutton: document.getElementById("fullscreenstockchart"),
   stockdrawingbutton: document.getElementById("stockChartDrawing"),
+  stockaxisquan: document.getElementById("stockaxisquan"),
+  stockaxislog: document.getElementById("stockaxislog"),
   filtersdiv: document.getElementById("currentfilters"),
   timediv: document.getElementById("currenttime"),
   statchartOpts: document.getElementById("statchartsOptions"),
@@ -199,6 +201,7 @@ const GraphData = {
   ChangeRadarTitle: true,
   xLogScale: true,
   yLogScale: true,
+  StockLogScale: true,
   XFilterId: -1,
   YFilterId: -1,
   PrevMaxVal: 0,
@@ -206,6 +209,7 @@ const GraphData = {
   XQuan: "lc",
   YQuan: "pv",
   ZQuan: "dm",
+  StockQuan: "eminracc",
   // request: {
   //   sym: "TSLA",
   //   tid: 0,
@@ -306,7 +310,7 @@ const CanvasCharts = {
           labelFontColor: Constants.fontColor,
           titleFontColor: Constants.fontColor,
           lineColor: Constants.fontColor,
-          logarithmic: true,
+          logarithmic: GraphData.StockLogScale,
           labelFormatter: labelFormatterY1,
         },
         data: [
@@ -863,6 +867,8 @@ function main() {
     Fullscreen(DocElems.stockchart)
   );
   DocElems.stockdrawingbutton.addEventListener("click", ToggleDrawing);
+  DocElems.stockaxislog.addEventListener("click", ToggleStockScale);
+  DocElems.stockaxisquan.value = GraphData.StockQuan;
 
   CanvasCharts.Radar.render();
 
@@ -1101,7 +1107,9 @@ function UpdateStockChart(data, sym) {
   }
 
   if (GraphData.ChangeStockTitle) {
-    CanvasCharts.Stock.options.title.text = "Top Ten Ranked";
+    CanvasCharts.Radar.options.title.text =
+      "Top Ten Plotted on " +
+      GraphData.radarFiltersNameMap.get(GraphData.StockQuan);
     GraphData.ChangeStockTitle = false;
   }
   let i = GraphData.TopTen.get(sym);
@@ -1109,13 +1117,15 @@ function UpdateStockChart(data, sym) {
   let tp = [];
   let xval;
 
-  data.forEach((elem) => {
-    if (elem.eminracc > 0) {
-      xval = new Date(elem.ht.u);
+  CheckForStockAxisChange();
+
+  data.forEach((d) => {
+    if (d[GraphData.StockQuan] > 0) {
+      xval = new Date(d.ht.u);
       tp.push({
         x: xval,
-        y: elem.eminracc,
-        l: elem.ht.h,
+        y: d[GraphData.StockQuan],
+        l: d.ht.h,
         sym: sym,
         rank: i + 1,
       });
@@ -1316,6 +1326,15 @@ function CheckForAxisChange() {
     CanvasCharts.Radar.options.data[0].legendText =
       "Size of Bubble Represents " +
       GraphData.radarFiltersNameMap.get(GraphData.ZQuan);
+  }
+}
+
+function CheckForStockAxisChange() {
+  if (GraphData.StockQuan !== DocElems.stockaxisquan.value) {
+    GraphData.StockQuan = DocElems.stockaxisquan.value;
+    CanvasCharts.Radar.options.title.text =
+      "Top Ten Plotted on " +
+      GraphData.radarFiltersNameMap.get(GraphData.StockQuan);
   }
 }
 
@@ -1631,6 +1650,19 @@ function ToggleYRadarScale() {
     GraphData.radarFilters.set(GraphData.FilterId, filter);
     GraphData.YFilterId = GraphData.FilterId;
     GraphData.FilterId++;
+  }
+  LoadFiltersOnScreen();
+}
+
+function ToggleStockScale() {
+  if (GraphData.StockLogScale) {
+    GraphData.StockLogScale = false;
+    DocElems.stockaxislog.innerHTML = "Log Graph";
+    CanvasCharts.Stock.charts[0].axisY2.logarithmic = GraphData.StockLogScale;
+  } else {
+    GraphData.StockLogScale = true;
+    DocElems.stockaxislog.innerHTML = "Linear Graph";
+    CanvasCharts.Stock.charts[0].axisY2.logarithmic = GraphData.StockLogScale;
   }
   LoadFiltersOnScreen();
 }

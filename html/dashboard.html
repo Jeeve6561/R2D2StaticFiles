@@ -76,6 +76,12 @@
         </button>
         <button id="stockChartResetZoom">Updating Live</button>
         <button id="stockChartDrawing">Enable Line Drawing</button>
+        <button id="stockaxislog">Linear Graph</button>
+        <select id="stockaxisquan">
+          {{ range $key, $val := .radarfilters }}
+            <option value={{$key}}>{{$val}}</option>
+          {{ end }}
+        </select>
       </div>
       <div id="stockchartContainer"></div>
     </div>
