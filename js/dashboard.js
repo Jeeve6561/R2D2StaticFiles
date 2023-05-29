@@ -210,10 +210,10 @@ const GraphData = {
   YFilterId: -1,
   PrevMaxVal: 0,
   PrevMinVal: 0,
-  XQuan: "lc",
-  YQuan: "pv",
+  XQuan: "eminracc",
+  YQuan: "ls",
   ZQuan: "dm",
-  StockQuan: "eminracc",
+  StockQuan: "ls",
   IQuan: "l",
   IQuanAgain: "s",
   // request: {
