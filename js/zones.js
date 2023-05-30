@@ -421,7 +421,7 @@ function main() {
 }
 
 function clickSymbolInput() {
-  GraphData.ZoneSymbol = DocElems.symbolinput.value;
+  Constants.ZoneSymbol = DocElems.symbolinput.value;
   DocElems.symbolinput.value = "";
 }
 
