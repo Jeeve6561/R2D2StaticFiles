@@ -123,7 +123,7 @@ const Tables = {
       {
         title: "Id",
         field: "id",
-        topCalc: "count",
+        topCalc: "sum",
       },
       {
         title: "Quad",
@@ -134,7 +134,6 @@ const Tables = {
       {
         title: "Rank",
         field: "r",
-        topCalc: "count",
         hozAlign: "right",
       },
       {
@@ -184,13 +183,13 @@ const Tables = {
       {
         title: "Sec",
         field: "sec",
-        topCalc: "count",
+        topCalc: "max",
         hozAlign: "right",
       },
       {
         title: "Min",
         field: "min",
-        topCalc: "count",
+        topCalc: "max",
         hozAlign: "right",
       },
       {
