@@ -218,10 +218,10 @@ const Tables = {
         topCalc: "avg",
         hozAlign: "right",
         formatter: (e, params, onRendered) => {
-          return e.getValue() + "%";
+          return Math.round(e.getValue() * 100) / 100 + "%";
         },
         topCalcFormatter: (e, params, onRendered) => {
-          return e.getValue() + "%";
+          return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
       {
