@@ -363,14 +363,13 @@ function main() {
 
 function HandleZoneData(data) {
   let d = [];
-  console.log(data);
 
   if (data.length === 0) {
     return;
   }
 
-  // let elem = data[data.length - 1];
-  let elem = data;
+  let elem = data[data.length - 1];
+  console.log(elem);
 
   switch (Constants.Quadrant) {
     case "1":
