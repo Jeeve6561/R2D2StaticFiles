@@ -215,7 +215,7 @@ const Tables = {
       },
       {
         title: "EminA",
-        field: "eminamean",
+        field: "eminaval",
         topCalc: "avg",
         hozAlign: "right",
         formatter: "money",
