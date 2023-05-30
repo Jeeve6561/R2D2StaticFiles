@@ -218,10 +218,10 @@ const Tables = {
         topCalc: "avg",
         hozAlign: "right",
         formatter: (e, params, onRendered) => {
-          return "%" + e.getValue();
+          return e.getValue() + "%";
         },
         topCalcFormatter: (e, params, onRendered) => {
-          return "%" + e.getValue();
+          return e.getValue() + "%";
         },
       },
       {
@@ -374,6 +374,7 @@ function HandleZoneData(data) {
   let d = [];
 
   if (data.length === 0) {
+    Tables.Zones.setData(d);
     return;
   }
 
