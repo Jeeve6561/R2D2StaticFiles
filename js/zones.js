@@ -144,18 +144,6 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "Sec",
-        field: "sec",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Min",
-        field: "min",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
         title: "Tail",
         field: "ts",
         topCalc: "count",
@@ -192,6 +180,18 @@ const Tables = {
           symbol: "$",
           precision: 2,
         },
+      },
+      {
+        title: "Sec",
+        field: "sec",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Min",
+        field: "min",
+        topCalc: "count",
+        hozAlign: "right",
       },
       {
         title: "Emin",
