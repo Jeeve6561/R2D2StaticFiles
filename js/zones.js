@@ -108,26 +108,86 @@ const Tables = {
     // rowClick: ClickRadarTableRow,
     pagination: true,
     movableColumns: true,
-    initialSort: [{ column: "score", dir: "desc" }],
+    initialSort: [{ column: "id", dir: "desc" }],
     columns: [
       {
         title: "Sym",
-        field: "name",
+        field: "sym",
         topCalc: "count",
-        // cellClick: ClickRadarTableCell,
         frozen: true,
       },
-      { title: "Rank", field: "rank", topCalc: "count" },
       {
-        title: "Q",
-        field: "quad",
-        // cellClick: ClickRadarTableCell,
+        title: "Quad",
+        field: "q",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Rank",
+        field: "r",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Zone",
+        field: "zone",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Sec",
+        field: "sec",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Min",
+        field: "min",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Tail",
+        field: "ts",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Entry",
+        field: "ent",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Exit",
+        field: "ext",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Cpl",
+        field: "cplsum",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
       },
       {
         title: "Emin",
-        field: "emin",
+        field: "eminsum",
         topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -145,10 +205,9 @@ const Tables = {
         },
       },
       {
-        title: "EminAcc",
-        field: "eminacc",
+        title: "EminA",
+        field: "eminamean",
         topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -166,10 +225,9 @@ const Tables = {
         },
       },
       {
-        title: "EminR",
-        field: "eminr",
+        title: "EminA Risk",
+        field: "eminasdv",
         topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -187,10 +245,9 @@ const Tables = {
         },
       },
       {
-        title: "EminRAcc",
-        field: "eminracc",
+        title: "Dur Mean",
+        field: "durmean",
         topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -208,103 +265,27 @@ const Tables = {
         },
       },
       {
-        title: "Price Volatility",
-        field: "pv",
+        title: "Tot Dur",
+        field: "dursum",
         topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 2,
+          precision: 0,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 2,
+          precision: 0,
         },
       },
       {
-        title: "Avg Lots",
-        field: "lps",
-        topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 3,
-        },
-      },
-      {
-        title: "TtBS",
-        field: "tbs",
-        topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 3,
-        },
-      },
-      {
-        title: "InvTtBS",
-        field: "invtbs",
-        topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 3,
-        },
-      },
-      {
-        title: "Dollars Traded",
-        field: "dm",
+        title: "Shares",
+        field: "s",
         topCalc: "sum",
-        // cellClick: ClickRadarTableCell,
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 0,
-        },
-      },
-      {
-        title: "Num of Lots",
-        field: "lc",
-        topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -317,88 +298,6 @@ const Tables = {
           decimal: ".",
           thousand: ",",
           precision: 0,
-        },
-      },
-      {
-        title: "Volume of Shares",
-        field: "v",
-        topCalc: "sum",
-        // cellClick: ClickRadarTableCell,
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Avg Trade Price",
-        field: "tp",
-        topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Avg Ask Price",
-        field: "ap",
-        topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Avg Bid Price",
-        field: "bp",
-        topCalc: "avg",
-        // cellClick: ClickRadarTableCell,
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
         },
       },
     ],
@@ -428,45 +327,47 @@ function main() {
 function HandleZoneData(data) {
   d = [];
 
-  switch (Constants.Quadrant) {
-    case "1":
-      data.q1.forEach((elem) => {
-        console.log(elem);
-      });
-      break;
-    case "2":
-      data.q2.forEach((elem) => {
-        console.log(elem);
-      });
-      break;
-    case "3":
-      data.q3.forEach((elem) => {
-        console.log(elem);
-      });
-      break;
-    case "4":
-      data.q4.forEach((elem) => {
-        console.log(elem);
-      });
-      break;
-    case "all":
-      data.q1.forEach((elem) => {
-        console.log(elem);
-      });
-      data.q2.forEach((elem) => {
-        console.log(elem);
-      });
-      data.q3.forEach((elem) => {
-        console.log(elem);
-      });
-      data.q4.forEach((elem) => {
-        console.log(elem);
-      });
-      break;
-    default:
-      console.error("Received invalid quadrant:", Constants.Quadrant);
-      break;
-  }
+  data.q1.forEach((elem) => {
+    switch (Constants.Quadrant) {
+      case "1":
+        elem.q1.forEach((elem) => {
+          d.push(elem);
+        });
+        break;
+      case "2":
+        elem.q2.forEach((elem) => {
+          d.push(elem);
+        });
+        break;
+      case "3":
+        elem.q3.forEach((elem) => {
+          d.push(elem);
+        });
+        break;
+      case "4":
+        elem.q4.forEach((elem) => {
+          d.push(elem);
+        });
+        break;
+      case "all":
+        elem.q1.forEach((elem) => {
+          d.push(elem);
+        });
+        elem.q2.forEach((elem) => {
+          d.push(elem);
+        });
+        elem.q3.forEach((elem) => {
+          d.push(elem);
+        });
+        elem.q4.forEach((elem) => {
+          d.push(elem);
+        });
+        break;
+      default:
+        console.error("Received invalid quadrant:", Constants.Quadrant);
+        break;
+    }
+  });
 
   Tables.Zones.setData(d);
 }
