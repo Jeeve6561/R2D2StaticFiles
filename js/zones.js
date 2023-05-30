@@ -2,12 +2,11 @@ const Constants = {
   Ipaddress: "",
   Origin: "",
   RequestWSUrl: "",
+  RequestWSExt: ":55555/wstacstream",
+  ThisProgram: "R2D2",
 
   SymZoneDataRequest: "symbolzonedatarequest",
-
   ZoneSymbol: "TSLA",
-
-  ThisProgram: "R2D2 Client",
 };
 
 const DocElems = {
