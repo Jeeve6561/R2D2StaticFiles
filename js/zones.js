@@ -176,7 +176,7 @@ const Tables = {
       {
         title: "Cpl",
         field: "cplsum",
-        topCalc: "avg",
+        topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -196,7 +196,7 @@ const Tables = {
       {
         title: "Emin",
         field: "eminsum",
-        topCalc: "avg",
+        topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
