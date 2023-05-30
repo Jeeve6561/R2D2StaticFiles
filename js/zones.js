@@ -4,6 +4,10 @@ const Constants = {
   RequestWSUrl: "",
 
   SymZoneDataRequest: "symbolzonedatarequest",
+
+  ZoneSymbol: "TSLA",
+
+  ThisProgram: "R2D2 Client",
 };
 
 const DocElems = {
@@ -66,6 +70,7 @@ const RequestWS = {
     let msg = JSON.parse(event.data);
     switch (msg.ev) {
       case Constants.SymZoneDataRequest:
+        console.log(msg.d);
         break;
       default:
         console.log(msg);
@@ -91,10 +96,6 @@ const RequestWS = {
     }
   },
 };
-
-const GraphData = {};
-
-const CanvasCharts = {};
 
 const Tables = {
   Zones: new Tabulator("#zonetable", {
@@ -408,6 +409,11 @@ function main() {
   Constants.RequestWSUrl =
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
   RequestWS.connect();
+
+  RequestWS.sendMessage({
+    sym: Constants.ZoneSymbol,
+    ev: Constants.SymZoneDataRequest,
+  })
 }
 
 main();
