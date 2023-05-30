@@ -363,6 +363,7 @@ function main() {
 
 function HandleZoneData(data) {
   let d = [];
+  console.log(data);
 
   if (data.length === 0) {
     return;
