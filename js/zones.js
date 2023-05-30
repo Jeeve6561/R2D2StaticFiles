@@ -73,11 +73,7 @@ const RequestWS = {
     switch (msg.ev) {
       case Constants.SymZoneDataRequest:
         console.log(msg);
-        if (msg.d) {
-          if (msg.d.d) {
-            HandleZoneData(msg.d.d);
-          }
-        }
+        HandleZoneData(msg.d.d);
         break;
       default:
         console.log(msg);
