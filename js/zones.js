@@ -110,7 +110,7 @@ const Tables = {
         title: "Sym",
         field: "name",
         topCalc: "count",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         frozen: true,
       },
       { title: "Rank", field: "rank", topCalc: "count" },
@@ -118,7 +118,7 @@ const Tables = {
         title: "Rating",
         field: "score",
         topCalc: "count",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         formatter: "star",
         formatterParams: {
           star: Constants.Rank.stars,
@@ -127,13 +127,13 @@ const Tables = {
       {
         title: "Q",
         field: "quad",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
       },
       {
         title: "Emin",
         field: "emin",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -154,7 +154,7 @@ const Tables = {
         title: "EminAcc",
         field: "eminacc",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -175,7 +175,7 @@ const Tables = {
         title: "EminR",
         field: "eminr",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -196,7 +196,7 @@ const Tables = {
         title: "EminRAcc",
         field: "eminracc",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -217,7 +217,7 @@ const Tables = {
         title: "Price Volatility",
         field: "pv",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -238,7 +238,7 @@ const Tables = {
         title: "Avg Lots",
         field: "lps",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -255,7 +255,7 @@ const Tables = {
         title: "TtBS",
         field: "tbs",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -272,7 +272,7 @@ const Tables = {
         title: "InvTtBS",
         field: "invtbs",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -289,7 +289,7 @@ const Tables = {
         title: "Dollars Traded",
         field: "dm",
         topCalc: "sum",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -310,7 +310,7 @@ const Tables = {
         title: "Progress",
         field: "dp",
         topCalc: "max",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         formatter: "progress",
         formatterParams: {
           min: 0,
@@ -329,7 +329,7 @@ const Tables = {
         title: "Num of Lots",
         field: "lc",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -348,7 +348,7 @@ const Tables = {
         title: "Volume of Shares",
         field: "v",
         topCalc: "sum",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -367,7 +367,7 @@ const Tables = {
         title: "Avg Trade Price",
         field: "tp",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -388,7 +388,7 @@ const Tables = {
         title: "Avg Ask Price",
         field: "ap",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -409,7 +409,7 @@ const Tables = {
         title: "Avg Bid Price",
         field: "bp",
         topCalc: "avg",
-        cellClick: ClickRadarTableCell,
+        // cellClick: ClickRadarTableCell,
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
