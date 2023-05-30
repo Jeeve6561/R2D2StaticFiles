@@ -336,8 +336,12 @@ function main() {
 function HandleZoneData(data) {
   let d = [];
 
+  if (data.length === 0) {
+    return;
+  }
+
   let elem = data[data.length - 1];
-  
+
     switch (Constants.Quadrant) {
       case "1":
         if (elem.q1) {
