@@ -290,6 +290,24 @@ const Tables = {
         },
       },
       {
+        title: "Dur % in Mkt",
+        field: "durpc",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 3,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 3,
+        },
+      },
+      {
         title: "Shares",
         field: "s",
         topCalc: "sum",
