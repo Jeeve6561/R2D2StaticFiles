@@ -336,7 +336,8 @@ function main() {
 function HandleZoneData(data) {
   let d = [];
 
-  data.forEach((elem) => {
+  let elem = data[data.length - 1];
+  
     switch (Constants.Quadrant) {
       case "1":
         if (elem.q1) {
@@ -392,7 +393,7 @@ function HandleZoneData(data) {
         console.error("Received invalid quadrant:", Constants.Quadrant);
         break;
     }
-  });
+
 
   Tables.Zones.setData(d);
 }
