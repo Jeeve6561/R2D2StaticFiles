@@ -7,12 +7,15 @@ const Constants = {
 
   SymZoneDataRequest: "symbolzonedatarequest",
   ZoneSymbol: "TSLA",
+  Quadrant: "all",
 };
 
 const DocElems = {
   Ipaddress: document.getElementById("ipaddress"),
   symbolinput: document.getElementById("symbolinput"),
   symbolinputbutton: document.getElementById("symbolinputbutton"),
+  quadrantinput: document.getElementById("quadrantinput"),
+  quadrantinputbutton: document.getElementById("quadrantinputbutton"),
 };
 
 const RequestWS = {
@@ -70,6 +73,7 @@ const RequestWS = {
     switch (msg.ev) {
       case Constants.SymZoneDataRequest:
         console.log(msg.d);
+        HandleZoneData(msg.d);
         break;
       default:
         console.log(msg);
@@ -409,6 +413,7 @@ function main() {
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
 
   DocElems.symbolinputbutton.addEventListener("click", clickSymbolInput);
+  DocElems.quadrantinputbutton.addEventListener("click", clickQuadrantInput);
 
   RequestWS.connect();
 
@@ -420,9 +425,59 @@ function main() {
   }, 1000);
 }
 
+function HandleZoneData(data) {
+  d = [];
+
+  switch (Constants.Quadrant) {
+    case "1":
+      data.q1.forEach((elem) => {
+        console.log(elem);
+      });
+      break;
+    case "2":
+      data.q2.forEach((elem) => {
+        console.log(elem);
+      });
+      break;
+    case "3":
+      data.q3.forEach((elem) => {
+        console.log(elem);
+      });
+      break;
+    case "4":
+      data.q4.forEach((elem) => {
+        console.log(elem);
+      });
+      break;
+    case "all":
+      data.q1.forEach((elem) => {
+        console.log(elem);
+      });
+      data.q2.forEach((elem) => {
+        console.log(elem);
+      });
+      data.q3.forEach((elem) => {
+        console.log(elem);
+      });
+      data.q4.forEach((elem) => {
+        console.log(elem);
+      });
+      break;
+    default:
+      console.error("Received invalid quadrant:", Constants.Quadrant);
+      break;
+  }
+
+  Tables.Zones.setData(d);
+}
+
 function clickSymbolInput() {
   Constants.ZoneSymbol = DocElems.symbolinput.value;
   DocElems.symbolinput.value = "";
+}
+
+function clickQuadrantInput() {
+  Constants.Quadrant = DocElems.quadrantinput.value;
 }
 
 main();
