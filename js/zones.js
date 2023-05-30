@@ -115,16 +115,6 @@ const Tables = {
       },
       { title: "Rank", field: "rank", topCalc: "count" },
       {
-        title: "Rating",
-        field: "score",
-        topCalc: "count",
-        // cellClick: ClickRadarTableCell,
-        formatter: "star",
-        formatterParams: {
-          star: Constants.Rank.stars,
-        },
-      },
-      {
         title: "Q",
         field: "quad",
         // cellClick: ClickRadarTableCell,
@@ -297,25 +287,6 @@ const Tables = {
           thousand: ",",
           symbol: "$",
           precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 0,
-        },
-      },
-      {
-        title: "Progress",
-        field: "dp",
-        topCalc: "max",
-        // cellClick: ClickRadarTableCell,
-        formatter: "progress",
-        formatterParams: {
-          min: 0,
-          max: Constants.Rank.maxDollar,
-          // legendAlign: "center",
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
