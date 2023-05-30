@@ -369,7 +369,8 @@ function HandleZoneData(data) {
     return;
   }
 
-  let elem = data[data.length - 1];
+  // let elem = data[data.length - 1];
+  let elem = data;
 
   switch (Constants.Quadrant) {
     case "1":
