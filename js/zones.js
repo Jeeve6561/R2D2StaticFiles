@@ -108,7 +108,11 @@ const Tables = {
     // rowClick: ClickRadarTableRow,
     pagination: true,
     movableColumns: true,
-    initialSort: [{ column: "id", dir: "desc" }],
+    initialSort: [
+      { column: "id", dir: "desc" },
+      { column: "rank", dir: "asc" },
+      { column: "sec", dir: "desc" },
+    ],
     columns: [
       {
         title: "Sym",
