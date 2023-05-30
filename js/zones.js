@@ -327,7 +327,7 @@ function main() {
 function HandleZoneData(data) {
   d = [];
 
-  data.q1.forEach((elem) => {
+  data.forEach((elem) => {
     switch (Constants.Quadrant) {
       case "1":
         elem.q1.forEach((elem) => {
