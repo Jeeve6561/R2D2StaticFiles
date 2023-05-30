@@ -407,12 +407,22 @@ function main() {
   Constants.Origin = "http://" + Constants.Ipaddress + ":50000/";
   Constants.RequestWSUrl =
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
+
+  DocElems.symbolinputbutton.addEventListener("click", clickSymbolInput);
+
   RequestWS.connect();
 
-  RequestWS.sendMessage({
-    sym: Constants.ZoneSymbol,
-    ev: Constants.SymZoneDataRequest,
-  })
+  setInterval(() => {
+    RequestWS.sendMessage({
+      sym: Constants.ZoneSymbol,
+      ev: Constants.SymZoneDataRequest,
+    });
+  }, 1000);
+}
+
+function clickSymbolInput() {
+  GraphData.ZoneSymbol = DocElems.symbolinput.value;
+  DocElems.symbolinput.value = "";
 }
 
 main();
