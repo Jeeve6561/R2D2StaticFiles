@@ -117,6 +117,11 @@ const Tables = {
         frozen: true,
       },
       {
+        title: "Id",
+        field: "id",
+        topCalc: "count",
+      },
+      {
         title: "Quad",
         field: "q",
         topCalc: "count",
