@@ -72,7 +72,7 @@ const RequestWS = {
     let msg = JSON.parse(event.data);
     switch (msg.ev) {
       case Constants.SymZoneDataRequest:
-        console.log(msg.d);
+        console.log(msg);
         HandleZoneData(msg.d.d);
         break;
       default:
