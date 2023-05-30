@@ -218,19 +218,11 @@ const Tables = {
         field: "eminaval",
         topCalc: "avg",
         hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
+        formatter: (e, params, onRendered) => {
+          return "%" + e.getValue();
         },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
+        topCalcFormatter: (e, params, onRendered) => {
+          return "%" + e.getValue();
         },
       },
       {
