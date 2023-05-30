@@ -262,15 +262,13 @@ const Tables = {
         formatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 2,
+          precision: 3,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 2,
+          precision: 3,
         },
       },
       {
@@ -282,13 +280,13 @@ const Tables = {
         formatterParams: {
           decimal: ".",
           thousand: ",",
-          precision: 0,
+          precision: 3,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          precision: 0,
+          precision: 3,
         },
       },
       {
