@@ -109,9 +109,9 @@ const Tables = {
     pagination: true,
     movableColumns: true,
     initialSort: [
-      { column: "id", dir: "desc" },
-      { column: "rank", dir: "asc" },
       { column: "sec", dir: "desc" },
+      { column: "rank", dir: "asc" },
+      { column: "id", dir: "desc" },
     ],
     columns: [
       {
@@ -334,7 +334,7 @@ function main() {
 }
 
 function HandleZoneData(data) {
-  d = [];
+  let d = [];
 
   data.forEach((elem) => {
     switch (Constants.Quadrant) {
