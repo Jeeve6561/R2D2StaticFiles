@@ -330,38 +330,54 @@ function HandleZoneData(data) {
   data.forEach((elem) => {
     switch (Constants.Quadrant) {
       case "1":
-        elem.q1.forEach((elem) => {
-          d.push(elem);
-        });
+        if (elem.q1) {
+          elem.q1.forEach((elem) => {
+            d.push(elem);
+          });
+        }
         break;
       case "2":
-        elem.q2.forEach((elem) => {
-          d.push(elem);
-        });
+        if (elem.q2) {
+          elem.q2.forEach((elem) => {
+            d.push(elem);
+          });
+        }
         break;
       case "3":
-        elem.q3.forEach((elem) => {
-          d.push(elem);
-        });
+        if (elem.q3) {
+          elem.q3.forEach((elem) => {
+            d.push(elem);
+          });
+        }
         break;
       case "4":
-        elem.q4.forEach((elem) => {
-          d.push(elem);
-        });
+        if (elem.q4) {
+          elem.q4.forEach((elem) => {
+            d.push(elem);
+          });
+        }
         break;
       case "all":
-        elem.q1.forEach((elem) => {
-          d.push(elem);
-        });
-        elem.q2.forEach((elem) => {
-          d.push(elem);
-        });
-        elem.q3.forEach((elem) => {
-          d.push(elem);
-        });
-        elem.q4.forEach((elem) => {
-          d.push(elem);
-        });
+        if (elem.q1) {
+          elem.q1.forEach((elem) => {
+            d.push(elem);
+          });
+        }
+        if (elem.q2) {
+          elem.q2.forEach((elem) => {
+            d.push(elem);
+          });
+        }
+        if (elem.q3) {
+          elem.q3.forEach((elem) => {
+            d.push(elem);
+          });
+        }
+        if (elem.q4) {
+          elem.q4.forEach((elem) => {
+            d.push(elem);
+          });
+        }
         break;
       default:
         console.error("Received invalid quadrant:", Constants.Quadrant);
