@@ -151,7 +151,7 @@ function WriteToDB(dbname, storename, data) {
   const putRequest = store.put(data);
 
   putRequest.onsuccess = function (event) {
-    console.log("Successfully added to the database");
+    // console.log("Successfully added to the database");
   };
 
   putRequest.onblocked = function (event) {
