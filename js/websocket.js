@@ -86,7 +86,7 @@ const LiveFeedWS = {
 
   messageReceived(event) {
     let msg = JSON.parse(event.data);
-    console.log(msg);
+    // console.log(msg);
     switch (msg.ev) {
       case Constants.ConnectMsg:
         console.log("Name of socket manager:", msg.n);
@@ -95,7 +95,7 @@ const LiveFeedWS = {
         HandleDataFromSocket(msg.d, 1);
         break;
       case Constants.HypothesesPayload:
-        console.log(msg);
+        console.log(msg.d);
         break;
       case Constants.Indicators:
         HandleDataFromSocket(msg.d, 2);
