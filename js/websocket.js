@@ -7,6 +7,7 @@ const Constants = {
   EV_WSInit: "wsinit",
   Sympayload: "sympayload", // FIX THIS PLEASEEEEEEEEEEEEEEEE
   Indicators: "indicators",
+  HypothesesPayload: "hypothesisPayload",
   EV_WSSymPayloadUpdate: "sympayloadupdate",
 
   MarketStatus_ClosedAM: "ClosedAM",
@@ -93,6 +94,9 @@ const LiveFeedWS = {
       case Constants.Sympayload:
         HandleDataFromSocket(msg.d, 1);
         break;
+      case Constants.HypothesesPayload:
+        console.log(msg);
+        break;
       case Constants.Indicators:
         HandleDataFromSocket(msg.d, 2);
         break;
@@ -136,7 +140,7 @@ function HandleDataFromSocket(data, id) {
 function WriteToDB(dbname, storename, data) {
   const transaction = Constants.Db.transaction(storename, "readwrite");
   const store = transaction.objectStore(storename);
-  
+
   const putRequest = store.put(data);
 
   putRequest.onsuccess = function (event) {
