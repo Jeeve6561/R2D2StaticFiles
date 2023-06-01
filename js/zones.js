@@ -333,35 +333,40 @@ function HandleZoneData(id) {
     return;
   }
 
-  let elem = data[data.length - 1];
+  // let elem = [];
+  data.forEach((e) => {
+    if (e.sym === Constants.ZoneSymbol){
+      d = e.h;
+    }
+  });
 
-  if (Constants.Quadrant == "1") {
-    elem.forEach((e) => {
-      if (e.q === 1) {
-        d.push(e);
-      }
-    });
-  } else if (Constants.Quadrant == "2") {
-    elem.forEach((e) => {
-      if (e.q === 2) {
-        d.push(e);
-      }
-    });
-  } else if (Constants.Quadrant == "3") {
-    elem.forEach((e) => {
-      if (e.q === 3) {
-        d.push(e);
-      }
-    });
-  } else if (Constants.Quadrant == "4") {
-    elem.forEach((e) => {
-      if (e.q === 4) {
-        d.push(e);
-      }
-    });
-  } else {
-    d = [...elem];
-  }
+  // if (Constants.Quadrant == "1") {
+  //   elem.forEach((e) => {
+  //     if (e.q === 1) {
+  //       d.push(e);
+  //     }
+  //   });
+  // } else if (Constants.Quadrant == "2") {
+  //   elem.forEach((e) => {
+  //     if (e.q === 2) {
+  //       d.push(e);
+  //     }
+  //   });
+  // } else if (Constants.Quadrant == "3") {
+  //   elem.forEach((e) => {
+  //     if (e.q === 3) {
+  //       d.push(e);
+  //     }
+  //   });
+  // } else if (Constants.Quadrant == "4") {
+  //   elem.forEach((e) => {
+  //     if (e.q === 4) {
+  //       d.push(e);
+  //     }
+  //   });
+  // } else {
+  //   d = [...elem];
+  // }
 
   Tables.Zones.setData(d);
 }
