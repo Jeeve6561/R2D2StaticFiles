@@ -37,7 +37,7 @@ const Constants = {
 
   IdToWrite: 0,
   OpenDataBase: "openDB",
-  DataUpdate:"updateddata",
+  DataUpdate: "updateddata",
 };
 
 const LiveFeedWS = {
@@ -208,6 +208,7 @@ function CreateAndInitAllDatabases(stores) {
     });
     console.log("Created all the stores");
     Constants.StartWritingToDatabase = true;
+    self.postMessage({ ev: Constants.OpenDataBase });
   };
 
   openRequest.onerror = function (event) {
