@@ -72,7 +72,6 @@ const RequestWS = {
     let msg = JSON.parse(event.data);
     switch (msg.ev) {
       case Constants.SymZoneDataRequest:
-        console.log(msg);
         HandleZoneData(msg.d.d);
         break;
       default:
@@ -380,7 +379,6 @@ function HandleZoneData(data) {
   }
 
   let elem = data[data.length - 1];
-  console.log(elem);
 
   if (Constants.Quadrant == "1") {
     elem.forEach((e) => {
