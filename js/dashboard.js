@@ -196,7 +196,7 @@ const RequestWS = {
 };
 
 const GraphData = {
-  LiveUpdate: true,
+  LiveUpdate: false,
   LiveUpdateInit: false,
   RadarUpdate: true,
   ChangeStockTitle: true,
@@ -1253,7 +1253,7 @@ function main() {
     };
 
     setInterval(() => {
-      if (GraphData.LiveUpdate) {
+      if (GraphData.RadarUpdate) {
         GetRadarDataFromDB();
         UpdateRadarChart();
         UpdateIndicatorTable();
