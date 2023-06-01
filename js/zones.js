@@ -17,7 +17,7 @@ const Constants = {
   Id: 2,
   ZoneSymbol: "TSLA",
   Quadrant: "all",
-  ZoneData: [],
+  ZoneData: { h: [], id: 2 },
 
   OpenDataBase: "openDB",
   DataUpdate: "updateddata",
@@ -325,13 +325,15 @@ function HandleZoneData(id) {
 
   console.log(Constants.ZoneData);
 
-  if (Constants.ZoneData.length === 0) {
+  let data = Constants.ZoneData.h;
+
+  if (data.length === 0) {
     // Tables.Zones.setData(d);
     Tables.Zones.clearData();
     return;
   }
 
-  let elem = Constants.ZoneData[Constants.ZoneData.length - 1];
+  let elem = data[data.length - 1];
 
   if (Constants.Quadrant == "1") {
     elem.forEach((e) => {
