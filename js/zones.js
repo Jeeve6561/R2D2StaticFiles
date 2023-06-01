@@ -47,6 +47,22 @@ const Tables = {
     ],
     columns: [
       {
+        title: "Thm",
+        field: "thm",
+      },
+      {
+        title: "Sec",
+        field: "sec",
+        topCalc: "max",
+        hozAlign: "right",
+      },
+      {
+        title: "Min",
+        field: "min",
+        topCalc: "max",
+        hozAlign: "right",
+      },
+      {
         title: "Sym",
         field: "sym",
         topCalc: "count",
@@ -171,18 +187,6 @@ const Tables = {
           symbol: "$",
           precision: 2,
         },
-      },
-      {
-        title: "Sec",
-        field: "sec",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      {
-        title: "Min",
-        field: "min",
-        topCalc: "max",
-        hozAlign: "right",
       },
       {
         title: "Emin Mean",
