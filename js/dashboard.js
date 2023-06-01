@@ -597,7 +597,7 @@ const Tables = {
     layout: "fitDataFill",
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
-    pagination: true,
+    // pagination: true,
     movableColumns: true,
     initialSort: [{ column: "score", dir: "desc" }],
     columns: [
@@ -958,7 +958,7 @@ const Tables = {
     layout: "fitData",
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
-    pagination: true,
+    // pagination: true,
     movableColumns: true,
     initialSort: [{ column: "score", dir: "desc" }],
     columns: [
@@ -1070,7 +1070,7 @@ const Tables = {
     layout: "fitData",
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
-    pagination: true,
+    // pagination: true,
     movableColumns: true,
     initialSort: [{ column: "score", dir: "desc" }],
     columns: [

@@ -106,7 +106,7 @@ const Tables = {
     layout: "fitDataFill",
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
-    pagination: true,
+    // pagination: true,
     movableColumns: true,
     initialSort: [
       { column: "sec", dir: "desc" },
