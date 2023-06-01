@@ -1203,10 +1203,6 @@ function main() {
         );
         request.onsuccess = (event) => {
           console.log("Opened database");
-          const request = indexedDB.open(
-            Constants.Database.Name,
-            Constants.Database.Version
-          );
           Constants.Db = request.result;
         };
         request.onerror = (event) => {
