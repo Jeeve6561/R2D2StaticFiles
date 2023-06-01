@@ -6,8 +6,11 @@ const Constants = {
   ThisProgram: "R2D2",
 
   SymZoneDataRequest: "symbolzonedatarequest",
+
+  Id: 2,
   ZoneSymbol: "TSLA",
   Quadrant: "all",
+  ZoneData: [],
 };
 
 const DocElems = {
@@ -281,26 +284,46 @@ function main() {
     }
   });
 
-  RequestWS.connect();
+  const childWorker = new Worker("/static/js/websocket.js");
+  childWorker.postMessage({ ip: Constants.Ipaddress, id: Constants.Id });
+  childWorker.onmessage = (event) => {
+    let msg = event.data;
+    switch (msg.ev) {
+      case Constants.OpenDataBase:
+        console.log("Opening database");
+        const request = indexedDB.open(
+          Constants.Database.Name,
+          Constants.Database.Version
+        );
+        request.onsuccess = (event) => {
+          Constants.Db = request.result;
+        };
+        request.onerror = (event) => {
+          console.error("Couldn't open database");
+        };
+        break;
+      case Constants.DataUpdate:
+        HandleZoneData(msg.id);
+        break;
+    }
+  };
 
-  setInterval(() => {
-    RequestWS.sendMessage({
-      sym: Constants.ZoneSymbol,
-      ev: Constants.SymZoneDataRequest,
-    });
-  }, 1000);
+  RequestWS.connect();
 }
 
-function HandleZoneData(data) {
+function HandleZoneData(id) {
+  GetRadarDataFromDB(id);
   let d = [];
 
-  if (data.length === 0) {
+  console.log(Constants.ZoneData);
+
+  if (Constants.ZoneData.length === 0) {
     // Tables.Zones.setData(d);
     Tables.Zones.clearData();
     return;
   }
 
-  let elem = data[data.length - 1];
+  let elem = Constants.ZoneData[Constants.ZoneData.length - 1];
 
   if (Constants.Quadrant == "1") {
     elem.forEach((e) => {
@@ -331,6 +354,21 @@ function HandleZoneData(data) {
   }
 
   Tables.Zones.setData(d);
+}
+
+function GetRadarDataFromDB(id) {
+  const request = Constants.Db.transaction(
+    Constants.Database.Store.name,
+    "readonly"
+  )
+    .objectStore(Constants.Database.Store.name)
+    .get(id);
+  request.onsuccess = (event) => {
+    GraphData.ZoneData = request.result;
+  };
+  request.onerror = (event) => {
+    console.error("Couldn't retrieve data from db");
+  };
 }
 
 function clickSymbolInput() {
