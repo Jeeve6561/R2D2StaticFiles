@@ -97,6 +97,24 @@ const Tables = {
         hozAlign: "right",
       },
       {
+        title: "Dur Qual",
+        field: "dq",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 3,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 3,
+        },
+      },
+      {
         title: "Tail",
         field: "ts",
         topCalc: "count",
@@ -329,24 +347,6 @@ const Tables = {
       {
         title: "Dur Mean",
         field: "dm",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-      },
-      {
-        title: "Dur Qual",
-        field: "dq",
         topCalc: "avg",
         hozAlign: "right",
         formatter: "money",
