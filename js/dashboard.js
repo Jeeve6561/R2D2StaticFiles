@@ -738,7 +738,7 @@ const Tables = {
         },
       },
       {
-        title: "Price Volatility",
+        title: "Price Vol",
         field: "pv",
         topCalc: "avg",
         cellClick: ClickRadarTableCell,
