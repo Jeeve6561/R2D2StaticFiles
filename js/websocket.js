@@ -86,7 +86,7 @@ const LiveFeedWS = {
 
   messageReceived(event) {
     let msg = JSON.parse(event.data);
-    // console.log(msg);
+    console.log(msg);
     switch (msg.ev) {
       case Constants.ConnectMsg:
         console.log("Name of socket manager:", msg.n);
