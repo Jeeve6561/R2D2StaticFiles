@@ -373,9 +373,9 @@ function main() {
 function HandleZoneData(data) {
   let d = [];
 
+  console.log(data);
   if (data.length === 0) {
-    // Tables.Zones.setData(d);
-    Tables.Zones.clearData();
+    Tables.Zones.setData(d);
     return;
   }
 
