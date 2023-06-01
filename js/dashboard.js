@@ -1253,9 +1253,11 @@ function main() {
     };
 
     setInterval(() => {
-      GetRadarDataFromDB();
-      UpdateRadarChart();
-      UpdateIndicatorTable();
+      if (GraphData.LiveUpdate) {
+        GetRadarDataFromDB();
+        UpdateRadarChart();
+        UpdateIndicatorTable();
+      }
     }, 400);
 
     setInterval(() => {
@@ -1524,7 +1526,10 @@ function UpdateStockChart(data, sym) {
 }
 
 function UpdateRadarChart() {
-  if (GraphData.PayloadData === undefined || GraphData.PayloadData.length === 0) {
+  if (
+    GraphData.PayloadData === undefined ||
+    GraphData.PayloadData.length === 0
+  ) {
     return;
   }
   if (GraphData.ChangeRadarTitle) {
@@ -1637,7 +1642,10 @@ function UpdateRadarChart() {
 }
 
 function UpdateIndicatorTable() {
-  if (GraphData.PayloadData === undefined || GraphData.PayloadData.length === 0) {
+  if (
+    GraphData.PayloadData === undefined ||
+    GraphData.PayloadData.length === 0
+  ) {
     return;
   }
   if (GraphData.ChangeIndicatorTitle) {
@@ -1660,7 +1668,7 @@ function UpdateIndicatorTable() {
     elem[GraphData.IQuan].sym = elem.sym;
     d.push(elem[GraphData.IQuan]);
   });
-  
+
   Tables.indicatordata.setData(d);
 
   let dataagain = GraphData.PayloadData.i;
@@ -1670,7 +1678,7 @@ function UpdateIndicatorTable() {
     elem[GraphData.IQuanAgain].sym = elem.sym;
     dagain.push(elem[GraphData.IQuanAgain]);
   });
-  
+
   Tables.indicatordataagain.setData(dagain);
 }
 
