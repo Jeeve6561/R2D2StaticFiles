@@ -345,6 +345,24 @@ const Tables = {
         },
       },
       {
+        title: "Dur Qual",
+        field: "dq",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 3,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 3,
+        },
+      },
+      {
         title: "Tot Dur",
         field: "dsum",
         topCalc: "avg",
