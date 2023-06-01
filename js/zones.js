@@ -278,9 +278,6 @@ function main() {
   Constants.RequestWSUrl =
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
 
-  const parentWorker = new Worker("/static/js/websocket.js");
-  parentWorker.postMessage({ ip: Constants.Ipaddress, id: 2 });
-
   DocElems.symbolinputbutton.addEventListener("click", clickSymbolInput);
   DocElems.symbolinput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
