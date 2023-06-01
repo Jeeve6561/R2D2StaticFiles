@@ -95,6 +95,7 @@ const LiveFeedWS = {
         HandleDataFromSocket(msg.d, 1);
         break;
       case Constants.HypothesesPayload:
+        HandleDataFromSocket(msg.d, 2);
         console.log(msg.d);
         break;
       case Constants.Indicators:
