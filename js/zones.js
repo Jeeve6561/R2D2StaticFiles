@@ -35,6 +35,7 @@ const Tables = {
   Zones: new Tabulator("#zonetable", {
     data: [],
     layout: "fitDataFill",
+    persistence: true,
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
     // pagination: true,
@@ -69,7 +70,7 @@ const Tables = {
       // },
       {
         title: "Zone",
-        field: "id",
+        field: "zone",
         topCalc: "count",
         hozAlign: "right",
       },
@@ -520,7 +521,7 @@ function HandleZoneData(id) {
 
   // let elem = [];
   data.forEach((e) => {
-    if (e.sym === Constants.ZoneSymbol){
+    if (e.sym === Constants.ZoneSymbol) {
       d = e.h;
     }
   });
