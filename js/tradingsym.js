@@ -668,6 +668,11 @@ function main() {
   );
   DocElems.stockdrawingbutton.addEventListener("click", ToggleDrawing);
   DocElems.symbolinputbutton.addEventListener("click", clickSymbolInput);
+  DocElems.symbolinput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      clickSymbolInput();
+    }
+  });
 
   setInterval(() => {
     RequestWS.sendMessage(GraphData.request);
