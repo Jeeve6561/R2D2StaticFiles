@@ -291,6 +291,18 @@ const Tables = {
         },
       },
       {
+        title: "Emin A Qual",
+        field: "emaq",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+        topCalcFormatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+      },
+      {
         title: "Emin A High",
         field: "emah",
         topCalc: "sum",
