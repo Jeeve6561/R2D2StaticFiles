@@ -22,6 +22,7 @@ const Constants = {
     Version: 1,
     Store: { name: "Bubbles", keyPath: "id", autoIncrement: false },
   },
+  Db: 0,
   TacDatabaseName: "TacData",
   TacDatabaseSchema: { keyPath: "tid", autoIncrement: false },
   UserDatabaseName: "UserData",
