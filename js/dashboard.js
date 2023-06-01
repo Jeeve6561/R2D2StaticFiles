@@ -1194,7 +1194,6 @@ function main() {
   childWorker.postMessage({ ip: Constants.Ipaddress, id: 1 });
   childWorker.onmessage = (event) => {
     let msg = event.data
-    console.log(msg);
     switch (msg.ev) {
       case Constants.OpenDataBase:
         console.log("Opening database");
