@@ -33,6 +33,8 @@ const Constants = {
   EV_SocketReceivedData: "ReceivedData",
 
   Error_InvalidCaller: "Invalid Caller Type ",
+
+  IdToWrite:0,
 };
 
 const LiveFeedWS = {
@@ -119,7 +121,8 @@ const LiveFeedWS = {
 
 function main() {
   onmessage = (event) => {
-    Constants.Ipaddress = event.data;
+    Constants.IdToWrite = event.data.id;
+    Constants.Ipaddress = event.data.ip;
     CreateAndInitAllDatabases([Constants.Database.Store.name]);
     Constants.LiveFeedWSUrl =
       "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
@@ -132,7 +135,7 @@ function main() {
 }
 
 function HandleDataFromSocket(data, id) {
-  if (Constants.StartWritingToDatabase) {
+  if (Constants.StartWritingToDatabase && Constants.IdToWrite === id) {
     data.id = id;
     WriteToDB(Constants.Database.Name, Constants.Database.Store.name, data);
   }

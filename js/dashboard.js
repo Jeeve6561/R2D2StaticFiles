@@ -1189,7 +1189,7 @@ function main() {
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
 
   const parentWorker = new Worker("/static/js/websocket.js");
-  parentWorker.postMessage(Constants.Ipaddress);
+  parentWorker.postMessage({ip: Constants.Ipaddress, id: 1});
 
   let onloadfilters = new Map(JSON.parse(localStorage.getItem("radarfilters")));
   if (onloadfilters.size > 0) {
