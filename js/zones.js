@@ -372,7 +372,7 @@ function GetRadarDataFromDB(id) {
     .objectStore(Constants.Database.Store.name)
     .get(id);
   request.onsuccess = (event) => {
-    GraphData.ZoneData = request.result;
+    Constants.ZoneData = request.result;
   };
   request.onerror = (event) => {
     console.error("Couldn't retrieve data from db");
