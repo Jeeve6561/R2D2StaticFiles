@@ -75,6 +75,7 @@ const RequestWS = {
         HandleZoneData(msg.d.d);
         break;
       default:
+        HandleZoneData([]);
         console.log(msg);
         break;
     }
@@ -372,7 +373,6 @@ function main() {
 function HandleZoneData(data) {
   let d = [];
 
-  console.log(data);
   if (data.length === 0) {
     Tables.Zones.setData(d);
     return;
