@@ -1192,7 +1192,8 @@ function main() {
 
   const childWorker = new Worker("/static/js/websocket.js");
   childWorker.postMessage({ ip: Constants.Ipaddress, id: 1 });
-  childWorker.onmessage = (msg) => {
+  childWorker.onmessage = (event) => {
+    let msg = event.data
     console.log(msg);
     switch (msg.ev) {
       case Constants.OpenDataBase:
