@@ -18,6 +18,9 @@ const Constants = {
   ZoneSymbol: "TSLA",
   Quadrant: "all",
   ZoneData: [],
+
+  OpenDataBase: "openDB",
+  DataUpdate: "updateddata",
 };
 
 const DocElems = {
