@@ -196,7 +196,7 @@ const RequestWS = {
 };
 
 const GraphData = {
-  LiveUpdate: false,
+  LiveUpdate: true,
   LiveUpdateInit: false,
   RadarUpdate: true,
   ChangeStockTitle: true,
