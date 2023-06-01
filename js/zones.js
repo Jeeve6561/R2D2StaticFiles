@@ -413,7 +413,8 @@ function HandleZoneData(data) {
 }
 
 function clickSymbolInput() {
-  Constants.ZoneSymbol = DocElems.symbolinput.value;
+  let temp = DocElems.symbolinput.value;
+  Constants.ZoneSymbol = temp.toUpperCase();
   DocElems.symbolinput.value = "";
 }
 
