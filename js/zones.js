@@ -7,6 +7,13 @@ const Constants = {
 
   SymZoneDataRequest: "symbolzonedatarequest",
 
+  Database: {
+    Name: "RadarData",
+    Version: 1,
+    Store: { name: "Bubbles", keyPath: "id", autoIncrement: false },
+  },
+  Db: 0,
+
   Id: 2,
   ZoneSymbol: "TSLA",
   Quadrant: "all",
@@ -307,8 +314,6 @@ function main() {
         break;
     }
   };
-
-  RequestWS.connect();
 }
 
 function HandleZoneData(id) {
