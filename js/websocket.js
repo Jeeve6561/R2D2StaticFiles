@@ -34,7 +34,9 @@ const Constants = {
 
   Error_InvalidCaller: "Invalid Caller Type ",
 
-  IdToWrite:0,
+  IdToWrite: 0,
+  OpenDataBase: "openDB",
+  DataUpdate:"updateddata",
 };
 
 const LiveFeedWS = {
@@ -130,6 +132,7 @@ function main() {
 
     setTimeout(() => {
       StartWriteToDb();
+      self.postMessage({ ev: Constants.OpenDataBase });
     }, 2500);
   };
 }
@@ -138,6 +141,7 @@ function HandleDataFromSocket(data, id) {
   if (Constants.StartWritingToDatabase && Constants.IdToWrite === id) {
     data.id = id;
     WriteToDB(Constants.Database.Name, Constants.Database.Store.name, data);
+    self.postMessage({ ev: Constants.DataUpdate, id: id });
   }
 }
 

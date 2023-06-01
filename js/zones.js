@@ -18,88 +18,6 @@ const DocElems = {
   quadrantinputbutton: document.getElementById("quadrantinputbutton"),
 };
 
-const RequestWS = {
-  init: false,
-  connected: false,
-  connectTime: 0,
-  disconnectTime: 0,
-  ws: null,
-
-  connect() {
-    RequestWS.connected = true;
-    RequestWS.url = Constants.RequestWSUrl;
-    RequestWS.ws = new WebSocket(RequestWS.url);
-    RequestWS.ws.onopen = RequestWS.openSocket;
-    RequestWS.ws.onclose = RequestWS.closeSocket;
-    RequestWS.ws.onerror = RequestWS.errorSocket;
-    RequestWS.ws.onmessage = RequestWS.messageReceived;
-  },
-
-  openSocket() {
-    RequestWS.connected = true;
-    RequestWS.connectTime = new Date();
-    console.log(
-      "Connecting to " +
-        String(RequestWS.url) +
-        " at " +
-        String(RequestWS.connectTime)
-    );
-  },
-
-  closeSocket() {
-    RequestWS.connected = false;
-    RequestWS.disconnectTime = new Date();
-    console.log(
-      "Disconnecting from " + String(RequestWS.url) + " at ",
-      String(RequestWS.disconnectTime)
-    );
-    RequestWS.ws = null;
-  },
-
-  errorSocket(event) {
-    console.error(
-      "Error occurred in " +
-        String(RequestWS.url) +
-        " at " +
-        String(new Date()) +
-        " | " +
-        event.data
-    );
-  },
-
-  messageReceived(event) {
-    // Constants.stime = performance.now();
-    let msg = JSON.parse(event.data);
-    switch (msg.ev) {
-      case Constants.SymZoneDataRequest:
-        HandleZoneData(msg.d.d);
-        break;
-      default:
-        HandleZoneData([]);
-        console.log(msg);
-        break;
-    }
-    // console.log("Message received:", data);
-  },
-
-  sendMessage(d) {
-    if (RequestWS.ws.readyState === WebSocket.OPEN && RequestWS.connected) {
-      let msg = {
-        d: d,
-        n: Constants.ThisProgram,
-        ev: d.ev,
-      };
-      let data = JSON.stringify(msg);
-      RequestWS.ws.send(data);
-    } else {
-      console.error("Failed to send and retrying");
-      setTimeout(() => {
-        RequestWS.sendMessage(d);
-      }, 1000);
-    }
-  },
-};
-
 const Tables = {
   Zones: new Tabulator("#zonetable", {
     data: [],
@@ -346,6 +264,9 @@ function main() {
   Constants.Origin = "http://" + Constants.Ipaddress + ":50000/";
   Constants.RequestWSUrl =
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
+
+  const parentWorker = new Worker("/static/js/websocket.js");
+  parentWorker.postMessage({ ip: Constants.Ipaddress, id: 2 });
 
   DocElems.symbolinputbutton.addEventListener("click", clickSymbolInput);
   DocElems.symbolinput.addEventListener("keypress", (e) => {

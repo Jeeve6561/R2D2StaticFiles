@@ -68,6 +68,8 @@ const Constants = {
   LogScale: true,
 
   Drawing: false,
+  OpenDataBase: "openDB",
+  DataUpdate: "updateddata",
 };
 
 const DocElems = {
@@ -1188,8 +1190,33 @@ function main() {
   Constants.RequestWSUrl =
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
 
-  const parentWorker = new Worker("/static/js/websocket.js");
-  parentWorker.postMessage({ip: Constants.Ipaddress, id: 1});
+  const childWorker = new Worker("/static/js/websocket.js");
+  childWorker.postMessage({ ip: Constants.Ipaddress, id: 1 });
+  childWorker.onmessage = (msg) => {
+    console.log(msg);
+    switch (msg.ev) {
+      case Constants.OpenDataBase:
+        console.log("Opening database");
+        const request = indexedDB.open(
+          Constants.Database.Name,
+          Constants.Database.Version
+        );
+        request.onsuccess = (event) => {
+          Constants.Db = request.result;
+        };
+        request.onerror = (event) => {
+          console.error("Couldn't open database");
+        };
+        break;
+      case Constants.DataUpdate:
+        if (GraphData.RadarUpdate) {
+          GetRadarDataFromDB(msg.id);
+          UpdateRadarChart();
+          UpdateIndicatorTable();
+        }
+        break;
+    }
+  };
 
   let onloadfilters = new Map(JSON.parse(localStorage.getItem("radarfilters")));
   if (onloadfilters.size > 0) {
@@ -1240,26 +1267,6 @@ function main() {
   CanvasCharts.Radar.container.addEventListener("wheel", AddWheelScrollRadar);
 
   setTimeout(() => {
-    console.log("Opening database");
-    const request = indexedDB.open(
-      Constants.Database.Name,
-      Constants.Database.Version
-    );
-    request.onsuccess = (event) => {
-      Constants.Db = request.result;
-    };
-    request.onerror = (event) => {
-      console.error("Couldn't open database");
-    };
-
-    setInterval(() => {
-      if (GraphData.RadarUpdate) {
-        GetRadarDataFromDB();
-        UpdateRadarChart();
-        UpdateIndicatorTable();
-      }
-    }, 400);
-
     setInterval(() => {
       GraphData.TopTen.forEach((val, key) => {
         RequestWS.sendMessage({
@@ -1682,13 +1689,13 @@ function UpdateIndicatorTable() {
   Tables.indicatordataagain.setData(dagain);
 }
 
-function GetRadarDataFromDB() {
+function GetRadarDataFromDB(id) {
   const request = Constants.Db.transaction(
     Constants.Database.Store.name,
     "readonly"
   )
     .objectStore(Constants.Database.Store.name)
-    .get(1);
+    .get(id);
   request.onsuccess = (event) => {
     GraphData.PayloadData = request.result;
   };
