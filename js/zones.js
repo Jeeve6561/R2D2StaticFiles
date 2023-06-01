@@ -91,6 +91,12 @@ const Tables = {
         hozAlign: "right",
       },
       {
+        title: "Cycle Cnt",
+        field: "cnt",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
         title: "Tail",
         field: "ts",
         topCalc: "count",
