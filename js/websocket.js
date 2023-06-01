@@ -129,11 +129,6 @@ function main() {
     Constants.LiveFeedWSUrl =
       "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
     LiveFeedWS.connect();
-
-    setTimeout(() => {
-      StartWriteToDb();
-      self.postMessage({ ev: Constants.OpenDataBase });
-    }, 2500);
   };
 }
 
@@ -212,6 +207,7 @@ function CreateAndInitAllDatabases(stores) {
       );
     });
     console.log("Created all the stores");
+    Constants.StartWritingToDatabase = true;
   };
 
   openRequest.onerror = function (event) {
@@ -226,14 +222,6 @@ function CreateAndInitAllDatabases(stores) {
   openRequest.onclose = function (event) {
     console.log("Database " + Constants.Database.Name + " closed");
   };
-}
-
-function MessageChildWindow(msg, win) {
-  win.postMessage(msg, Constants.ParentTabOrigin);
-}
-
-function StartWriteToDb() {
-  Constants.StartWritingToDatabase = true;
 }
 
 main();
