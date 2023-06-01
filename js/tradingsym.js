@@ -860,7 +860,8 @@ function UpdateStockChart(data) {
 }
 
 function clickSymbolInput() {
-  GraphData.request.sym = DocElems.symbolinput.value;
+  let temp = DocElems.symbolinput.value;
+  GraphData.request.sym = temp.toUpperCase();
   DocElems.symbolinput.value = "";
 }
 
