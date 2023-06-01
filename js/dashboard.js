@@ -1193,7 +1193,7 @@ function main() {
   const childWorker = new Worker("/static/js/websocket.js");
   childWorker.postMessage({ ip: Constants.Ipaddress, id: 1 });
   childWorker.onmessage = (event) => {
-    let msg = event.data
+    let msg = event.data;
     switch (msg.ev) {
       case Constants.OpenDataBase:
         console.log("Opening database");
@@ -1202,6 +1202,11 @@ function main() {
           Constants.Database.Version
         );
         request.onsuccess = (event) => {
+          console.log("Opened database");
+          const request = indexedDB.open(
+            Constants.Database.Name,
+            Constants.Database.Version
+          );
           Constants.Db = request.result;
         };
         request.onerror = (event) => {
