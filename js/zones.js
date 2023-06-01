@@ -415,7 +415,6 @@ function HandleZoneData(data) {
 function clickSymbolInput() {
   let temp = DocElems.symbolinput.value;
   Constants.ZoneSymbol = temp.toUpperCase();
-  console.log(temp, Constants.ZoneSymbol);
   DocElems.symbolinput.value = "";
 }
 
