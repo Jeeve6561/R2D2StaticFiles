@@ -37,9 +37,7 @@ const Tables = {
     // pagination: true,
     movableColumns: true,
     initialSort: [
-      { column: "sec", dir: "desc" },
-      { column: "rank", dir: "asc" },
-      { column: "id", dir: "desc" },
+      { column: "ema", dir: "desc" },
     ],
     columns: [
       {
@@ -200,7 +198,7 @@ const Tables = {
       {
         title: "Emin",
         field: "em",
-        topCalc: "sum",
+        topCalc: "avg",
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -218,7 +216,7 @@ const Tables = {
       {
         title: "Emin A",
         field: "ema",
-        topCalc: "sum",
+        topCalc: "avg",
         hozAlign: "right",
         formatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
@@ -230,7 +228,7 @@ const Tables = {
       {
         title: "Dol Mul",
         field: "dm",
-        topCalc: "sum",
+        topCalc: "avg",
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
