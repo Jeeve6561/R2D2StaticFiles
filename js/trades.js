@@ -35,6 +35,8 @@ const DocElems = {
   symbolinputbutton: document.getElementById("symbolinputbutton"),
   quadrantinput: document.getElementById("quadrantinput"),
   quadrantinputbutton: document.getElementById("quadrantinputbutton"),
+  radartogglexlogscalebutton: document.getElementById("togglexlogscalebutton"),
+  radartoggleylogscalebutton: document.getElementById("toggleylogscalebutton"),
 };
 
 const CanvasCharts = {
@@ -377,6 +379,14 @@ function main() {
       clickQuadrantInput();
     }
   });
+  DocElems.radartogglexlogscalebutton.addEventListener(
+    "click",
+    ToggleXRadarScale
+  );
+  DocElems.radartoggleylogscalebutton.addEventListener(
+    "click",
+    ToggleYRadarScale
+  );
 
   CanvasCharts.Radar.render();
 
@@ -422,49 +432,33 @@ function HandleZoneData(id) {
     if (e.sym === Constants.ZoneSymbol) {
       d = e.h;
     }
-    // e.h.forEach((el) => {
-    //   d.push(el);
-    // });
   });
 
-  // if (Constants.Quadrant == "1") {
-  //   elem.forEach((e) => {
-  //     if (e.q === 1) {
-  //       d.push(e);
-  //     }
-  //   });
-  // } else if (Constants.Quadrant == "2") {
-  //   elem.forEach((e) => {
-  //     if (e.q === 2) {
-  //       d.push(e);
-  //     }
-  //   });
-  // } else if (Constants.Quadrant == "3") {
-  //   elem.forEach((e) => {
-  //     if (e.q === 3) {
-  //       d.push(e);
-  //     }
-  //   });
-  // } else if (Constants.Quadrant == "4") {
-  //   elem.forEach((e) => {
-  //     if (e.q === 4) {
-  //       d.push(e);
-  //     }
-  //   });
-  // } else {
-  //   d = [...elem];
-  // }
-
   Tables.Zones.setData(d);
-
-  console.log(d);
+  
   d.forEach((elem) => {
     elem.x = elem.cnt;
     elem.y = elem.ema;
     elem.z = elem.dur;
   });
+
+  let dx = [];
+  let dy = [];
+
+  d.forEach((elem) => {
+    if (elem.x > 0 || !Constants.xLogScale) {
+      dx.push(elem)
+    }
+  });
+
+  dx.forEach((elem) => {
+    if (elem.y > 0 || !Constants.yLogScale) {
+      dy.push(elem)
+    }
+  });
+
   CanvasCharts.Radar.options.title.text = Constants.ZoneSymbol;
-  CanvasCharts.Radar.options.data[0].dataPoints = d;
+  CanvasCharts.Radar.options.data[0].dataPoints = dy;
   CanvasCharts.Radar.render();
 }
 
@@ -491,6 +485,36 @@ function clickSymbolInput() {
 
 function clickQuadrantInput() {
   Constants.Quadrant = DocElems.quadrantinput.value;
+}
+
+function ToggleXRadarScale() {
+  if (Constants.xLogScale) {
+    Constants.xLogScale = false;
+    DocElems.radartogglexlogscalebutton.innerHTML = "X Log Scale";
+    CanvasCharts.Radar.options.axisX.logarithmic = Constants.xLogScale;
+    Constants.radarFilters.delete(Constants.XFilterId);
+    Constants.XFilterId = -1;
+  } else {
+    Constants.xLogScale = true;
+    DocElems.radartogglexlogscalebutton.innerHTML = "X Linear Scale";
+    CanvasCharts.Radar.options.axisX.logarithmic = Constants.xLogScale;
+    let filter = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
+    Constants.radarFilters.set(Constants.FilterId, filter);
+    Constants.XFilterId = Constants.FilterId;
+    Constants.FilterId++;
+  }
+}
+
+function ToggleYRadarScale() {
+  if (Constants.yLogScale) {
+    Constants.yLogScale = false;
+    DocElems.radartoggleylogscalebutton.innerHTML = "Y Log Scale";
+    CanvasCharts.Radar.options.axisY.logarithmic = Constants.yLogScale;
+  } else {
+    Constants.yLogScale = true;
+    DocElems.radartoggleylogscalebutton.innerHTML = "Y Linear Scale";
+    CanvasCharts.Radar.options.axisY.logarithmic = Constants.yLogScale;
+  }
 }
 
 main();
