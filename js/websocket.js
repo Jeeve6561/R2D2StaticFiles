@@ -6,7 +6,7 @@ const Constants = {
   ConnectMsg: "connected",
   EV_WSInit: "wsinit",
   Sympayload: "sympayload", // FIX THIS PLEASEEEEEEEEEEEEEEEE
-  Indicators: "indicators",
+  TradePayload: "tradePayload",
   HypothesesPayload: "hypothesisPayload",
   EV_WSSymPayloadUpdate: "sympayloadupdate",
 
@@ -102,8 +102,8 @@ const LiveFeedWS = {
       case Constants.HypothesesPayload:
         HandleDataFromSocket(msg.d, 2);
         break;
-      case Constants.Indicators:
-        HandleDataFromSocket(msg.d, 2);
+      case Constants.TradePayload:
+        HandleDataFromSocket(msg.d, 3);
         break;
     }
   },
