@@ -47,7 +47,7 @@ const CanvasCharts = {
       fontColor: Constants.fontColor,
     },
     axisX: {
-      title: "Loading",
+      title: "Number of Trades",
       labelFontColor: Constants.fontColor,
       titleFontColor: Constants.fontColor,
       lineColor: Constants.fontColor,
@@ -59,7 +59,7 @@ const CanvasCharts = {
       },
     },
     axisY: {
-      title: "Loading",
+      title: "Emin Acc",
       //includeZero: true,
       labelFontColor: Constants.fontColor,
       titleFontColor: Constants.fontColor,
@@ -119,12 +119,6 @@ const Tables = {
         topCalc: "max",
         hozAlign: "right",
       },
-      {
-        title: "Sym",
-        field: "sym",
-        topCalc: "count",
-        frozen: true,
-      },
       // {
       //   title: "Quad",
       //   field: "q",
@@ -149,7 +143,7 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "Cycle Cnt",
+        title: "T Cnt",
         field: "cnt",
         topCalc: "sum",
         hozAlign: "right",
@@ -469,6 +463,7 @@ function HandleZoneData(id) {
     elem.y = elem.ema;
     elem.z = elem.dur;
   });
+  CanvasCharts.Radar.options.title.text = Constants.ZoneSymbol;
   CanvasCharts.Radar.options.data[0].dataPoints = d;
   CanvasCharts.Radar.render();
 }
