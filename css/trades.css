@@ -5,10 +5,48 @@ main {
 
 #dash {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+#right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+#radar {
+    height: 95%;
+    width: 100%;
+}
+
+#radarOptions {
+    height: 5%;
+    width: 100%;
+}
+
+#radarContainer {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #262626;
 }
 
 #zonetable {
@@ -22,7 +60,7 @@ main {
 }
 
 #zoneContainer {
-    height: 100%;
+    height: 40%;
     width: 100%;
     display: flex;
     flex-direction: column;

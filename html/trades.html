@@ -1,24 +1,27 @@
 {{define "trades"}} {{template "header" .}}
 <div id="dash">
   <div id="ipaddress">{{ .ipaddress }}</div>
-  <div id="zoneContainer">
-    <div id="zoneOptions">
-      <input
-        id="symbolinput"
-        type="text"
-        placeholder="type symbol here"
-      />
-      <button id="symbolinputbutton">Change Symbol</button>
-      <select id="quadrantinput">
-        <option value="all">All</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
-      <button id="quadrantinputbutton" >Change Quadrant</button>
+  <div id="left">
+    <div id="radarcontainer">
+      <div id="radarOptions"></div>
+      <div id="radar"></div>
     </div>
-    <div id="zonetable"></div>
+    <div id="zoneContainer">
+      <div id="zoneOptions">
+        <input id="symbolinput" type="text" placeholder="type symbol here" />
+        <button id="symbolinputbutton">Change Symbol</button>
+        <select id="quadrantinput">
+          <option value="all">All</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <button id="quadrantinputbutton">Change Quadrant</button>
+      </div>
+      <div id="zonetable"></div>
+    </div>
   </div>
+  <div id="right"></div>
 </div>
 {{template "footer" .}} {{end}}

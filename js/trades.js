@@ -2,6 +2,13 @@ const Constants = {
   Ipaddress: "",
   Origin: "",
   ThisProgram: "R2D2",
+  
+  bgColor: "#000000",
+  fontColor: "#a6a6a6",
+  volColor: "#26678b",
+  lineColor: "#EE4B2B",
+  quadColor: "#FFFFFF",
+  VolHeightPercent: 0.2,
 
   Database: {
     Name: "RadarData",
@@ -17,6 +24,9 @@ const Constants = {
 
   OpenDataBase: "openDB",
   DataUpdate: "updateddata",
+
+  xLogScale: true,
+  yLogScale: true,
 };
 
 const DocElems = {
@@ -25,6 +35,63 @@ const DocElems = {
   symbolinputbutton: document.getElementById("symbolinputbutton"),
   quadrantinput: document.getElementById("quadrantinput"),
   quadrantinputbutton: document.getElementById("quadrantinputbutton"),
+};
+
+const CanvasCharts = {
+  Radar: new CanvasJS.Chart("radar", {
+    animationEnabled: true,
+    backgroundColor: Constants.bgColor,
+    fontColor: Constants.fontColor,
+    title: {
+      text: "Loading",
+      fontColor: Constants.fontColor,
+    },
+    axisX: {
+      title: "Loading",
+      labelFontColor: Constants.fontColor,
+      titleFontColor: Constants.fontColor,
+      lineColor: Constants.fontColor,
+      // logarithmic: Constants.LogScale,
+      logarithmic: Constants.xLogScale,
+      crosshair: {
+        enabled: true,
+        color: Constants.quadColor,
+        lineDashType: "solid",
+      },
+    },
+    axisY: {
+      title: "Loading",
+      //includeZero: true,
+      labelFontColor: Constants.fontColor,
+      titleFontColor: Constants.fontColor,
+      lineColor: Constants.fontColor,
+      // logarithmic: Constants.LogScale,
+      logarithmic: Constants.yLogScale,
+      crosshair: {
+        enabled: true,
+        color: Constants.quadColor,
+        lineDashType: "solid",
+      },
+    },
+    // toolTip: {
+    //   contentFormatter: contentFormatterTooltip,
+    // },
+    legend: {
+      horizontalAlign: "left",
+    },
+    data: [
+      {
+        type: "bubble",
+        // color: Constants.volColor,
+        showInLegend: true,
+        legendText: "Size of Bubble Represents Loading...",
+        legendMarkerType: "circle",
+        legendMarkerColor: "grey",
+        // click: clickBubble,
+        dataPoints: [],
+      },
+    ],
+  }),
 };
 
 const Tables = {
