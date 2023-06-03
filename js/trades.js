@@ -388,6 +388,8 @@ function main() {
     }
   });
 
+  CanvasCharts.Radar.render();
+
   const childWorker = new Worker("/static/js/websocket.js");
   childWorker.postMessage({ ip: Constants.Ipaddress, id: Constants.Id });
   childWorker.onmessage = (event) => {
