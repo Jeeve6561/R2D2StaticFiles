@@ -112,8 +112,16 @@ const Tables = {
       //   hozAlign: "right",
       // },
       {
-        title: "Cpl Tot",
-        field: "cpls",
+        title: "Srt Time",
+        field: "st",
+      },
+      {
+        title: "End Time",
+        field: "et",
+      },
+      {
+        title: "Srt Prc",
+        field: "sp",
         topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
@@ -132,8 +140,46 @@ const Tables = {
         },
       },
       {
-        title: "Cpl Mean",
-        field: "cplm",
+        title: "End Prc",
+        field: "ep",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Dur",
+        field: "dur",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+      },
+      {
+        title: "Cpl",
+        field: "cpls",
         topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
@@ -170,68 +216,8 @@ const Tables = {
         },
       },
       {
-        title: "Emin Tot",
-        field: "ems",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
-        },
-      },
-      {
-        title: "Emin Mean",
-        field: "emm",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
-        },
-      },
-      {
         title: "Emin A",
         field: "ema",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-        topCalcFormatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Emin A Tot",
-        field: "emas",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-        topCalcFormatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Emin A Mean",
-        field: "emam",
         topCalc: "sum",
         hozAlign: "right",
         formatter: (e, params, onRendered) => {
