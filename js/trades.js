@@ -427,11 +427,6 @@ function HandleZoneData(id) {
   data.forEach((e) => {
     if (e.sym === Constants.ZoneSymbol) {
       d = e.h;
-      d.forEach((el) => {
-        el.x = el.cnt;
-        el.y = el.ema;
-        el.z = el.dur;
-      });
     }
     // e.h.forEach((el) => {
     //   d.push(el);
@@ -468,6 +463,12 @@ function HandleZoneData(id) {
 
   Tables.Zones.setData(d);
 
+  console.log(d);
+  d.forEach((elem) => {
+    elem.x = elem.cnt;
+    elem.y = elem.ema;
+    elem.z = elem.dur;
+  });
   CanvasCharts.Radar.options.data[0].dataPoints = d;
   CanvasCharts.Radar.render();
 }
