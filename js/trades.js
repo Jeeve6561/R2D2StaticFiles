@@ -2,7 +2,7 @@ const Constants = {
   Ipaddress: "",
   Origin: "",
   ThisProgram: "R2D2",
-  
+
   bgColor: "#000000",
   fontColor: "#a6a6a6",
   volColor: "#26678b",
@@ -20,7 +20,7 @@ const Constants = {
   Id: 3,
   ZoneSymbol: "TSLA",
   Quadrant: "all",
-  ZoneData: { h: []},
+  ZoneData: { h: [] },
 
   OpenDataBase: "openDB",
   DataUpdate: "updateddata",
@@ -51,7 +51,6 @@ const CanvasCharts = {
       labelFontColor: Constants.fontColor,
       titleFontColor: Constants.fontColor,
       lineColor: Constants.fontColor,
-      // logarithmic: Constants.LogScale,
       logarithmic: Constants.xLogScale,
       crosshair: {
         enabled: true,
@@ -65,7 +64,6 @@ const CanvasCharts = {
       labelFontColor: Constants.fontColor,
       titleFontColor: Constants.fontColor,
       lineColor: Constants.fontColor,
-      // logarithmic: Constants.LogScale,
       logarithmic: Constants.yLogScale,
       crosshair: {
         enabled: true,
@@ -103,9 +101,7 @@ const Tables = {
     // rowClick: ClickRadarTableRow,
     // pagination: true,
     movableColumns: true,
-    initialSort: [
-      { column: "zone", dir: "asc" },
-    ],
+    initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
         title: "Thm",
@@ -431,6 +427,11 @@ function HandleZoneData(id) {
   data.forEach((e) => {
     if (e.sym === Constants.ZoneSymbol) {
       d = e.h;
+      d.forEach((el) => {
+        el.x = el.cnt;
+        el.y = el.ema;
+        el.z = el.dur;
+      });
     }
     // e.h.forEach((el) => {
     //   d.push(el);
@@ -466,6 +467,9 @@ function HandleZoneData(id) {
   // }
 
   Tables.Zones.setData(d);
+
+  CanvasCharts.Radar.options.data[0].dataPoints = d;
+  CanvasCharts.Radar.render();
 }
 
 function GetRadarDataFromDB(id) {
