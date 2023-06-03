@@ -146,6 +146,24 @@ const Tables = {
         },
       },
       {
+        title: "Emin",
+        field: "em",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+      },
+      {
         title: "Emin Tot",
         field: "ems",
         topCalc: "sum",
@@ -179,6 +197,18 @@ const Tables = {
           decimal: ".",
           thousand: ",",
           precision: 2,
+        },
+      },
+      {
+        title: "Emin A",
+        field: "ema",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+        topCalcFormatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
       {
