@@ -31,7 +31,7 @@ const Tables = {
   Zones: new Tabulator("#zonetable", {
     data: [],
     layout: "fitDataFill",
-    persistence: true,
+    // persistence: true,
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
     // pagination: true,
@@ -64,11 +64,6 @@ const Tables = {
         topCalc: "count",
         frozen: true,
       },
-      {
-        title: "Id",
-        field: "id",
-        topCalc: "sum",
-      },
       // {
       //   title: "Quad",
       //   field: "q",
@@ -93,24 +88,6 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "Dur Qual",
-        field: "dq",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-      },
-      {
         title: "Tail",
         field: "ts",
         topCalc: "count",
@@ -129,8 +106,28 @@ const Tables = {
       //   hozAlign: "right",
       // },
       {
+        title: "Cpl Tot",
+        field: "cpls",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
         title: "Cpl Mean",
-        field: "cm",
+        field: "cplm",
         topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
@@ -149,62 +146,20 @@ const Tables = {
         },
       },
       {
-        title: "Cpl Sdv",
-        field: "cs",
+        title: "Emin Tot",
+        field: "ems",
         topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
           precision: 2,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Cpl High",
-        field: "ch",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Cpl Low",
-        field: "cl",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
           precision: 2,
         },
       },
@@ -227,57 +182,15 @@ const Tables = {
         },
       },
       {
-        title: "Emin Sdv",
-        field: "ems",
+        title: "Emin A Tot",
+        field: "emas",
         topCalc: "sum",
         hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
+        formatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
         },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
-        },
-      },
-      {
-        title: "Emin High",
-        field: "emh",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
-        },
-      },
-      {
-        title: "Emin Low",
-        field: "eml",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 2,
+        topCalcFormatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
       {
@@ -292,162 +205,60 @@ const Tables = {
           return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
-      {
-        title: "Emin A Sdv",
-        field: "emas",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-        topCalcFormatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Emin A Qual",
-        field: "emaq",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-        topCalcFormatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Emin A High",
-        field: "emah",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-        topCalcFormatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Emin A Low",
-        field: "emal",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-        topCalcFormatter: (e, params, onRendered) => {
-          return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Dur Mean",
-        field: "dm",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-      },
-      {
-        title: "Tot Dur",
-        field: "dsum",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-      },
-      {
-        title: "Dur % in Mkt",
-        field: "dpc",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-      },
-      {
-        title: "Dur Sdv",
-        field: "ds",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-      },
-      {
-        title: "Dur High",
-        field: "dh",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-      },
-      {
-        title: "Dur Low",
-        field: "dl",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 3,
-        },
-      },
+      // {
+      //   title: "Dur Mean",
+      //   field: "dm",
+      //   topCalc: "avg",
+      //   hozAlign: "right",
+      //   formatter: "money",
+      //   formatterParams: {
+      //     decimal: ".",
+      //     thousand: ",",
+      //     precision: 3,
+      //   },
+      //   topCalcFormatter: "money",
+      //   topCalcFormatterParams: {
+      //     decimal: ".",
+      //     thousand: ",",
+      //     precision: 3,
+      //   },
+      // },
+      // {
+      //   title: "Tot Dur",
+      //   field: "dsum",
+      //   topCalc: "avg",
+      //   hozAlign: "right",
+      //   formatter: "money",
+      //   formatterParams: {
+      //     decimal: ".",
+      //     thousand: ",",
+      //     precision: 3,
+      //   },
+      //   topCalcFormatter: "money",
+      //   topCalcFormatterParams: {
+      //     decimal: ".",
+      //     thousand: ",",
+      //     precision: 3,
+      //   },
+      // },
+      // {
+      //   title: "Dur % in Mkt",
+      //   field: "dpc",
+      //   topCalc: "avg",
+      //   hozAlign: "right",
+      //   formatter: "money",
+      //   formatterParams: {
+      //     decimal: ".",
+      //     thousand: ",",
+      //     precision: 3,
+      //   },
+      //   topCalcFormatter: "money",
+      //   topCalcFormatterParams: {
+      //     decimal: ".",
+      //     thousand: ",",
+      //     precision: 3,
+      //   },
+      // },
     ],
   }),
 };
