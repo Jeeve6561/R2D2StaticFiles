@@ -25,8 +25,8 @@ const Constants = {
   OpenDataBase: "openDB",
   DataUpdate: "updateddata",
 
-  xLogScale: true,
-  yLogScale: true,
+  xLogScale: false,
+  yLogScale: false,
 };
 
 const DocElems = {
