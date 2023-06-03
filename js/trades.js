@@ -227,6 +227,26 @@ const Tables = {
           return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
+      {
+        title: "Dol Mul",
+        field: "dm",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
       // {
       //   title: "Dur Mean",
       //   field: "dm",
