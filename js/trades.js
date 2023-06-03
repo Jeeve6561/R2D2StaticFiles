@@ -509,12 +509,12 @@ function HandleZoneData(id) {
 
   // let elem = [];
   data.forEach((e) => {
-    // if (e.sym === Constants.ZoneSymbol) {
-    //   d = e.h;
-    // }
-    e.h.forEach((el) => {
-      d.push(el);
-    });
+    if (e.sym === Constants.ZoneSymbol) {
+      d = e.h;
+    }
+    // e.h.forEach((el) => {
+    //   d.push(el);
+    // });
   });
 
   // if (Constants.Quadrant == "1") {
