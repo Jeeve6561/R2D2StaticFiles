@@ -30,12 +30,12 @@ main {
 }
 
 #radar {
-    height: 95%;
+    height: 90%;
     width: 100%;
 }
 
 #radarOptions {
-    height: 5%;
+    height: 10%;
     width: 100%;
 }
 
@@ -50,12 +50,12 @@ main {
 }
 
 #zonetable {
-    height: 95%;
+    height: 90%;
     width: 100%;
 }
 
 #zoneOptions {
-    height: 5%;
+    height: 10%;
     width: 100%;
 }
 
