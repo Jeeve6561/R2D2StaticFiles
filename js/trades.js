@@ -37,7 +37,7 @@ const Tables = {
     // pagination: true,
     movableColumns: true,
     initialSort: [
-      { column: "ema", dir: "desc" },
+      { column: "zone", dir: "asc" },
     ],
     columns: [
       {
