@@ -18,7 +18,7 @@ const Constants = {
   Db: 0,
 
   Id: 3,
-  ZoneSymbol: "TSLA",
+  ZoneSymbol: "NVDA",
   Quadrant: "all",
   ZoneData: { h: [] },
   Thm: "",

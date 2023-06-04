@@ -186,7 +186,7 @@ const GraphData = {
   PrevMaxVal: 0,
   PrevMinVal: 0,
   request: {
-    sym: "TSLA",
+    sym: "NVDA",
     tid: 0,
     ev: Constants.TacDataRequest,
   },
@@ -356,234 +356,334 @@ const CanvasCharts = {
 };
 
 const Tables = {
-  radardata: new Tabulator("#tableofradar", {
+  closedpos: new Tabulator("#closedpostable", {
     data: [],
     layout: "fitDataFill",
-    // layout: "fitDataStretch",
-    // rowClick: ClickRadarTableRow,
-    // pagination: true,
     movableColumns: true,
-    initialSort: [{ column: "eminracc", dir: "desc" }],
+    initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Sym",
-        field: "name",
+        title: "Q1 Zones",
+        field: "zone",
         topCalc: "count",
-        frozen: true,
+        hozAlign: "right",
       },
-      { title: "Rank", field: "rank", topCalc: "count" },
       {
-        title: "Rating",
-        field: "score",
+        title: "Trade Status",
+        field: "sts",
         topCalc: "count",
-        formatter: "star",
+        hozAlign: "right",
+      },
+      {
+        title: "T Cnt",
+        field: "cnt",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Tail",
+        field: "ts",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Entry",
+        field: "ent",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Dur",
+        field: "dur",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
         formatterParams: {
-          star: Constants.Rank.stars,
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
         },
       },
       {
-        title: "Q",
-        field: "quad",
-        topCalc: (vals) => {
-          let q1 = 0,
-            q2 = 0,
-            q3 = 0,
-            q4 = 0;
-          vals.forEach((v) => {
-            if (v === 1) {
-              q1++;
-            } else if (v === 2) {
-              q2++;
-            } else if (v === 3) {
-              q3++;
-            } else if (v === 4) {
-              q4++;
-            } else {
-              console.warn("Got an invalid quadrant");
-            }
-
-            DocElems.statchartOpts.innerHTML =
-              " | Q1:" +
-              String(q1) +
-              " Q2:" +
-              String(q2) +
-              " Q3:" +
-              String(q3) +
-              " Q4:" +
-              String(q4);
-          });
+        title: "Opl/Sh",
+        field: "oplps",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Open P&L",
+        field: "opl",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+      },
+      {
+        title: "Cpl/Sh",
+        field: "cpls",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Close P&L",
+        field: "cpl",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
         },
       },
       {
         title: "Emin",
-        field: "emin",
-        topCalc: "avg",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-      },
-      {
-        title: "EminAcc",
-        field: "eminacc",
-        topCalc: "avg",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-      },
-      {
-        title: "EminR",
-        field: "eminr",
-        topCalc: "avg",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-      },
-      {
-        title: "EminRAcc",
-        field: "eminracc",
-        topCalc: "avg",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-      },
-      {
-        title: "TtBS",
-        field: "tbs",
-        topCalc: "avg",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 3,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 3,
-        },
-      },
-      {
-        title: "Volatility",
-        field: "y",
-        topCalc: "avg",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Lots/Sec",
-        field: "lps",
-        topCalc: "avg",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          precision: 2,
-        },
-      },
-      {
-        title: "Dollars Traded",
-        field: "z",
+        field: "em",
         topCalc: "sum",
+        hozAlign: "right",
         formatter: "money",
         formatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 0,
+          precision: 2,
         },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          symbol: "$",
-          precision: 0,
+          precision: 2,
         },
       },
       {
-        title: "Progress",
-        field: "dp",
-        topCalc: "max",
-        formatter: "progress",
-        formatterParams: {
-          min: 0,
-          max: Constants.Rank.maxDollar,
-          // legendAlign: "center",
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 0,
-        },
-      },
-      {
-        title: "Tick Count",
-        field: "x",
-        topCalc: "avg",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-        },
-      },
-      {
-        title: "Volume",
-        field: "v",
+        title: "Emin A",
+        field: "ema",
         topCalc: "sum",
+        hozAlign: "right",
+        formatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+        topCalcFormatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+      },
+    ],
+  }),
+  openedpos: new Tabulator("#openedpostable", {
+    data: [],
+    layout: "fitDataFill",
+    movableColumns: true,
+    initialSort: [{ column: "zone", dir: "asc" }],
+    columns: [
+      {
+        title: "Q2 Zones",
+        field: "zone",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Trade Status",
+        field: "sts",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "T Cnt",
+        field: "cnt",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Tail",
+        field: "ts",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Entry",
+        field: "ent",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Dur",
+        field: "dur",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
         topCalcFormatter: "money",
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
+          precision: 2,
+        },
+      },
+      {
+        title: "Opl/Sh",
+        field: "oplps",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Open P&L",
+        field: "opl",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+      },
+      {
+        title: "Cpl/Sh",
+        field: "cpls",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Close P&L",
+        field: "cpl",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Emin",
+        field: "em",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+      },
+      {
+        title: "Emin A",
+        field: "ema",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+        topCalcFormatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
     ],
