@@ -345,7 +345,7 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Zone",
+        title: "Q1 Zones",
         field: "zone",
         topCalc: "count",
         hozAlign: "right",
@@ -575,7 +575,7 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Zone",
+        title: "Q2 Zones",
         field: "zone",
         topCalc: "count",
         hozAlign: "right",
@@ -805,7 +805,7 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Zone",
+        title: "Q3 Zones",
         field: "zone",
         topCalc: "count",
         hozAlign: "right",
@@ -1035,7 +1035,7 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Zone",
+        title: "Q4 Zones",
         field: "zone",
         topCalc: "count",
         hozAlign: "right",
