@@ -18,19 +18,12 @@ const Constants = {
 
   StartWritingToDatabase: false,
   Database: {
-    Name: "RadarData",
+    Name: "",
     Version: 1,
-    Store: { name: "Bubbles", keyPath: "id", autoIncrement: false },
+    Store: { name: "AllData", keyPath: "id", autoIncrement: false },
   },
   Db: 0,
-  TacDatabaseName: "TacData",
-  TacDatabaseSchema: { keyPath: "tid", autoIncrement: false },
-  UserDatabaseName: "UserData",
-  SystemDatabaseName: "SystemData",
 
-  ParentTabOrigin: "http://192.168.0.5:50000",
-  TacTab: null,
-  DashboardTab: null,
   EV_SocketReceivedData: "ReceivedData",
 
   Error_InvalidCaller: "Invalid Caller Type ",
@@ -123,9 +116,10 @@ const LiveFeedWS = {
 
 function main() {
   onmessage = (event) => {
+    Constants.Database.Name = event.data.dbname;
     Constants.IdToWrite = event.data.id;
     Constants.Ipaddress = event.data.ip;
-    CreateAndInitAllDatabases([Constants.Database.Store.name]);
+    CreateAndInitAllDatabases([]);
     Constants.LiveFeedWSUrl =
       "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
     LiveFeedWS.connect();
@@ -160,7 +154,7 @@ function WriteToDB(dbname, storename, data) {
   };
 }
 
-function CreateAndInitAllDatabases(stores) {
+function CreateAndInitAllDatabases() {
   const deleteRequest = indexedDB.deleteDatabase(Constants.Database.Name);
   console.log("Creating Databases");
 
@@ -196,8 +190,7 @@ function CreateAndInitAllDatabases(stores) {
     );
     Constants.Db = event.target.result;
 
-    stores.forEach((sym) => {
-      const store = Constants.Db.createObjectStore(sym, {
+      const store = Constants.Db.createObjectStore(Constants.Database.Store.name, {
         keyPath: Constants.Database.Store.keyPath,
         autoIncrement: Constants.Database.Store.autoIncrement,
       });
@@ -205,7 +198,6 @@ function CreateAndInitAllDatabases(stores) {
         Constants.Database.Store.keyPath,
         Constants.Database.Store.keyPath
       );
-    });
     console.log("Created all the stores");
     Constants.StartWritingToDatabase = true;
     self.postMessage({ ev: Constants.OpenDataBase });

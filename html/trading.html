@@ -1,55 +1,7 @@
 {{define "trading"}} {{template "header" .}}
 <div id="dash">
+  <div id="ipaddress">{{ .ipaddress }}</div>
   <div id="topRow">
-    <!-- <div id="radarchart">
-      <div id="radarOptions">
-        <div id="currenttime"></div>
-
-        <button id="fullscreenradarchart">
-          &#xe5d0;Bubbles
-        </button>
-
-        <select id="radarchartfilterquan" class="tablefilter">
-          {{ range $key, $val := .radarfilters }}
-            <option value={{$key}}>{{$val}}</option>
-          {{ end }}
-        </select>
-
-        <select id="radarchartfiltertype" class="tablefilter">
-          <option value=">=">>=</option>
-          <option value=">">></option>
-          <option value="=">=</option>
-          <option value="<"><</option>
-          <option value="<="><=</option>
-          <option value="!=">!=</option>
-        </select>
-
-        <input
-          id="radarchartfiltervalue"
-          class="tablefilter"
-          type="number"
-          placeholder="put a number here"
-        />
-
-        <button id="radarchartaddfilterbutton" class="tablefilter">
-          Apply Filter
-        </button>
-
-        <button id="radarchartclearfilterbutton" class="tablefilter">
-          Clear Filter
-        </button>
-
-        <button id="solosfilterbutton">Solo's Filters</button>
-        <button id="dicksfilterbutton">Dick's Filters</button>
-        <button id="togglelogscalebutton">Linear Scale</button>
-        <button id="togglecolorbutton">Fix Colors</button>
-        <button id="toggleradarbutton">Updating Live</button>
-
-        <div id="currentfilters"></div>
-      </div>
-      <div id="radarcontainer"></div>
-    </div> -->
-
     <div id="stockchart">
       <div id="stockchartOptions">
         <button id="fullscreenstockchart">
@@ -72,7 +24,7 @@
   </div>
   <div id="bottomRow">
     <div id="statchartsContainer">
-      <div id="statchartsOptions">{{ .ipaddress }}</div>
+      <div id="statchartsOptions"></div>
       <div id="statchartsSidebyside">
         <div id="tableofradar"></div>
         <div id="inMktChartContainer"></div>

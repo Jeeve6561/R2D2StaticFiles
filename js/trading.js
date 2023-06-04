@@ -69,6 +69,8 @@ const DocElems = {
     "radarchartclearfilterbutton"
   ),
 
+  ipaddress: document.getElementById("ipaddress"),
+
   symbolinput: document.getElementById("symbolinput"),
   symbolinputbutton: document.getElementById("symbolinputbutton"),
   stockchart: document.getElementById("stockchart"),
@@ -397,7 +399,7 @@ const Tables = {
     layout: "fitDataFill",
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
-    pagination: true,
+    // pagination: true,
     movableColumns: true,
     initialSort: [{ column: "eminracc", dir: "desc" }],
     columns: [
@@ -629,10 +631,10 @@ const Tables = {
 function main() {
   // const st = performance.now();
 
-  Constants.Ipaddress = DocElems.statchartOpts.innerHTML;
+  Constants.Ipaddress = DocElems.ipaddress.innerHTML;
   Constants.RequestWSUrl =
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
-  DocElems.statchartOpts.innerHTML = "";
+  DocElems.ipaddress.innerHTML = "";
 
   let onloadfilters = new Map(JSON.parse(localStorage.getItem("radarfilters")));
   if (onloadfilters.size > 0) {

@@ -11,9 +11,9 @@ const Constants = {
   VolHeightPercent: 0.2,
 
   Database: {
-    Name: "RadarData",
+    Name: "TradeData",
     Version: 1,
-    Store: { name: "Bubbles", keyPath: "id", autoIncrement: false },
+    Store: { name: "AllData", keyPath: "id", autoIncrement: false },
   },
   Db: 0,
 
@@ -499,7 +499,7 @@ function main() {
   CanvasCharts.Radar.render();
 
   const childWorker = new Worker("/static/js/websocket.js");
-  childWorker.postMessage({ ip: Constants.Ipaddress, id: Constants.Id });
+  childWorker.postMessage({ dbname:Constants.Database.Name, ip: Constants.Ipaddress, id: Constants.Id });
   childWorker.onmessage = (event) => {
     let msg = event.data;
     switch (msg.ev) {

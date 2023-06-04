@@ -25,9 +25,9 @@ const Constants = {
   ThisProgram: "R2D2",
 
   Database: {
-    Name: "RadarData",
+    Name: "DashboardData",
     Version: 1,
-    Store: { name: "Bubbles", keyPath: "id", autoIncrement: false },
+    Store: { name: "AllData", keyPath: "id", autoIncrement: false },
   },
   Db: 0,
 
@@ -1191,7 +1191,7 @@ function main() {
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
 
   const childWorker = new Worker("/static/js/websocket.js");
-  childWorker.postMessage({ ip: Constants.Ipaddress, id: 1 });
+  childWorker.postMessage({ dbname:Constants.Database.Name, ip: Constants.Ipaddress, id: 1 });
   childWorker.onmessage = (event) => {
     let msg = event.data;
     console.log(msg);

@@ -8,9 +8,9 @@ const Constants = {
   SymZoneDataRequest: "symbolzonedatarequest",
 
   Database: {
-    Name: "RadarData",
+    Name: "ZoneData",
     Version: 1,
-    Store: { name: "Bubbles", keyPath: "id", autoIncrement: false },
+    Store: { name: "AllData", keyPath: "id", autoIncrement: false },
   },
   Db: 0,
 
@@ -515,7 +515,7 @@ function main() {
   });
 
   const childWorker = new Worker("/static/js/websocket.js");
-  childWorker.postMessage({ ip: Constants.Ipaddress, id: Constants.Id });
+  childWorker.postMessage({ dbname:Constants.Database.Name, ip: Constants.Ipaddress, id: Constants.Id });
   childWorker.onmessage = (event) => {
     let msg = event.data;
     switch (msg.ev) {
