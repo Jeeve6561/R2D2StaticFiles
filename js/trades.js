@@ -244,6 +244,26 @@ const Tables = {
           decimal: ".",
           thousand: ",",
           symbol: "$",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+      },
+      {
+        title: "Opl",
+        field: "opl",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
           precision: 2,
         },
         topCalcFormatter: "money",
@@ -277,7 +297,7 @@ const Tables = {
       {
         title: "Emin",
         field: "em",
-        topCalc: "avg",
+        topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
@@ -295,7 +315,7 @@ const Tables = {
       {
         title: "Emin A",
         field: "ema",
-        topCalc: "avg",
+        topCalc: "sum",
         hozAlign: "right",
         formatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
@@ -363,7 +383,7 @@ const Tables = {
       {
         title: "Dol Moved",
         field: "dmvd",
-        topCalc: "avg",
+        topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
         formatterParams: {
