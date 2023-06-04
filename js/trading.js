@@ -347,13 +347,13 @@ const CanvasCharts = {
       //   ],
       // },
     ],
-    // navigator: {
-    //   enabled: false,
-    //   slider: {
-    //     minimum: null,
-    //     maximum: null,
-    //   },
-    // },
+    navigator: {
+      enabled: false,
+      // slider: {
+      //   minimum: null,
+      //   maximum: null,
+      // },
+    },
     rangeSelector: {
       enabled: false,
       buttons: [
