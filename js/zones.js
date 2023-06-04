@@ -1020,8 +1020,7 @@ function labelFormatterY2(e) {
 }
 
 function UpdateStockChart(data) {
-  CanvasCharts.Stock.options.title.text =
-    GraphData.requestTacData.sym + " Zone " + GraphData.requestZoneData.zone;
+  CanvasCharts.Stock.options.title.text = GraphData.requestTacData.sym;
 
   let tp = [];
   let abp = [];
