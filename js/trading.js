@@ -1154,8 +1154,8 @@ function UpdateStockChart(data) {
 }
 
 function UpdateTables(data) {
-  console.log(data.zoned);
-  console.log(data.imd);
+  Tables.zoneclosedpos.setData(data.zoned);
+  Tables.closedpos.setData(data.imd);
 }
 
 function clickSymbolInput() {
