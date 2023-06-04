@@ -139,7 +139,7 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "T Sts",
+        title: "Trade Status",
         field: "sts",
         topCalc: "count",
         hozAlign: "right",
@@ -512,7 +512,7 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "T Sts",
+        title: "Trade Status",
         field: "sts",
         topCalc: "count",
         hozAlign: "right",
@@ -885,7 +885,7 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "T Sts",
+        title: "Trade Status",
         field: "sts",
         topCalc: "count",
         hozAlign: "right",
@@ -1258,7 +1258,7 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "T Sts",
+        title: "Trade Status",
         field: "sts",
         topCalc: "count",
         hozAlign: "right",
@@ -1631,7 +1631,7 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "T Sts",
+        title: "Trade Status",
         field: "sts",
         topCalc: "count",
         hozAlign: "right",
@@ -2035,6 +2035,8 @@ function HandleZoneData(id) {
     Tables.Quadrant4.clearData();
     return;
   }
+
+  console.log(data, d);
 
   // let elem = [];
   data.forEach((e) => {
