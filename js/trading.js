@@ -141,7 +141,7 @@ const RequestWS = {
         }
         break;
       case Constants.SymbolTradeDataRequest:
-        console.log("Trade message:", msg);
+        console.log("Trade message:", msg.d);
         break;
       default:
         console.log(msg);
