@@ -1333,14 +1333,14 @@ function HandleZoneData(id) {
     return;
   }
 
-  Constants.Thm = data[0].ht.h;
-  Constants.Min = data[0].ht.m;
-  Constants.Sec = data[0].ht.s;
-  Constants.Price = data[0].p;
-  Constants.DMult = data[0].dm;
-  Constants.Size = data[0].s;
-  Constants.Lots = data[0].lts;
-  Constants.Dmvd = data[0].dmvd;
+  Constants.Thm = data[data.length - 1].ht.h;
+  Constants.Min = data[data.length - 1].ht.m;
+  Constants.Sec = data[data.length - 1].ht.s;
+  Constants.Price = data[data.length - 1].p;
+  Constants.DMult = data[data.length - 1].dm;
+  Constants.Size = data[data.length - 1].s;
+  Constants.Lots = data[data.length - 1].lts;
+  Constants.Dmvd = data[data.length - 1].dmvd;
 
   DocElems.zoneOptions.innerHTML =
     Constants.Thm +
@@ -1353,11 +1353,11 @@ function HandleZoneData(id) {
     " | Price: $" +
     Constants.Price +
     " | Dollar Multiplier: $" +
-    Constants.DMult+
+    Constants.DMult +
     " | Shares: " +
-    Constants.Size+
+    Constants.Size +
     " | Lots: " +
-    Constants.Lots+
+    Constants.Lots +
     " | Dollars Moved: $" +
     Constants.Dmvd;
 
