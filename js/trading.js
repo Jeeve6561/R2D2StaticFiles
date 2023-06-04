@@ -1124,8 +1124,7 @@ function clickSymbolInput() {
 }
 
 function clickZoneInput() {
-  GraphData.requestZoneData.zone = DocElems.zoneinput.value;
-  console.log(DocElems.zoneinput.value);
+  GraphData.requestZoneData.zone = parseInt(DocElems.zoneinput.value);
   DocElems.zoneinput.value = "";
 }
 
