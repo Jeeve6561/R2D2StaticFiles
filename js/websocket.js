@@ -84,7 +84,6 @@ const LiveFeedWS = {
 
   messageReceived(event) {
     let msg = JSON.parse(event.data);
-    console.log(event.data.length);
     // console.log(msg);
     switch (msg.ev) {
       case Constants.ConnectMsg:

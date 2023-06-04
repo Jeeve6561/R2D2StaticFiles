@@ -2044,16 +2044,16 @@ function HandleZoneData(id) {
   });
 
   d.forEach((e) => {
-    if (d.q === 1) {
+    if (e.q === 1) {
       d1.push(e);
     }
-    if (d.q === 2) {
+    if (e.q === 2) {
       d2.push(e);
     }
-    if (d.q === 3) {
+    if (e.q === 3) {
       d3.push(e);
     }
-    if (d.q === 4) {
+    if (e.q === 4) {
       d4.push(e);
     }
   });
