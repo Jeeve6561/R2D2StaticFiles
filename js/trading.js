@@ -143,7 +143,7 @@ const RequestWS = {
         }
         break;
       case Constants.SymbolTradeDataRequest:
-        console.log("Trade message:", msg.d);
+        UpdateTables(msg.d);
         break;
       default:
         console.log(msg);
@@ -1151,6 +1151,11 @@ function UpdateStockChart(data) {
   }
 
   CanvasCharts.Stock.render();
+}
+
+function UpdateTables(data) {
+  console.log(data.zoned);
+  console.log(data.imd);
 }
 
 function clickSymbolInput() {
