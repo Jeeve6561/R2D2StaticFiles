@@ -238,7 +238,7 @@ const CanvasCharts = {
           verticalAlign: "top",
           horizontalAlign: "center",
         },
-        axisX: [
+        axisX://[
           {
             crosshair: {
               enabled: true,
@@ -252,19 +252,19 @@ const CanvasCharts = {
             maximum: null,
             labelFormatter: labelFormatterX,
           },
-          {
-            crosshair: {
-              enabled: false,
-              snapToDataPoint: false,
-              color: Constants.fontColor,
-            },
-            labelFontColor: Constants.fontColor,
-            titleFontColor: Constants.fontColor,
-            lineColor: Constants.fontColor,
-            minimum: null,
-            maximum: null,
-          },
-        ],
+        //   {
+        //     crosshair: {
+        //       enabled: false,
+        //       snapToDataPoint: false,
+        //       color: Constants.fontColor,
+        //     },
+        //     labelFontColor: Constants.fontColor,
+        //     titleFontColor: Constants.fontColor,
+        //     lineColor: Constants.fontColor,
+        //     minimum: null,
+        //     maximum: null,
+        //   },
+        // ],
         axisY2: {
           crosshair: {
             enabled: false,
