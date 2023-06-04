@@ -24,6 +24,11 @@ const Constants = {
   Thm: "",
   Min: 0,
   Sec: 0,
+  Price: 0,
+  DMult: 0,
+  Size: 0,
+  Lots: 0,
+  Dmvd: 0,
 
   OpenDataBase: "openDB",
   DataUpdate: "updateddata",
@@ -40,6 +45,7 @@ const DocElems = {
   quadrantinputbutton: document.getElementById("quadrantinputbutton"),
   radartogglexlogscalebutton: document.getElementById("togglexlogscalebutton"),
   radartoggleylogscalebutton: document.getElementById("toggleylogscalebutton"),
+  zoneOptions: document.getElementById("zoneOptions"),
 };
 
 const CanvasCharts = {
@@ -109,33 +115,6 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Thm",
-        field: "thm",
-      },
-      {
-        title: "Sec",
-        field: "sec",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      {
-        title: "Min",
-        field: "min",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      // {
-      //   title: "Quad",
-      //   field: "q",
-      //   topCalc: "count",
-      //   hozAlign: "right",
-      // },
-      // {
-      //   title: "Rank",
-      //   field: "r",
-      //   hozAlign: "right",
-      // },
-      {
         title: "Zone",
         field: "zone",
         topCalc: "count",
@@ -186,46 +165,6 @@ const Tables = {
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          precision: 2,
-        },
-      },
-      {
-        title: "Srt Prc",
-        field: "sp",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "End Prc",
-        field: "ep",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
           precision: 2,
         },
       },
@@ -337,82 +276,6 @@ const Tables = {
         },
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Dol Mul",
-        field: "dm",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Shares",
-        field: "s",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Lots",
-        field: "lts",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Dol Moved",
-        field: "dmvd",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
         },
       },
       // {
@@ -482,33 +345,6 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Thm",
-        field: "thm",
-      },
-      {
-        title: "Sec",
-        field: "sec",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      {
-        title: "Min",
-        field: "min",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      // {
-      //   title: "Quad",
-      //   field: "q",
-      //   topCalc: "count",
-      //   hozAlign: "right",
-      // },
-      // {
-      //   title: "Rank",
-      //   field: "r",
-      //   hozAlign: "right",
-      // },
-      {
         title: "Zone",
         field: "zone",
         topCalc: "count",
@@ -559,46 +395,6 @@ const Tables = {
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          precision: 2,
-        },
-      },
-      {
-        title: "Srt Prc",
-        field: "sp",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "End Prc",
-        field: "ep",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
           precision: 2,
         },
       },
@@ -710,82 +506,6 @@ const Tables = {
         },
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Dol Mul",
-        field: "dm",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Shares",
-        field: "s",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Lots",
-        field: "lts",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Dol Moved",
-        field: "dmvd",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
         },
       },
       // {
@@ -855,33 +575,6 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Thm",
-        field: "thm",
-      },
-      {
-        title: "Sec",
-        field: "sec",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      {
-        title: "Min",
-        field: "min",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      // {
-      //   title: "Quad",
-      //   field: "q",
-      //   topCalc: "count",
-      //   hozAlign: "right",
-      // },
-      // {
-      //   title: "Rank",
-      //   field: "r",
-      //   hozAlign: "right",
-      // },
-      {
         title: "Zone",
         field: "zone",
         topCalc: "count",
@@ -932,46 +625,6 @@ const Tables = {
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          precision: 2,
-        },
-      },
-      {
-        title: "Srt Prc",
-        field: "sp",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "End Prc",
-        field: "ep",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
           precision: 2,
         },
       },
@@ -1083,82 +736,6 @@ const Tables = {
         },
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Dol Mul",
-        field: "dm",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Shares",
-        field: "s",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Lots",
-        field: "lts",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Dol Moved",
-        field: "dmvd",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
         },
       },
       // {
@@ -1228,33 +805,6 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Thm",
-        field: "thm",
-      },
-      {
-        title: "Sec",
-        field: "sec",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      {
-        title: "Min",
-        field: "min",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      // {
-      //   title: "Quad",
-      //   field: "q",
-      //   topCalc: "count",
-      //   hozAlign: "right",
-      // },
-      // {
-      //   title: "Rank",
-      //   field: "r",
-      //   hozAlign: "right",
-      // },
-      {
         title: "Zone",
         field: "zone",
         topCalc: "count",
@@ -1305,46 +855,6 @@ const Tables = {
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          precision: 2,
-        },
-      },
-      {
-        title: "Srt Prc",
-        field: "sp",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "End Prc",
-        field: "ep",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
           precision: 2,
         },
       },
@@ -1456,82 +966,6 @@ const Tables = {
         },
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Dol Mul",
-        field: "dm",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Shares",
-        field: "s",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Lots",
-        field: "lts",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Dol Moved",
-        field: "dmvd",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
         },
       },
       // {
@@ -1601,33 +1035,6 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Thm",
-        field: "thm",
-      },
-      {
-        title: "Sec",
-        field: "sec",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      {
-        title: "Min",
-        field: "min",
-        topCalc: "max",
-        hozAlign: "right",
-      },
-      // {
-      //   title: "Quad",
-      //   field: "q",
-      //   topCalc: "count",
-      //   hozAlign: "right",
-      // },
-      // {
-      //   title: "Rank",
-      //   field: "r",
-      //   hozAlign: "right",
-      // },
-      {
         title: "Zone",
         field: "zone",
         topCalc: "count",
@@ -1678,46 +1085,6 @@ const Tables = {
         topCalcFormatterParams: {
           decimal: ".",
           thousand: ",",
-          precision: 2,
-        },
-      },
-      {
-        title: "Srt Prc",
-        field: "sp",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "End Prc",
-        field: "ep",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
           precision: 2,
         },
       },
@@ -1829,82 +1196,6 @@ const Tables = {
         },
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
-        },
-      },
-      {
-        title: "Dol Mul",
-        field: "dm",
-        topCalc: "avg",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-      },
-      {
-        title: "Shares",
-        field: "s",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Lots",
-        field: "lts",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          precision: 0,
-        },
-      },
-      {
-        title: "Dol Moved",
-        field: "dmvd",
-        topCalc: "sum",
-        hozAlign: "right",
-        formatter: "money",
-        formatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
-        },
-        topCalcFormatter: "money",
-        topCalcFormatterParams: {
-          decimal: ".",
-          thousand: ",",
-          symbol: "$",
-          precision: 2,
         },
       },
       // {
@@ -2045,8 +1336,30 @@ function HandleZoneData(id) {
   Constants.Thm = data[0].ht.h;
   Constants.Min = data[0].ht.m;
   Constants.Sec = data[0].ht.s;
+  Constants.Price = data[0].p;
+  Constants.DMult = data[0].dm;
+  Constants.Size = data[0].s;
+  Constants.Lots = data[0].lts;
+  Constants.Dmvd = data[0].dmvd;
 
-  console.log(Constants.Thm, Constants.Min, Constants.Sec);
+  DocElems.zoneOptions.innerHTML =
+    Constants.Thm +
+    " | Min: " +
+    Constants.Min +
+    " | Sec: " +
+    Constants.Sec +
+    " | " +
+    Constants.ZoneSymbol +
+    " | Price: $" +
+    Constants.Price +
+    " | Dollar Multiplier: $" +
+    Constants.DMult+
+    " | Shares: " +
+    Constants.Size+
+    " | Lots: " +
+    Constants.Lots+
+    " | Dollars Moved: $" +
+    Constants.Dmvd;
 
   // let elem = [];
   data.forEach((e) => {
