@@ -1421,8 +1421,8 @@ function HandleZoneData(id) {
 
   CanvasCharts.Radar.options.title.text = Constants.ZoneSymbol;
   CanvasCharts.Radar.options.data[0].dataPoints = dy;
-  CanvasCharts.Radar.options.axisX[0].crosshair.showAt(Constants.QualifierTCnt);
-  CanvasCharts.Radar.options.axisY[0].crosshair.showAt(Constants.QualifierKpi);
+  CanvasCharts.Radar.axisX[0].crosshair.showAt(Constants.QualifierTCnt);
+  CanvasCharts.Radar.axisY[0].crosshair.showAt(Constants.QualifierKpi);
   CanvasCharts.Radar.render();
 }
 
