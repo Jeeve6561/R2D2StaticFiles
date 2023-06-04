@@ -17,7 +17,7 @@ const Constants = {
   LiveFeedWSExt: ":33333/wslivestream",
   RequestWSExt: ":55555/wstacstream",
   TacDataRequest: "tacdatarequest",
-  RadarDataRequest: "radardatarequest",
+  SymbolTradeDataRequest: "symboltradedatarequest",
   Ev_Payload: "sympayload",
   ConnectMsg: "connected",
   ThisProgram: "R2D2",
@@ -130,7 +130,6 @@ const RequestWS = {
   },
 
   messageReceived(event) {
-    // Constants.stime = performance.now();
     let msg = JSON.parse(event.data);
     switch (msg.ev) {
       case Constants.ConnectMsg:
@@ -140,19 +139,9 @@ const RequestWS = {
         if (!Constants.Drawing) {
           UpdateStockChart(msg.d);
         }
-        //Constants.etime = performance.now()
-        // console.log("--------------------------------------" + GraphData.request.sym +" loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
         break;
-      case Constants.RadarDataRequest:
-        // UpdateStockChart(msg.d.d, msg.d.sym);
-        // Constants.etime = performance.now()
-        // console.log("-------------------------------------- loading performance:", Constants.etime - Constants.stime, "--------------------------------------");
-        break;
-      case Constants.BubbleRequest:
-        // console.log(data);
-        console.log("Data is coming through ", Constants.RequestWSUrl);
-        console.log("Data is: ", data);
-        UpdateRadarChart(data);
+      case Constants.SymbolTradeDataRequest:
+        console.log("Trade message:", msg);
         break;
       default:
         console.log(msg);
@@ -185,10 +174,15 @@ const GraphData = {
   RadarUpdate: true,
   PrevMaxVal: 0,
   PrevMinVal: 0,
-  request: {
+  requestTacData: {
     sym: "NVDA",
     tid: 0,
     ev: Constants.TacDataRequest,
+  },
+  requestZoneData: {
+    sym: "NVDA",
+    zone: 0,
+    ev: Constants.SymbolTradeDataRequest,
   },
   FilterId: 1,
   radarFilters: new Map([[0, { quan: "tcnt", comp: ">", val: "0" }]]),
@@ -738,7 +732,8 @@ function main() {
   });
 
   setInterval(() => {
-    RequestWS.sendMessage(GraphData.request);
+    RequestWS.sendMessage(GraphData.requestTacData);
+    RequestWS.sendMessage(GraphData.requestZoneData);
   }, 500);
 
   // const et = performance.now();
@@ -806,7 +801,7 @@ function contentFormatterEminRA(e) {
 
 function contentFormatterTop(e) {
   return (
-    GraphData.request.sym +
+    GraphData.requestTacData.sym +
     "<hr/>Time: " +
     e.entries[0].dataPoint.l +
     "<hr/>Trade Price: " +
@@ -880,7 +875,7 @@ function labelFormatterY2(e) {
 }
 
 function UpdateStockChart(data) {
-  CanvasCharts.Stock.options.title.text = GraphData.request.sym;
+  CanvasCharts.Stock.options.title.text = GraphData.requestTacData.sym;
 
   let tp = [];
   let abp = [];
@@ -949,7 +944,7 @@ function UpdateStockChart(data) {
 
 function clickSymbolInput() {
   let temp = DocElems.symbolinput.value;
-  GraphData.request.sym = temp.toUpperCase();
+  GraphData.requestTacData.sym = temp.toUpperCase();
   DocElems.symbolinput.value = "";
 }
 
