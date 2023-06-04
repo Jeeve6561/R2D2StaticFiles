@@ -227,7 +227,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl per Share",
+        title: "Opl/Sh",
         field: "oplps",
         topCalc: "sum",
         hozAlign: "right",
@@ -247,7 +247,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl",
+        title: "Open P&L",
         field: "opl",
         topCalc: "sum",
         hozAlign: "right",
@@ -267,7 +267,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl per Share",
+        title: "Cpl/Sh",
         field: "cpls",
         topCalc: "sum",
         hozAlign: "right",
@@ -287,7 +287,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl",
+        title: "Close P&L",
         field: "cpl",
         topCalc: "sum",
         hozAlign: "right",
@@ -600,7 +600,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl per Share",
+        title: "Opl/Sh",
         field: "oplps",
         topCalc: "sum",
         hozAlign: "right",
@@ -620,7 +620,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl",
+        title: "Open P&L",
         field: "opl",
         topCalc: "sum",
         hozAlign: "right",
@@ -640,7 +640,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl per Share",
+        title: "Cpl/Sh",
         field: "cpls",
         topCalc: "sum",
         hozAlign: "right",
@@ -660,7 +660,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl",
+        title: "Close P&L",
         field: "cpl",
         topCalc: "sum",
         hozAlign: "right",
@@ -973,7 +973,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl per Share",
+        title: "Opl/Sh",
         field: "oplps",
         topCalc: "sum",
         hozAlign: "right",
@@ -993,7 +993,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl",
+        title: "Open P&L",
         field: "opl",
         topCalc: "sum",
         hozAlign: "right",
@@ -1013,7 +1013,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl per Share",
+        title: "Cpl/Sh",
         field: "cpls",
         topCalc: "sum",
         hozAlign: "right",
@@ -1033,7 +1033,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl",
+        title: "Close P&L",
         field: "cpl",
         topCalc: "sum",
         hozAlign: "right",
@@ -1346,7 +1346,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl per Share",
+        title: "Opl/Sh",
         field: "oplps",
         topCalc: "sum",
         hozAlign: "right",
@@ -1366,7 +1366,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl",
+        title: "Open P&L",
         field: "opl",
         topCalc: "sum",
         hozAlign: "right",
@@ -1386,7 +1386,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl per Share",
+        title: "Cpl/Sh",
         field: "cpls",
         topCalc: "sum",
         hozAlign: "right",
@@ -1406,7 +1406,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl",
+        title: "Close P&L",
         field: "cpl",
         topCalc: "sum",
         hozAlign: "right",
@@ -1719,7 +1719,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl per Share",
+        title: "Opl/Sh",
         field: "oplps",
         topCalc: "sum",
         hozAlign: "right",
@@ -1739,7 +1739,7 @@ const Tables = {
         },
       },
       {
-        title: "Opl",
+        title: "Open P&L",
         field: "opl",
         topCalc: "sum",
         hozAlign: "right",
@@ -1759,7 +1759,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl per Share",
+        title: "Cpl/Sh",
         field: "cpls",
         topCalc: "sum",
         hozAlign: "right",
@@ -1779,7 +1779,7 @@ const Tables = {
         },
       },
       {
-        title: "Cpl",
+        title: "Close P&L",
         field: "cpl",
         topCalc: "sum",
         hozAlign: "right",
