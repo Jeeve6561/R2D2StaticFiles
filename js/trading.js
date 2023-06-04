@@ -819,6 +819,8 @@ function UpdateStockChart(data) {
   let abp = [];
   let v = [];
   let xval;
+  let max = 0;
+  let min = Infinity;
 
   data.forEach((elem) => {
     // console.log(elem.tid);
@@ -827,12 +829,33 @@ function UpdateStockChart(data) {
       tp.push({ x: xval, y: elem.tp, l: elem.th });
       abp.push({ x: xval, y: [elem.bp, elem.ap], l: elem.th });
       v.push({ x: xval, y: elem.vi, l: elem.th });
+      if (elem.tp > max) {
+        max = elem.tp;
+      }
+      if (elem.ap > max) {
+        max = elem.ap;
+      }
+      if (elem.bp > max) {
+        max = elem.bp;
+      }
+      if (elem.tp < min) {
+        min = elem.tp;
+      }
+      if (elem.ap < min) {
+        min = elem.ap;
+      }
+      if (elem.bp < min) {
+        min = elem.bp;
+      }
     }
   });
 
   CanvasCharts.Stock.options.charts[0].data[0].dataPoints = tp;
   CanvasCharts.Stock.options.charts[0].data[1].dataPoints = abp;
   CanvasCharts.Stock.options.charts[1].data[0].dataPoints = v;
+
+  CanvasCharts.Stock.options.charts[0].axisY2.maximum = max;
+  CanvasCharts.Stock.options.charts[0].axisY2.minimum = min;
 
   if (GraphData.LiveUpdate) {
     if (!GraphData.LiveUpdateInit) {
