@@ -1354,7 +1354,7 @@ function HandleZoneData(id) {
     Constants.Price.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
-    }); +
+    }) +
     " | Dollar Multiplier: " +
     Constants.DMult.toFixed(5) +
     " | Shares: " +
@@ -1365,7 +1365,7 @@ function HandleZoneData(id) {
     Constants.Dmvd.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
-    });;
+    });
 
   // let elem = [];
   data.forEach((e) => {
