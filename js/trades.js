@@ -169,14 +169,6 @@ const Tables = {
       //   hozAlign: "right",
       // },
       {
-        title: "Srt Time",
-        field: "st",
-      },
-      {
-        title: "End Time",
-        field: "et",
-      },
-      {
         title: "Dur",
         field: "dur",
         topCalc: "avg",
