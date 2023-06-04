@@ -350,6 +350,172 @@ const CanvasCharts = {
 };
 
 const Tables = {
+  zoneclosedpos: new Tabulator("#zoneclosedpostable", {
+    data: [],
+    layout: "fitDataFill",
+    movableColumns: true,
+    initialSort: [{ column: "zone", dir: "asc" }],
+    columns: [
+      {
+        title: "Q1 Zones",
+        field: "zone",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Trade Status",
+        field: "sts",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "T Cnt",
+        field: "cnt",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Tail",
+        field: "ts",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Entry",
+        field: "ent",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
+        title: "Dur",
+        field: "dur",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+      },
+      {
+        title: "Opl/Sh",
+        field: "oplps",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Open P&L",
+        field: "opl",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+      },
+      {
+        title: "Cpl/Sh",
+        field: "cpls",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Close P&L",
+        field: "cpl",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 2,
+        },
+      },
+      {
+        title: "Emin",
+        field: "em",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+      },
+      {
+        title: "Emin A",
+        field: "ema",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+        topCalcFormatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+      },
+    ],
+  }),
   closedpos: new Tabulator("#closedpostable", {
     data: [],
     layout: "fitDataFill",
