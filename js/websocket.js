@@ -90,7 +90,7 @@ const LiveFeedWS = {
         console.log("Name of socket manager:", msg.n);
         break;
       case Constants.Sympayload:
-        console.log(msg.d);
+        console.log(event.data.length);
         HandleDataFromSocket(msg.d, 1);
         break;
       case Constants.HypothesesPayload:
