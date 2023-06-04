@@ -1351,15 +1351,21 @@ function HandleZoneData(id) {
     " | " +
     Constants.ZoneSymbol +
     " | Price: $" +
-    Constants.Price +
-    " | Dollar Multiplier: $" +
-    Constants.DMult +
+    Constants.Price.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    }); +
+    " | Dollar Multiplier: " +
+    Constants.DMult.toFixed(5) +
     " | Shares: " +
     Constants.Size +
     " | Lots: " +
-    Constants.Lots +
+    Constants.Lots.toFixed(0) +
     " | Dollars Moved: $" +
-    Constants.Dmvd;
+    Constants.Dmvd.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });;
 
   // let elem = [];
   data.forEach((e) => {
