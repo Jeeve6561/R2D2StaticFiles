@@ -1125,6 +1125,9 @@ function clickSymbolInput() {
 
 function clickZoneInput() {
   GraphData.requestZoneData.zone = parseInt(DocElems.zoneinput.value);
+  if (parseInt(DocElems.zoneinput.value) > 50 || parseInt(DocElems.zoneinput.value) < 1){
+    alert("The zone you input does not exist")
+  }
   DocElems.zoneinput.value = "";
 }
 
