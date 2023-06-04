@@ -359,32 +359,8 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Direction",
+        title: "Dir",
         field: "dir",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Trade Status",
-        field: "sts",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Order Type",
-        field: "ot",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Exit Color",
-        field: "ex",
-        topCalc: "sum",
-        hozAlign: "right",
-      },
-      {
-        title: "Trade Cnt",
-        field: "cnt",
         topCalc: "count",
         hozAlign: "right",
       },
@@ -537,32 +513,8 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Direction",
+        title: "Dir",
         field: "dir",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Trade Status",
-        field: "sts",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Order Type",
-        field: "ot",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Exit Color",
-        field: "ex",
-        topCalc: "sum",
-        hozAlign: "right",
-      },
-      {
-        title: "Trade Cnt",
-        field: "cnt",
         topCalc: "count",
         hozAlign: "right",
       },
@@ -715,32 +667,8 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
-        title: "Direction",
+        title: "Dir",
         field: "dir",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Trade Status",
-        field: "sts",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Order Type",
-        field: "ot",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
-        title: "Exit Color",
-        field: "ex",
-        topCalc: "sum",
-        hozAlign: "right",
-      },
-      {
-        title: "Trade Cnt",
-        field: "cnt",
         topCalc: "count",
         hozAlign: "right",
       },
