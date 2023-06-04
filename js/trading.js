@@ -181,7 +181,7 @@ const GraphData = {
   },
   requestZoneData: {
     sym: "NVDA",
-    zone: 0,
+    zone: 1,
     ev: Constants.SymbolTradeDataRequest,
   },
   FilterId: 1,
@@ -945,6 +945,7 @@ function UpdateStockChart(data) {
 function clickSymbolInput() {
   let temp = DocElems.symbolinput.value;
   GraphData.requestTacData.sym = temp.toUpperCase();
+  GraphData.requestZoneData.sym = temp.toUpperCase();
   DocElems.symbolinput.value = "";
 }
 
