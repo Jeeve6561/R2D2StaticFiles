@@ -1353,7 +1353,7 @@ function HandleZoneData(id) {
     Constants.Sec +
     "  |  " +
     Constants.ZoneSymbol +
-    "  |  Price: $" +
+    "  |  Price: " +
     Constants.Price.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
@@ -1364,7 +1364,7 @@ function HandleZoneData(id) {
     Constants.Size +
     "  |  Lots: " +
     Constants.Lots.toFixed(0) +
-    "  |  Dollars Moved: $" +
+    "  |  Dollars Moved: " +
     Constants.Dmvd.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",

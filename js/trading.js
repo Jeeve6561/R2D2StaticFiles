@@ -635,6 +635,9 @@ function main() {
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
   DocElems.ipaddress.innerHTML = "";
 
+  // GraphData.request.sym = DocElems.symbol.innerHTML;
+  // DocElems.symbol.innerHTML = "";
+
   let onloadfilters = new Map(JSON.parse(localStorage.getItem("radarfilters")));
   if (onloadfilters.size > 0) {
     GraphData.radarFilters = onloadfilters;
