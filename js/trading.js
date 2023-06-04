@@ -855,7 +855,7 @@ function UpdateStockChart(data) {
 
   CanvasCharts.Stock.options.charts[0].data[0].dataPoints = tp;
   CanvasCharts.Stock.options.charts[0].data[1].dataPoints = abp;
-  CanvasCharts.Stock.options.charts[1].data[0].dataPoints = v;
+  // CanvasCharts.Stock.options.charts[1].data[0].dataPoints = v;
 
   CanvasCharts.Stock.options.charts[0].axisY2.maximum = max;
   CanvasCharts.Stock.options.charts[0].axisY2.minimum = min;
