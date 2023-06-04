@@ -519,6 +519,12 @@ const Tables = {
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
       {
+        title: "Zone",
+        field: "zone",
+        topCalc: "count",
+        hozAlign: "right",
+      },
+      {
         title: "Dir",
         field: "dir",
         topCalc: "count",
@@ -672,6 +678,12 @@ const Tables = {
     movableColumns: true,
     initialSort: [{ column: "zone", dir: "asc" }],
     columns: [
+      {
+        title: "Zone",
+        field: "zone",
+        topCalc: "count",
+        hozAlign: "right",
+      },
       {
         title: "Dir",
         field: "dir",
