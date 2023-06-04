@@ -70,6 +70,8 @@ const DocElems = {
   ),
   ipaddress: document.getElementById("ipaddress"),
   symbol: document.getElementById("symbol"),
+  zoneinput: document.getElementById("zoneinput"),
+  zoneinputbutton: document.getElementById("zoneinputbutton"),
   symbolinput: document.getElementById("symbolinput"),
   symbolinputbutton: document.getElementById("symbolinputbutton"),
   stockchart: document.getElementById("stockchart"),
@@ -896,6 +898,12 @@ function main() {
       clickSymbolInput();
     }
   });
+  DocElems.zoneinputbutton.addEventListener("click", clickZoneInput);
+  DocElems.zoneinput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      clickZoneInput();
+    }
+  });
 
   setInterval(() => {
     RequestWS.sendMessage(GraphData.requestTacData);
@@ -1113,6 +1121,11 @@ function clickSymbolInput() {
   GraphData.requestTacData.sym = temp.toUpperCase();
   GraphData.requestZoneData.sym = temp.toUpperCase();
   DocElems.symbolinput.value = "";
+}
+
+function clickZoneInput() {
+  GraphData.requestZoneData.zone = DocElems.zoneinput.value;
+  DocElems.zoneinput.value = "";
 }
 
 function ToggleDrawing() {
