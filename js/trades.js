@@ -1344,24 +1344,24 @@ function HandleZoneData(id) {
 
   DocElems.zoneOptions.innerHTML =
     Constants.Thm +
-    " | Min: " +
+    "  |  Min: " +
     Constants.Min +
-    " | Sec: " +
+    "  |  Sec: " +
     Constants.Sec +
-    " | " +
+    "  |  " +
     Constants.ZoneSymbol +
-    " | Price: $" +
+    "  |  Price: $" +
     Constants.Price.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
     }) +
-    " | Dollar Multiplier: " +
+    "  |  Dollar Multiplier: " +
     Constants.DMult.toFixed(5) +
-    " | Shares: " +
+    "  |  Shares: " +
     Constants.Size +
-    " | Lots: " +
+    "  |  Lots: " +
     Constants.Lots.toFixed(0) +
-    " | Dollars Moved: $" +
+    "  |  Dollars Moved: $" +
     Constants.Dmvd.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
