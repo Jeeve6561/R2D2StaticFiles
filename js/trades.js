@@ -255,6 +255,26 @@ const Tables = {
         },
       },
       {
+        title: "Cpl per Share",
+        field: "cpls",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+      },
+      {
         title: "Cpl",
         field: "cpl",
         topCalc: "sum",
