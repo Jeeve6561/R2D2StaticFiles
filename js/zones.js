@@ -546,7 +546,6 @@ function HandleZoneData(id) {
   let data = Constants.ZoneData.h;
 
   if (data.length === 0) {
-    // Tables.Zones.setData(d);
     Tables.Zones.clearData();
     return;
   }
@@ -560,34 +559,6 @@ function HandleZoneData(id) {
       //   d.push(el)
       // });
   });
-
-  // if (Constants.Quadrant == "1") {
-  //   elem.forEach((e) => {
-  //     if (e.q === 1) {
-  //       d.push(e);
-  //     }
-  //   });
-  // } else if (Constants.Quadrant == "2") {
-  //   elem.forEach((e) => {
-  //     if (e.q === 2) {
-  //       d.push(e);
-  //     }
-  //   });
-  // } else if (Constants.Quadrant == "3") {
-  //   elem.forEach((e) => {
-  //     if (e.q === 3) {
-  //       d.push(e);
-  //     }
-  //   });
-  // } else if (Constants.Quadrant == "4") {
-  //   elem.forEach((e) => {
-  //     if (e.q === 4) {
-  //       d.push(e);
-  //     }
-  //   });
-  // } else {
-  //   d = [...elem];
-  // }
 
   Tables.Zones.setData(d);
 }

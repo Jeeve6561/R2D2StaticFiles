@@ -191,7 +191,6 @@ const GraphData = {
     tid: 0,
     ev: Constants.TacDataRequest,
   },
-  TopTen: new Map(),
   FilterId: 1,
   radarFilters: new Map([[0, { quan: "tcnt", comp: ">", val: "0" }]]),
   radarFiltersNameMap: new Map([

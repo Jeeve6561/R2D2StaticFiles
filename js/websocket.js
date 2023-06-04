@@ -90,6 +90,7 @@ const LiveFeedWS = {
         console.log("Name of socket manager:", msg.n);
         break;
       case Constants.Sympayload:
+        console.log(msg.d);
         HandleDataFromSocket(msg.d, 1);
         break;
       case Constants.HypothesesPayload:
@@ -119,7 +120,7 @@ function main() {
     Constants.Database.Name = event.data.dbname;
     Constants.IdToWrite = event.data.id;
     Constants.Ipaddress = event.data.ip;
-    CreateAndInitAllDatabases([]);
+    CreateAndInitAllDatabases();
     Constants.LiveFeedWSUrl =
       "ws://" + Constants.Ipaddress + Constants.LiveFeedWSExt;
     LiveFeedWS.connect();
