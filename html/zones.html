@@ -1,24 +1,31 @@
 {{define "zones"}} {{template "header" .}}
 <div id="dash">
   <div id="ipaddress">{{ .ipaddress }}</div>
-  <div id="zoneContainer">
-    <div id="zoneOptions">
-      <input
-        id="symbolinput"
-        type="text"
-        placeholder="type symbol here"
-      />
-      <button id="symbolinputbutton">Change Symbol</button>
-      <select id="quadrantinput">
-        <option value="all">All</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
-      <button id="quadrantinputbutton" >Change Quadrant</button>
+  <div id="symbol">{{ .symbol }}</div>
+  <div id="topRow">
+    <div id="stockchart">
+      <div id="stockchartOptions">
+        <button id="fullscreenstockchart">
+          Graph<i class="material-icons">&#xe5d0;</i>
+        </button>
+        <input id="symbolinput" type="text" placeholder="type symbol here" />
+        <button id="symbolinputbutton">Change Symbol</button>
+        <input id="zoneinput" type="number" placeholder="type zone here" />
+        <button id="zoneinputbutton">Change Zone</button>
+        <button id="stockChartResetZoom">Updating Live</button>
+        <button id="stockChartDrawing">Enable Line Drawing</button>
+      </div>
+      <div id="stockchartContainer"></div>
     </div>
-    <div id="zonetable"></div>
+  </div>
+  <div id="bottomRow">
+    <div id="statchartsContainer">
+      <div id="statchartsSidebyside">
+        <div id="zoneclosedpostable"></div>
+        <div id="closedpostable"></div>
+        <div id="openedpostable"></div>
+      </div>
+    </div>
   </div>
 </div>
 {{template "footer" .}} {{end}}
