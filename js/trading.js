@@ -68,9 +68,8 @@ const DocElems = {
   radarclearfilterbutton: document.getElementById(
     "radarchartclearfilterbutton"
   ),
-
   ipaddress: document.getElementById("ipaddress"),
-
+  symbol: document.getElementById("symbol"),
   symbolinput: document.getElementById("symbolinput"),
   symbolinputbutton: document.getElementById("symbolinputbutton"),
   stockchart: document.getElementById("stockchart"),

@@ -68,7 +68,7 @@ const DocElems = {
   radarclearfilterbutton: document.getElementById(
     "radarchartclearfilterbutton"
   ),
-
+  ipaddress: document.getElementById("ipaddress"),
   symbol: document.getElementById("symbol"),
   symbolinput: document.getElementById("symbolinput"),
   symbolinputbutton: document.getElementById("symbolinputbutton"),
@@ -190,7 +190,6 @@ const GraphData = {
     tid: 0,
     ev: Constants.TacDataRequest,
   },
-  TopTen: new Map(),
   FilterId: 1,
   radarFilters: new Map([[0, { quan: "tcnt", comp: ">", val: "0" }]]),
   radarFiltersNameMap: new Map([
@@ -398,7 +397,7 @@ const Tables = {
     layout: "fitDataFill",
     // layout: "fitDataStretch",
     // rowClick: ClickRadarTableRow,
-    pagination: true,
+    // pagination: true,
     movableColumns: true,
     initialSort: [{ column: "eminracc", dir: "desc" }],
     columns: [
@@ -630,10 +629,10 @@ const Tables = {
 function main() {
   // const st = performance.now();
 
-  Constants.Ipaddress = DocElems.statchartOpts.innerHTML;
+  Constants.Ipaddress = DocElems.ipaddress.innerHTML;
   Constants.RequestWSUrl =
     "ws://" + Constants.Ipaddress + Constants.RequestWSExt;
-  DocElems.statchartOpts.innerHTML = "";
+  DocElems.ipaddress.innerHTML = "";
 
   GraphData.request.sym = DocElems.symbol.innerHTML;
   DocElems.symbol.innerHTML = "";
@@ -676,7 +675,7 @@ function main() {
 
   setInterval(() => {
     RequestWS.sendMessage(GraphData.request);
-  }, 1000);
+  }, 500);
 
   // const et = performance.now();
   // console.log("Performance:", et - st);
