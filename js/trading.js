@@ -820,6 +820,7 @@ function UpdateStockChart(data) {
 
   let tp = [];
   let abp = [];
+  let v = [];
   let xval;
   let max = 0;
   let min = Infinity;
@@ -830,6 +831,7 @@ function UpdateStockChart(data) {
       xval = new Date(elem.t);
       tp.push({ x: xval, y: elem.tp, l: elem.th });
       abp.push({ x: xval, y: [elem.bp, elem.ap], l: elem.th });
+      v.push({ x: xval, y: elem.vi, l: elem.th });
       if (elem.tp > max) {
         max = elem.tp;
       }
@@ -853,6 +855,7 @@ function UpdateStockChart(data) {
 
   CanvasCharts.Stock.options.charts[0].data[0].dataPoints = tp;
   CanvasCharts.Stock.options.charts[0].data[1].dataPoints = abp;
+  CanvasCharts.Stock.options.charts[1].data[0].dataPoints = v;
 
   CanvasCharts.Stock.options.charts[0].axisY2.maximum = max;
   CanvasCharts.Stock.options.charts[0].axisY2.minimum = min;
