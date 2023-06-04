@@ -235,6 +235,26 @@ const Tables = {
         },
       },
       {
+        title: "Opl per Share",
+        field: "oplps",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          symbol: "$",
+          precision: 0,
+        },
+      },
+      {
         title: "Opl",
         field: "opl",
         topCalc: "sum",
