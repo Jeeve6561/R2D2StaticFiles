@@ -21,6 +21,9 @@ const Constants = {
   ZoneSymbol: "TSLA",
   Quadrant: "all",
   ZoneData: { h: [] },
+  Thm: "",
+  Min: 0,
+  Sec: 0,
 
   OpenDataBase: "openDB",
   DataUpdate: "updateddata",
@@ -1960,7 +1963,6 @@ const Tables = {
       // },
     ],
   }),
-  
 };
 
 function main() {
@@ -1992,7 +1994,11 @@ function main() {
   CanvasCharts.Radar.render();
 
   const childWorker = new Worker("/static/js/websocket.js");
-  childWorker.postMessage({ dbname:Constants.Database.Name, ip: Constants.Ipaddress, id: Constants.Id });
+  childWorker.postMessage({
+    dbname: Constants.Database.Name,
+    ip: Constants.Ipaddress,
+    id: Constants.Id,
+  });
   childWorker.onmessage = (event) => {
     let msg = event.data;
     switch (msg.ev) {
@@ -2036,7 +2042,11 @@ function HandleZoneData(id) {
     return;
   }
 
-  console.log(data, d);
+  Constants.Thm = data[0].ht.h;
+  Constants.Min = data[0].ht.m;
+  Constants.Sec = data[0].ht.s;
+
+  console.log(Constants.Thm, Constants.Min, Constants.Sec);
 
   // let elem = [];
   data.forEach((e) => {
@@ -2065,7 +2075,7 @@ function HandleZoneData(id) {
   Tables.Quadrant2.setData(d2);
   Tables.Quadrant3.setData(d3);
   Tables.Quadrant4.setData(d4);
-  
+
   d.forEach((elem) => {
     elem.x = elem.cnt;
     elem.y = elem.ema;
@@ -2077,13 +2087,13 @@ function HandleZoneData(id) {
 
   d.forEach((elem) => {
     if (elem.x > 0 || !Constants.xLogScale) {
-      dx.push(elem)
+      dx.push(elem);
     }
   });
 
   dx.forEach((elem) => {
     if (elem.y > 0 || !Constants.yLogScale) {
-      dy.push(elem)
+      dy.push(elem);
     }
   });
 
