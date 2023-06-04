@@ -1456,16 +1456,10 @@ function ToggleXRadarScale() {
     Constants.xLogScale = false;
     DocElems.radartogglexlogscalebutton.innerHTML = "X Log Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = Constants.xLogScale;
-    Constants.radarFilters.delete(Constants.XFilterId);
-    Constants.XFilterId = -1;
   } else {
     Constants.xLogScale = true;
     DocElems.radartogglexlogscalebutton.innerHTML = "X Linear Scale";
     CanvasCharts.Radar.options.axisX.logarithmic = Constants.xLogScale;
-    let filter = { quan: DocElems.radarxaxisquan.value, comp: ">", val: 0 };
-    Constants.radarFilters.set(Constants.FilterId, filter);
-    Constants.XFilterId = Constants.FilterId;
-    Constants.FilterId++;
   }
 }
 
