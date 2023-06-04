@@ -495,7 +495,7 @@ const CanvasCharts = {
       // },
     ],
     navigator: {
-      enabled: true,
+      enabled: false,
       slider: {
         minimum: null,
         maximum: null,
