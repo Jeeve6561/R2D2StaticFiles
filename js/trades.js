@@ -166,7 +166,7 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "Closed Shares",
+        title: "Cl Shares",
         field: "cs",
         topCalc: "sum",
         hozAlign: "right",
@@ -316,7 +316,7 @@ const Tables = {
         },
       },
       {
-        title: "Open Shares",
+        title: "Op Shares",
         field: "os",
         topCalc: "sum",
         hozAlign: "right",
