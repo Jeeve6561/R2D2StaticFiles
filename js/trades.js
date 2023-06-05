@@ -1364,7 +1364,7 @@ function HandleZoneData(id) {
         "  |  Dollar Multiplier: " +
         Constants.DMult.toFixed(5) +
         "  |  Shares: " +
-        Constants.Size +
+        Constants.Size.toFixed(0) +
         "  |  Lots: " +
         Constants.Lots.toFixed(0) +
         "  |  Dollars Moved: " +
