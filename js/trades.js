@@ -289,7 +289,7 @@ const Tables = {
       },
       {
         title: "Opl/Sh",
-        field: "opls",
+        field: "oplps",
         topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
