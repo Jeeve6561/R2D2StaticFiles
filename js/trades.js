@@ -298,6 +298,24 @@ const Tables = {
         hozAlign: "right",
       },
       {
+        title: "Curr Dur",
+        field: "curdur",
+        topCalc: "avg",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+      },
+      {
         title: "Open Shares",
         field: "os",
         topCalc: "sum",
