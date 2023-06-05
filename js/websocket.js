@@ -7,6 +7,7 @@ const Constants = {
   EV_WSInit: "wsinit",
   Sympayload: "sympayload", // FIX THIS PLEASEEEEEEEEEEEEEEEE
   TradePayload: "tradePayload",
+  InmktTradePayload: "inmktTradePayload",
   HypothesesPayload: "hypothesisPayload",
   EV_WSSymPayloadUpdate: "sympayloadupdate",
 
@@ -97,6 +98,9 @@ const LiveFeedWS = {
         break;
       case Constants.TradePayload:
         HandleDataFromSocket(msg.d, 3);
+        break;
+      case Constants.InmktTradePayload:
+        HandleDataFromSocket(msg.d, 4);
         break;
     }
   },
@@ -190,14 +194,17 @@ function CreateAndInitAllDatabases() {
     );
     Constants.Db = event.target.result;
 
-      const store = Constants.Db.createObjectStore(Constants.Database.Store.name, {
+    const store = Constants.Db.createObjectStore(
+      Constants.Database.Store.name,
+      {
         keyPath: Constants.Database.Store.keyPath,
         autoIncrement: Constants.Database.Store.autoIncrement,
-      });
-      store.createIndex(
-        Constants.Database.Store.keyPath,
-        Constants.Database.Store.keyPath
-      );
+      }
+    );
+    store.createIndex(
+      Constants.Database.Store.keyPath,
+      Constants.Database.Store.keyPath
+    );
     console.log("Created all the stores");
     Constants.StartWritingToDatabase = true;
     self.postMessage({ ev: Constants.OpenDataBase });

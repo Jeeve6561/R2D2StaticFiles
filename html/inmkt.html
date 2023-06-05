@@ -1,0 +1,46 @@
+{{define "inmkt"}} {{template "header" .}}
+<div id="dash">
+  <div id="ipaddress">{{ .ipaddress }}</div>
+  <div id="left">
+    <div id="radarContainer">
+      <div id="radarOptions">
+        <input id="symbolinput" type="text" placeholder="type symbol here" />
+        <button id="symbolinputbutton">Change Symbol</button>
+        <select id="quadrantinput">
+          <option value="all">All</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <button id="quadrantinputbutton">Change Quadrant</button>
+        <button id="togglexlogscalebutton">X Log Scale</button>
+        <button id="toggleylogscalebutton">Y Log Scale</button>
+      </div>
+      <div id="radar"></div>
+    </div>
+    <div id="zoneContainer">
+      <div id="zoneOptions"></div>
+      <div id="zonetable"></div>
+    </div>
+  </div>
+  <div id="right">
+    <div id="quadrant1Container">
+      <!-- <div id="quadrant1Options"></div> -->
+      <div id="quadrant1table"></div>
+    </div>
+    <div id="quadrant2Container">
+      <!-- <div id="quadrant2Options"></div> -->
+      <div id="quadrant2table"></div>
+    </div>
+    <div id="quadrant3Container">
+      <!-- <div id="quadrant3Options"></div> -->
+      <div id="quadrant3table"></div>
+    </div>
+    <div id="quadrant4Container">
+      <!-- <div id="quadrant4Options"></div> -->
+      <div id="quadrant4table"></div>
+    </div>
+  </div>
+</div>
+{{template "footer" .}} {{end}}
