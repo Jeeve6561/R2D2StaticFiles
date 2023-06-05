@@ -281,6 +281,24 @@ const Tables = {
           return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
+      {
+        title: "Shares",
+        field: "s",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+      },
       // {
       //   title: "Dur Mean",
       //   field: "dm",
@@ -509,6 +527,24 @@ const Tables = {
         },
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+      },
+      {
+        title: "Shares",
+        field: "s",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
         },
       },
       // {
@@ -741,6 +777,24 @@ const Tables = {
           return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
+      {
+        title: "Shares",
+        field: "s",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+      },
       // {
       //   title: "Dur Mean",
       //   field: "dm",
@@ -971,6 +1025,24 @@ const Tables = {
           return Math.round(e.getValue() * 100) / 100 + "%";
         },
       },
+      {
+        title: "Shares",
+        field: "s",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+      },
       // {
       //   title: "Dur Mean",
       //   field: "dm",
@@ -1199,6 +1271,24 @@ const Tables = {
         },
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+      },
+      {
+        title: "Shares",
+        field: "s",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
         },
       },
       // {
