@@ -1336,47 +1336,42 @@ function HandleZoneData(id) {
     return;
   }
 
-  let tempsym = data[data.length - 1].sym
-
-  Constants.Thm = data[data.length - 1].ht.h;
-  Constants.Min = data[data.length - 1].ht.m;
-  Constants.Sec = data[data.length - 1].ht.s;
-  Constants.Price = data[data.length - 1].p;
-  Constants.DMult = data[data.length - 1].dm;
-  Constants.Size = data[data.length - 1].s;
-  Constants.Lots = data[data.length - 1].lts;
-  Constants.Dmvd = data[data.length - 1].dmvd;
-
-  DocElems.zoneOptions.innerHTML =
-    Constants.Thm +
-    "  |  Min: " +
-    Constants.Min +
-    "  |  Sec: " +
-    Constants.Sec +
-    "  |  " +
-    Constants.ZoneSymbol +
-    "  |  " +
-    tempsym +
-    "  |  Price: " +
-    Constants.Price.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    }) +
-    "  |  Dollar Multiplier: " +
-    Constants.DMult.toFixed(5) +
-    "  |  Shares: " +
-    Constants.Size +
-    "  |  Lots: " +
-    Constants.Lots.toFixed(0) +
-    "  |  Dollars Moved: " +
-    Constants.Dmvd.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-
   // let elem = [];
   data.forEach((e) => {
     if (e.sym === Constants.ZoneSymbol) {
+      Constants.Thm = e.ht.h;
+      Constants.Min = e.ht.m;
+      Constants.Sec = e.ht.s;
+      Constants.Price = e.p;
+      Constants.DMult = e.dm;
+      Constants.Size = e.s;
+      Constants.Lots = e.lts;
+      Constants.Dmvd = e.dmvd;
+
+      DocElems.zoneOptions.innerHTML =
+        Constants.Thm +
+        "  |  Min: " +
+        Constants.Min +
+        "  |  Sec: " +
+        Constants.Sec +
+        "  |  " +
+        Constants.ZoneSymbol +
+        "  |  Price: " +
+        Constants.Price.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        }) +
+        "  |  Dollar Multiplier: " +
+        Constants.DMult.toFixed(5) +
+        "  |  Shares: " +
+        Constants.Size +
+        "  |  Lots: " +
+        Constants.Lots.toFixed(0) +
+        "  |  Dollars Moved: " +
+        Constants.Dmvd.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        });
       d = e.h;
     }
   });
