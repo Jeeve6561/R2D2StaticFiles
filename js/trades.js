@@ -299,6 +299,24 @@ const Tables = {
           precision: 0,
         },
       },
+      {
+        title: "Reds",
+        field: "rex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Yells",
+        field: "yex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Greens",
+        field: "gex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
       // {
       //   title: "Dur Mean",
       //   field: "dm",
@@ -546,6 +564,24 @@ const Tables = {
           thousand: ",",
           precision: 0,
         },
+      },
+      {
+        title: "Reds",
+        field: "rex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Yells",
+        field: "yex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Greens",
+        field: "gex",
+        topCalc: "sum",
+        hozAlign: "right",
       },
       // {
       //   title: "Dur Mean",
@@ -795,6 +831,24 @@ const Tables = {
           precision: 0,
         },
       },
+      {
+        title: "Reds",
+        field: "rex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Yells",
+        field: "yex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Greens",
+        field: "gex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
       // {
       //   title: "Dur Mean",
       //   field: "dm",
@@ -1043,6 +1097,24 @@ const Tables = {
           precision: 0,
         },
       },
+      {
+        title: "Reds",
+        field: "rex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Yells",
+        field: "yex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Greens",
+        field: "gex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
       // {
       //   title: "Dur Mean",
       //   field: "dm",
@@ -1290,6 +1362,24 @@ const Tables = {
           thousand: ",",
           precision: 0,
         },
+      },
+      {
+        title: "Reds",
+        field: "rex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Yells",
+        field: "yex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Greens",
+        field: "gex",
+        topCalc: "sum",
+        hozAlign: "right",
       },
       // {
       //   title: "Dur Mean",
