@@ -124,12 +124,6 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "Trade Status",
-        field: "sts",
-        topCalc: "count",
-        hozAlign: "right",
-      },
-      {
         title: "Tail",
         field: "ts",
         topCalc: "count",
@@ -296,6 +290,12 @@ const Tables = {
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
         },
+      },
+      {
+        title: "Trade Status",
+        field: "sts",
+        topCalc: "count",
+        hozAlign: "right",
       },
       {
         title: "Open Shares",
