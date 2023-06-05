@@ -1547,7 +1547,7 @@ function HandleZoneData(id) {
         Constants.Size.toFixed(0) +
         "  |  Lots: " +
         Constants.Lots.toFixed(0) +
-        "  |  Dollars Moved: " +
+        "  |  Dollars Traded: " +
         Constants.Dmvd.toLocaleString("en-US", {
           style: "currency",
           currency: "USD",
