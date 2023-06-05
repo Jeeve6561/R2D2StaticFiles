@@ -1336,6 +1336,8 @@ function HandleZoneData(id) {
     return;
   }
 
+  let tempsym = data[data.length - 1].sym
+
   Constants.Thm = data[data.length - 1].ht.h;
   Constants.Min = data[data.length - 1].ht.m;
   Constants.Sec = data[data.length - 1].ht.s;
@@ -1353,6 +1355,8 @@ function HandleZoneData(id) {
     Constants.Sec +
     "  |  " +
     Constants.ZoneSymbol +
+    "  |  " +
+    tempsym +
     "  |  Price: " +
     Constants.Price.toLocaleString("en-US", {
       style: "currency",
