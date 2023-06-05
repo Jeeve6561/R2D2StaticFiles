@@ -250,6 +250,54 @@ const Tables = {
         },
       },
       {
+        title: "Reds",
+        field: "rex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Yells",
+        field: "yex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Greens",
+        field: "gex",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Cl Emin",
+        field: "cem",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 2,
+        },
+      },
+      {
+        title: "Cl Emin A",
+        field: "cema",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+        topCalcFormatter: (e, params, onRendered) => {
+          return Math.round(e.getValue() * 100) / 100 + "%";
+        },
+      },
+      {
         title: "Open Shares",
         field: "os",
         topCalc: "sum",
@@ -356,24 +404,6 @@ const Tables = {
         topCalcFormatter: (e, params, onRendered) => {
           return Math.round(e.getValue() * 100) / 100 + "%";
         },
-      },
-      {
-        title: "Reds",
-        field: "rex",
-        topCalc: "sum",
-        hozAlign: "right",
-      },
-      {
-        title: "Yells",
-        field: "yex",
-        topCalc: "sum",
-        hozAlign: "right",
-      },
-      {
-        title: "Greens",
-        field: "gex",
-        topCalc: "sum",
-        hozAlign: "right",
       },
       // {
       //   title: "Dur Mean",
