@@ -130,12 +130,6 @@ const Tables = {
         hozAlign: "right",
       },
       {
-        title: "T Cnt",
-        field: "cnt",
-        topCalc: "sum",
-        hozAlign: "right",
-      },
-      {
         title: "Tail",
         field: "ts",
         topCalc: "count",
@@ -169,6 +163,30 @@ const Tables = {
           decimal: ".",
           thousand: ",",
           precision: 2,
+        },
+      },
+      {
+        title: "T Cnt",
+        field: "cnt",
+        topCalc: "sum",
+        hozAlign: "right",
+      },
+      {
+        title: "Closed Shares",
+        field: "cs",
+        topCalc: "sum",
+        hozAlign: "right",
+        formatter: "money",
+        formatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
+        },
+        topCalcFormatter: "money",
+        topCalcFormatterParams: {
+          decimal: ".",
+          thousand: ",",
+          precision: 0,
         },
       },
       {
@@ -212,7 +230,7 @@ const Tables = {
         },
       },
       {
-        title: "Close P&L",
+        title: "Closed P&L",
         field: "cpl",
         topCalc: "sum",
         hozAlign: "right",
@@ -232,8 +250,8 @@ const Tables = {
         },
       },
       {
-        title: "Shares",
-        field: "s",
+        title: "Open Shares",
+        field: "os",
         topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
@@ -271,7 +289,7 @@ const Tables = {
       },
       {
         title: "Opl/Sh",
-        field: "oplps",
+        field: "opls",
         topCalc: "sum",
         hozAlign: "right",
         formatter: "money",
