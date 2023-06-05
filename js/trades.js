@@ -1341,6 +1341,7 @@ function HandleZoneData(id) {
   Constants.Sec = data[data.length - 1].ht.s;
   Constants.Price = data[data.length - 1].p;
   Constants.DMult = data[data.length - 1].dm;
+  console.log(Constants.DMult, data);
   Constants.Size = data[data.length - 1].s;
   Constants.Lots = data[data.length - 1].lts;
   Constants.Dmvd = data[data.length - 1].dmvd;
