@@ -32,9 +32,14 @@ main {
     z-index: 1;
 }
 
-#radarcontainer {
+#radaContainer {
     width: 100%;
     height: 90%;
+}
+
+#spacecontainer {
+    width: 100%;
+    height: 400px;
 }
 
 #stockchart {
