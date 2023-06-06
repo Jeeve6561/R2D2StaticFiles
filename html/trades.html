@@ -1,14 +1,7 @@
 {{define "trades"}} {{template "header" .}}
 <div id="dash">
   <div id="ipaddress">{{ .ipaddress }}</div>
-  <div id="left">
-    <div id="spacecontainer" style="height:70%"><br>Chart to be added for Symbol Data ...</div>
-    <div id="zoneContainer" style="height:30%">
-      <div id="zoneOptions"></div>
-      <div id="zonetable"></div>
-    </div>
-  </div>
-  <div id="right">
+  <div id="left" style="width:30%">
     <div id="radarContainer" style="height:40%">
       <div id="radarOptions">
         <input id="symbolinput" type="text" placeholder="type symbol here" />
@@ -45,6 +38,13 @@
     <div id="quadrant4Container" style="height:15%">
       <!-- <div id="quadrant4Options"></div> -->
       <div id="quadrant4table"></div>
+    </div>
+  </div>
+  <div id="right" style="width:100%">
+    <div id="spacecontainer" style="height:70%"><br>Chart to be added for Symbol Data ...</div>
+    <div id="zoneContainer" style="height:30%" >
+      <div id="zoneOptions"></div>
+      <div id="zonetable"></div>
     </div>
   </div>
 </div>
