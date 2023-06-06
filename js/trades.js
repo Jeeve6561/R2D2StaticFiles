@@ -39,7 +39,7 @@ const Constants = {
   xLogScale: false,
   yLogScale: false,
 };
-
+// cloned repo to solo 
 const DocElems = {
   Ipaddress: document.getElementById("ipaddress"),
   symbolinput: document.getElementById("symbolinput"),
