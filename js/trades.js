@@ -1226,6 +1226,7 @@ const Tables = {
 };
 
 function main() {
+
   Constants.Ipaddress = DocElems.Ipaddress.innerHTML;
   DocElems.Ipaddress.innerHTML = "";
   Constants.Origin = "http://" + Constants.Ipaddress + ":50000/";

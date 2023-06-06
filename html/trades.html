@@ -2,6 +2,12 @@
 <div id="dash">
   <div id="ipaddress">{{ .ipaddress }}</div>
   <div id="left">
+    <div id="zoneContainer">
+      <div id="zoneOptions"></div>
+      <div id="zonetable"></div>
+    </div>
+  </div>
+  <div id="right">
     <div id="radarContainer">
       <div id="radarOptions">
         <input id="symbolinput" type="text" placeholder="type symbol here" />
@@ -17,15 +23,8 @@
         <button id="togglexlogscalebutton">X Log Scale</button>
         <button id="toggleylogscalebutton">Y Log Scale</button>
       </div>
-     
+      <div id="radar"></div>
     </div>
-    <div id="zoneContainer">
-      <div id="zoneOptions"></div>
-      <div id="zonetable"></div>
-    </div>
-  </div>
-  <div id="right">
-    <div id="radar"></div>
     <p>Q 1</p>
     <div id="quadrant1Container">
       <!-- <div id="quadrant1Options"></div> -->
